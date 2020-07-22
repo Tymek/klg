@@ -1,0 +1,11 @@
+{
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "tailwindCSS.includeLanguages": {
+    "typescriptreact": "javascriptreact"
+  }
+}
