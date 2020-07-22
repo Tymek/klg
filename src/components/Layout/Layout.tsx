@@ -8,8 +8,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./components/Header"
+import "./styles.css"
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,7 +28,7 @@ const Layout: React.FC = ({ children }) => {
       <div
         className="mx-auto px-4 py-6 max-w-5xl"
       >
-        <main>{children}</main>
+        <main className="bg-gray-200">{children}</main>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
