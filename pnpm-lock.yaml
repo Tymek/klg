@@ -21,6 +21,7 @@ dependencies:
   react-helmet: 6.1.0_react@16.13.1
   tailwindcss: 1.5.2
 devDependencies:
+  pnpm: 5.4.0
   typescript: 3.9.7
   webpack-bundle-analyzer: 3.8.0
 lockfileVersion: 5.1
@@ -10583,6 +10584,13 @@ packages:
       typescript: '*'
     resolution:
       integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
+  /pnpm/5.4.0:
+    dev: true
+    engines:
+      node: '>=10.13'
+    hasBin: true
+    resolution:
+      integrity: sha512-qdNKfChd8TfSje29oDsYzVRg1eWhKbvgQR82QL9gc3d4abNRc4Z4EKsGVblezSCu8RUdVXsT2h/AQgJ5DZpBgQ==
   /portfinder/1.0.27:
     dependencies:
       async: 2.6.3
@@ -14722,6 +14730,7 @@ specifiers:
   gatsby-plugin-typescript: ^2.4.16
   gatsby-source-filesystem: ^2.3.14
   gatsby-transformer-sharp: ^2.5.7
+  pnpm: ^5.4.0
   preact: ^10.4.6
   preact-render-to-string: ^5.1.10
   prettier: ^2.0.5
