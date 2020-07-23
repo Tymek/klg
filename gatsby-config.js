@@ -35,9 +35,9 @@ module.exports = {
         siteUrl: 'https://magdaklag.pl',
         requireConsent: false,
         disableCookies: true,
-        dev: false
-      }
-    }
+        dev: false,
+      },
+    },
     `gatsby-plugin-preact`,
     `gatsby-plugin-brotli`,
     `gatsby-plugin-postcss`,
