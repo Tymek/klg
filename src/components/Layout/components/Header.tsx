@@ -14,9 +14,11 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
         </Link>
       </h1> */}
       <nav className="flex text-xl font-bold">
-        <ul className="ml-auto mr-4 grid col-gap-5 grid-flow-col">
+        <ul className="ml-auto mr-4 grid col-gap-2 grid-flow-col">
           <li><Link to="/">o!mnie</Link></li>
+          <span className="select-none">&ndash;</span>
           <li><Link to="/portfolio">portfolio</Link></li>
+          <span className="select-none">&ndash;</span>
           <li>kontakt</li>
         </ul>
       </nav>
