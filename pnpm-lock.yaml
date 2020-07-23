@@ -4,6 +4,7 @@ dependencies:
   gatsby-legacy-polyfills: 0.0.2
   gatsby-plugin-brotli: 1.3.1
   gatsby-plugin-manifest: 2.4.20_gatsby@2.24.9
+  gatsby-plugin-matomo: 0.8.3_48baccf4bfeb2da12a8c6d5901f62b95
   gatsby-plugin-offline: 3.2.20_gatsby@2.24.9
   gatsby-plugin-postcss: 2.3.11_gatsby@2.24.9
   gatsby-plugin-preact: 4.0.9_317302a4d42ca1205237104936cf7597
@@ -6324,6 +6325,18 @@ packages:
       gatsby: ^2.4.0
     resolution:
       integrity: sha512-kfaddU5FZq4+Vj7TklSwluUmuckNAmJvqNMkRruClBe23QE3aMDDAl7A4GWdVl4upId0zGXV1XgVNv58Ze0A1Q==
+  /gatsby-plugin-matomo/0.8.3_48baccf4bfeb2da12a8c6d5901f62b95:
+    dependencies:
+      gatsby: 2.24.9_e7546be36819a41e02c62db70e14f2b1
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      gatsby: '>=2.0.0'
+      react: '>=16.4.2'
+      react-dom: '>=16.4.2'
+    resolution:
+      integrity: sha512-fv6TgD+WsxziZrtmz6sNF4m9FgSyV+8y3R1sobA5hB5OxJyhs/Y4HVo9jCPRHu5VLKQsg4i7LJhWL0ocJiqEWQ==
   /gatsby-plugin-offline/3.2.20_gatsby@2.24.9:
     dependencies:
       '@babel/runtime': 7.10.5
@@ -14742,6 +14755,7 @@ specifiers:
   gatsby-legacy-polyfills: 0.0.2
   gatsby-plugin-brotli: 1.3.1
   gatsby-plugin-manifest: 2.4.20
+  gatsby-plugin-matomo: ^0.8.3
   gatsby-plugin-offline: 3.2.20
   gatsby-plugin-postcss: 2.3.11
   gatsby-plugin-preact: 4.0.9
