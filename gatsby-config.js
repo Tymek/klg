@@ -19,14 +19,25 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Magda Klag`,
-        short_name: `M. Klag`,
+        short_name: `Magda Klag`,
         start_url: `/`,
-        background_color: `#888888`,
-        theme_color: `#888888`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        matomoUrl: 'https://analytics.scrlk.pl',
+        siteUrl: 'https://magdaklag.pl',
+        requireConsent: false,
+        disableCookies: true,
+        dev: false
+      }
+    }
     `gatsby-plugin-preact`,
     `gatsby-plugin-brotli`,
     `gatsby-plugin-postcss`,
