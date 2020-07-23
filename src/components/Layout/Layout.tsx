@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./components/Header"
 import "./styles.css"
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{ background?: string }> = ({ children, background }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -28,12 +28,7 @@ const Layout: React.FC = ({ children }) => {
       <div
         className="mx-auto px-4 py-6 max-w-5xl"
       >
-        <main className="bg-gray-200">{children}</main>
-        {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
+        <main className="bg-gray-200" style={background ? { background } : {}}>{children}</main>
       </div>
     </>
   )
