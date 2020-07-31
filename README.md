@@ -1,5 +1,5 @@
 
 ```shell
-pnpm install
-pnpm develop
+yarn install
+yarn develop
 ```
