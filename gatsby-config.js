@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Magda Klag`,
     description: `Design`,
-    author: `@gatsbyjs`,
+    author: `Tymek.Cz`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,6 +25,38 @@ module.exports = {
         theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts-v2`,
+      options: {
+        fonts: [
+          // {
+          //   family: 'Sora',
+          //   variable: true,
+          //   weights: ['100..800']
+          // },
+          // {
+          //   family: 'Varta',
+          //   variable: true,
+          //   weights: ['300..700']
+          // },
+          // {
+          //   family: 'Rosario',
+          //   variable: true,
+          //   weights: ['300..700', '300..700']
+          // },
+          {
+            family: 'Josefin Sans',
+            variable: true,
+            weights: ['100..700']
+          },
+          {
+            family: 'Inter',
+            variable: true,
+            weights: ['100..900']
+          },
+        ],
       },
     },
     {

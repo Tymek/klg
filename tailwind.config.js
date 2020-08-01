@@ -30,10 +30,10 @@ module.exports = {
         // 300: '#e2e8f0',
         // 400: '#cbd5e0',
         // 500: '#a0aec0',
-        // 600: '#718096',
+        600: '#718096',
         700: '#4a5568',
-        // 800: '#2d3748',
-        // 900: '#1a202c',
+        800: '#2d3748',
+        900: '#1a202c',
       },
       // red: {
       //   100: '#fff5f5',
@@ -238,6 +238,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Inter',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',

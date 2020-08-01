@@ -2,11 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+html, body, :root {
+  @apply font-light;
+  /* font-family: Inter; */
+  /* font-weight: 300;
+  font-size: 17px; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-weight: 600; */
+  /* letter-spacing: 0.05em; */
+}
+
+/* .italic {
+  font-family: Rosario;
+} */
+
 // Default Gatsby styles:
 
  html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -15,6 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*
 article,
 aside,
 details,

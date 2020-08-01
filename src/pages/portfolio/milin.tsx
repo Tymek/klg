@@ -1,9 +1,11 @@
 import React from "react"
 
-import Layout from "../../components/Layout"
-import SEO from "../../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Layout from "../../components/Layout"
+import SEO from "../../components/seo"
+import milinLogo from "../../images/milin-logo.svg"
+import { P } from '../../components/Typo'
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
@@ -26,25 +28,34 @@ const MilinPage = () => {
   `)
 
   return (
-    <Layout>
+    <Layout background="transparent">
       <SEO title="Milin" />
       <Img fluid={data.branding.childImageSharp.fluid} />
 
-      <section className="px-4">
-        <header className="mb-4">
-          <h1 className="mt-6 font-bold text-2xl">Milin</h1>
-          <p>logo, branding, materiały reklamowe</p>
-        </header>
-        <p className="text-gray-700 mb-2">
-          Milin to marka, która tworzy drewniane zabawki, wykorzystując ekologiczne materiały.
-          Działa w duchu less waste. Założeniem marki Milin jest tworzenie zabawek o prostych formaci i dobrym designie,
-          jednocześnie rozwijających, pobudzających wyobraźnie, tak by w pełni wykorzystywać potencjał dzieci
-          i kształtować wrażliwość wizualną.
-        </p>
-        <p className="text-gray-700 mb-2">
-          Logo ma lekką, minimalistyczną formę, by podkreślić charakter marki. Kolory użyte w identyfikacji pasować miały
-          do odcieni drawna, biei oraz opakowań ekologicznych materiałów.
-        </p>
+      <section className="md:grid gap-4 grid-cols-12 flex flex-wrap justify-between items-center">
+        <div className="mt-16 mb-8 col-span-7">
+          <header>
+            <h1 className="text-3xl text-gray-800 font-medium leading-tight">
+              Milin
+            </h1>
+            <P className="text-gray-800 font-normal mt-3 mb-6">
+              logo, branding, materiały reklamowe
+            </P>
+          </header>
+          <P className="text-gray-700 mb-2">
+            Milin to marka, która tworzy drewniane zabawki, wykorzystując ekologiczne materiały.
+            Działa w duchu less waste. Założeniem marki Milin jest tworzenie zabawek o prostych formaci i dobrym designie,
+            jednocześnie rozwijających, pobudzających wyobraźnie, tak by w pełni wykorzystywać potencjał dzieci
+            i kształtować wrażliwość wizualną.
+          </P>
+          <P className="text-gray-700 mb-2">
+            Logo ma lekką, minimalistyczną formę, by podkreślić charakter marki. Kolory użyte w identyfikacji pasować miały
+            do odcieni drawna, biei oraz opakowań ekologicznych materiałów.
+          </P>
+        </div>
+        <div className="w-full col-start-8 col-end-13">
+          <img src={milinLogo} alt="Logo Milin Toys"/>
+        </div>
       </section>
 
       <Img className="mt-6" fluid={data.businessCards.childImageSharp.fluid} />
