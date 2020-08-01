@@ -10765,11 +10765,6 @@ pnp-webpack-plugin@^1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-pnpm@5.4.8:
-  version "5.4.8"
-  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-5.4.8.tgz#c267b76e9d2070074f2c98bf9b63fc9e28399133"
-  integrity sha512-bZwFZMtrDnJrdl0A66xcgIWjYxlgaAyGCNHL1KE9PN95KfArUgDU1spCVj68ucp7pQx+LwZYRKtuKtGNPsq/dQ==
-
 portfinder@^1.0.26:
   version "1.0.28"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"

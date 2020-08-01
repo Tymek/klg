@@ -7,7 +7,7 @@ import React, { Children } from 'react'
 const nbsp = String.fromCharCode(160)
 const number = '[\\dπ]'
 const letter = '[\\wĄĆĘŁŃÓŚŹŻąćęłńóśźż]'
-const conjunctive = 'lub|ale|czy|nad|pod|bez|nie|tak|albo|więc|lecz|przez|niech|tylko'
+const conjunctive = 'lub|ale|czy|nad|pod|bez|nie|tak|albo|więc|lecz|przez|niech|oraz|tylko'
 
 export const sierotki = (input: string): string => {
 	let output = input
@@ -35,11 +35,13 @@ type TypoType = (component: React.ComponentType<any>) => React.ComponentType<any
 
 const Typo: TypoType = Component => ({ children, ...props }) => (
   children ? (
-    <>
-      {Children.map(children, child => (
-        <Component {...props}>{wdowy(sierotki(child as string))}</Component>
-      ))}
-    </>
+    <Component {...props}>
+      {Children.map(children, child => typeof child === 'string' ? (
+        wdowy(sierotki(child))
+      ) : (
+				React.cloneElement(child)
+			))}
+    </Component>
   ) : null
 )
 

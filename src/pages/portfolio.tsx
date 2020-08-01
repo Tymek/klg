@@ -15,6 +15,9 @@ const IndexPage = () => (
       <li>
         <Link className="underline" to="/portfolio/zakladki/">Zakładki</Link>
       </li>
+      <li>
+        <Link className="underline" to="/portfolio/przeplotki/">Przeplotki</Link>
+      </li>
     </ul>
   </Layout>
 )
