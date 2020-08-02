@@ -6,11 +6,26 @@ import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from '../../components/Typo'
 import Container from "../../components/Container"
+import Cover from "../../components/Cover"
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
+      przeplotki: file(relativePath: { eq: "przeplotki.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
       placeholder: file(relativePath: { eq: "placeholder.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      przeplotki2: file(relativePath: { eq: "przeplotki2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2560) {
             ...GatsbyImageSharpFluid_withWebp
@@ -23,8 +38,9 @@ const MilinPage = () => {
   return (
     <Layout>
       <SEO title="Przeplotki" />
+      <Cover fluid={data.przeplotki.childImageSharp.fluid} />
       <Container>
-        <section>
+        <section className="mt-10">
             <header>
               <h1 className="text-3xl text-gray-800 font-medium leading-tight">
                 Przeplotki
@@ -70,6 +86,8 @@ const MilinPage = () => {
           <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
         </section>
       </Container>
+
+      <Img className="mt-6" fluid={data.przeplotki2.childImageSharp.fluid} />
     </Layout>
   )
 }

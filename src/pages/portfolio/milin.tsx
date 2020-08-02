@@ -7,6 +7,7 @@ import SEO from "../../components/seo"
 import milinLogo from "../../images/milin-logo.svg"
 import { P } from '../../components/Typo'
 import Container from "../../components/Container"
+import Cover from "../../components/Cover"
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
@@ -31,16 +32,11 @@ const MilinPage = () => {
   return (
     <Layout>
       <SEO title="Milin" />
-      <Img
-        fluid={data.branding.childImageSharp.fluid} 
-        style={{ maxHeight: 'calc(88vh - 5rem)' }}
-        imgStyle={{ objectFit: 'cover' }}
-        className="w-full"
-      />
+      <Cover fluid={data.branding.childImageSharp.fluid} />
 
       <Container>
         <section className="md:grid gap-4 grid-cols-12 flex flex-wrap justify-between items-center">
-          <div className="mt-16 mb-8 col-span-7">
+          <div className="mb-8 col-span-7">
             <header>
               <h1 className="text-3xl text-gray-800 font-medium leading-tight">
                 Milin
