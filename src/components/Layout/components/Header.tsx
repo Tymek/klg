@@ -1,28 +1,25 @@
 import { Link } from "gatsby"
 import React from "react"
+import Container from "../../Container"
 
-export type HeaderProps = {
-  siteTitle?: string,
-}
-
-const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
+const Header: React.FC = () => (
   <header>
-    <div className="mx-auto px-4 py-6 max-w-5xl">
-      {/* <h1 style={{ margin: 0 }}>
-        <Link to="/">
-          {siteTitle || ''}
-        </Link>
-      </h1> */}
-      <nav className="flex text-xl font-bold">
-        <ul className="ml-auto mr-4 grid col-gap-2 grid-flow-col">
+    <Container>
+      <nav className="flex text:lg sm:text-xl font-bold">
+        <h1 className="font-sans">
+          <Link to="/">
+            Magda Czech
+          </Link>
+        </h1>
+        <ul className="ml-auto grid col-gap-2 grid-flow-col">
           <li><Link to="/">o!mnie</Link></li>
           <span className="select-none">&ndash;</span>
-          <li><Link to="/portfolio">portfolio</Link></li>
+          <li><Link to="/#portfolio">portfolio</Link></li>
           <span className="select-none">&ndash;</span>
-          <li>kontakt</li>
+          <li><Link to="/#kontakt">kontakt</Link></li>
         </ul>
       </nav>
-    </div>
+    </Container>
   </header>
 )
 

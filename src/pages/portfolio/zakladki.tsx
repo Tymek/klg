@@ -10,36 +10,36 @@ const MilinPage = () => {
     query {
       kaktus: file(relativePath: { eq: "zakladka-kaktus.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       kamienica: file(relativePath: { eq: "zakladka-kamienica.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 720) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       wieloryb: file(relativePath: { eq: "zakladka-wieloryb.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       choinki: file(relativePath: { eq: "zakladka-choinki.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       ptaszek: file(relativePath: { eq: "zakladka-ptaszek.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -76,7 +76,7 @@ const MilinPage = () => {
           </div>
         </div>
       </Layout>
-      <div className="w-full max-w-2xl pr-24 mx-auto mb-24 mt-8">
+      <div className="w-full max-w-6xl pr-24 mx-auto mb-24 mt-8">
         <div className="px-10">
           <Img fluid={data.ptaszek.childImageSharp.fluid} />
         </div>
