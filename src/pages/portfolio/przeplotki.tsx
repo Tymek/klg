@@ -8,29 +8,64 @@ import { P } from '../../components/Typo'
 import Container from "../../components/Container"
 import Cover from "../../components/Cover"
 
+export const coverImage = graphql`
+  fragment coverImage on File {
+    childImageSharp {
+      fluid(maxWidth: 2560) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`
+
+export const productImage = graphql`
+  fragment productImage on File {
+    childImageSharp {
+      fluid(maxWidth: 800) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`
+
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
       przeplotki: file(relativePath: { eq: "przeplotki.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...coverImage
       }
       placeholder: file(relativePath: { eq: "placeholder.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...productImage
+      }
+      aleks: file(relativePath: { eq: "przeplotki/aleks.jpg" }) {
+        ...productImage
+      }
+      antek: file(relativePath: { eq: "przeplotki/antek.jpg" }) {
+        ...productImage
+      }
+      felek: file(relativePath: { eq: "przeplotki/felek.jpg" }) {
+        ...productImage
+      }
+      jezyk: file(relativePath: { eq: "przeplotki/jezyk.jpg" }) {
+        ...productImage
+      }
+      maks: file(relativePath: { eq: "przeplotki/maks.jpg" }) {
+        ...productImage
+      }
+      stefan: file(relativePath: { eq: "przeplotki/stefan.jpg" }) {
+        ...productImage
+      }
+      tosia: file(relativePath: { eq: "przeplotki/tosia.jpg" }) {
+        ...productImage
+      }
+      trzeszczyk: file(relativePath: { eq: "przeplotki/trzeszczyk.jpg" }) {
+        ...productImage
+      }
+      zezik: file(relativePath: { eq: "przeplotki/zezik.jpg" }) {
+        ...productImage
       }
       przeplotki2: file(relativePath: { eq: "przeplotki2.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...coverImage
       }
     }
   `)
@@ -66,15 +101,15 @@ const MilinPage = () => {
       <Container>
         <section className="my-8 grid gap-4 lg:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense">
           {/* TODO: lightbox? */}
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-2 row-span-2" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.felek.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.jezyk.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.aleks.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.antek.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.stefan.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.maks.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.tosia.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.trzeszczyk.childImageSharp.fluid} className="col-span-1" />
+          <Img fluid={data.zezik.childImageSharp.fluid} className="col-span-1" />
           <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
           <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
           <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
