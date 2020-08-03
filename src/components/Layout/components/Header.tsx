@@ -8,7 +8,7 @@ const Header: React.FC = () => (
       <nav className="flex text:lg sm:text-xl font-bold flex-wrap">
         <h1 className="font-sans">
           <Link to="/">
-            Magda &dot; Klag
+            Magda &middot; Klag
           </Link>
         </h1>
         <ul className="ml-auto grid col-gap-2 grid-flow-col">
