@@ -51,7 +51,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "@testing-library/react": "10.4.7",
+    "@testing-library/react": "10.4.8",
     "autoprefixer": "9.8.6",
     "postcss-import": "12.0.1",
     "typescript": "3.9.7",
