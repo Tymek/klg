@@ -6440,7 +6440,7 @@ gatsby-plugin-brotli@2.0.0:
     mkdirp "^1.0.4"
     piscina "^1.6.3"
 
-gatsby-plugin-google-fonts-v2@^0.0.6:
+gatsby-plugin-google-fonts-v2@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts-v2/-/gatsby-plugin-google-fonts-v2-0.0.6.tgz#1bee21ca9fc0ff50e90bb0fe8fb98935071b5b22"
   integrity sha512-6xjpllyKx9GcqLkrhXwGLgNcelWZo7OBAaSm5/foWVUVfC2sDyy30z/o23xn7MuwX/1l3wTwbJaBobVp+TSDCg==
