@@ -3,7 +3,7 @@ import React from "react"
 import Container from "../../Container"
 
 const Header: React.FC = () => (
-  <header className="bg-white pt-8 pb-6">
+  <header className="bg-white pt-12 pb-10">
     <Container>
       <nav className="flex text:lg sm:text-xl flex-wrap">
         <h1 className="uppercase text-gray-600">

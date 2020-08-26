@@ -11,7 +11,7 @@ const IndexPage = () => {
   
   const data = useStaticQuery(graphql`
     query {
-      milin: file(relativePath: { eq: "wizytowki-milin.jpg" }) {
+      milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid_withWebp
@@ -40,8 +40,7 @@ const IndexPage = () => {
       <SEO />
       <section id="portfolio">
         <Container>
-          <h2 className="text-xl font-medium">Portfolio</h2>
-          <ul className="grid grid-cols-3 gap-4">
+          <ul className="grid grid-cols-3 gap-4 mt-6">
             <li>
               <Link className="underline" to="/portfolio/milin/">
                 <Img fluid={data.milin.childImageSharp.fluid} />

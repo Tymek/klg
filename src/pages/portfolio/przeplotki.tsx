@@ -77,10 +77,10 @@ const MilinPage = () => {
       <Container>
         <section className="mt-10">
             <header>
-              <h1 className="text-3xl text-gray-800 font-medium leading-tight">
+              <h1 className="text-3xl text-gray-800 leading-tight">
                 Przeplotki
               </h1>
-              <P className="text-gray-800 font-normal mt-3 mb-6">
+              <P className="text-gray-800 mt-3 mb-6">
                 projekt zabawek
               </P>
             </header>
