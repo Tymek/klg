@@ -4,11 +4,13 @@
 
 html, body {
   @apply font-light;
+  @apply font-sans;
+  @apply bg-gray-200;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
   font-family: 'Josefin Sans', sans-serif;
-}
+} */
 
 html {
   -ms-text-size-adjust: 100%;

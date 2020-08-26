@@ -238,7 +238,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Inter',
+        '"Lexend Deca"',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',

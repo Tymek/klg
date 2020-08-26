@@ -31,6 +31,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
+          {
+            family: 'Lexend Deca',
+            weights: ['400']
+          },
           // {
           //   family: 'Sora',
           //   variable: true,
@@ -46,16 +50,16 @@ module.exports = {
           //   variable: true,
           //   weights: ['300..700', '300..700']
           // },
-          {
-            family: 'Josefin Sans',
-            variable: true,
-            weights: ['100..700']
-          },
-          {
-            family: 'Inter',
-            variable: true,
-            weights: ['100..900']
-          },
+          // {
+          //   family: 'Josefin Sans',
+          //   variable: true,
+          //   weights: ['100..700']
+          // },
+          // {
+          //   family: 'Inter',
+          //   variable: true,
+          //   weights: ['100..900']
+          // },
         ],
       },
     },

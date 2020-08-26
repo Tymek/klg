@@ -53,7 +53,7 @@ const MilinPage = () => {
         <div className="flex flex-wrap justify-around">
           <section className="px-10 py-6 w-2/5">
             <header className="mb-4 mt-24">
-              <h1 className="mt-6 font-bold text-2xl">Zakładki do książki</h1>
+              <h1 className="mt-6 text-2xl">Zakładki do książki</h1>
             </header>
             <p className="text-gray-700 mb-2">
               drewniane
