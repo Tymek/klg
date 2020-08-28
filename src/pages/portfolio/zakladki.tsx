@@ -86,8 +86,6 @@ const MilinPage = () => {
     }
   `)
 
-  console.log(gifLarge)
-
   return (
     <>
       <Layout>
@@ -96,36 +94,18 @@ const MilinPage = () => {
           <div className="mb-20">
             <Img fluid={{ ...data.cover.childImageSharp.fluid, aspectRatio: 16/7 }} />
           </div>
-          <div className="flex flex-wrap items-end">
-            <div className="w-full max-w-lg">
+          <div className="flex flex-wrap items-end py-12 lg:py-20">
+            <div className="w-full max-w-xl">
               <Img fluid={data.closedBook.childImageSharp.fluid} />
             </div>
-            <div className="lg:px-20 mt-20 pb-3">
+            <div className="lg:px-20 lg:ml-8 mt-20 pb-3">
               <h1 className="text-2xl my-3">drewniane zakładki</h1>
               <P className="text-lg mb-6" style={{ color: '#953F1B' }}>ilustracja</P>
               <P>Projekt zakładek do książek zrealizowany dla firmy Fabrykat</P>
             </div>
           </div>
-        {/* <div className="flex flex-wrap justify-around">
-          <section className="px-10 py-6 w-2/5">
-            <header className="mb-4 mt-24">
-              <h1 className="mt-6 text-2xl">Zakładki do książki</h1>
-            </header>
-            <p className="text-gray-700 mb-2">
-              drewniane
-            </p>
 
-            <div className="w-full max-w-md mt-20">
-              <Img fluid={data.kamienica.childImageSharp.fluid} />
-            </div>
-          </section>
-
-
-          <div className="w-full max-w-3xl mx-16 ml-auto pl-16 mt-2">
-            <Img fluid={data.wieloryb.childImageSharp.fluid} />
-          </div> */}
-
-          <div className="lg:ml-auto mt-20 w-full lg:w-5/6">
+          <div className="lg:ml-auto my-12 lg:my-20 lg:pb-10 w-full lg:w-5/6">
             <picture>
               <source srcSet={`${gifLarge} 1280w, ${gifSmall} 640w`} type="image/webp" />
               <source srcSet={`${gifLarge} 1280w, ${gifSmall} 422w`} type="image/gif" />
@@ -148,11 +128,11 @@ const MilinPage = () => {
           </Container>
         </div>
         <Container>
-          <div className="flex flex-wrap items-end lg:-mx-10 lg:pb-20">
-            <div className="w-full lg:w-7/12 lg:px-10 mb-20">
+          <div className="flex flex-wrap items-end py-16 lg:-mx-16 lg:pb-20">
+            <div className="w-full lg:w-7/12 lg:px-16 mb-20">
               <Img fluid={data.abstract.childImageSharp.fluid} />
             </div>
-            <div className="w-full lg:w-5/12 lg:px-10 mb-20">
+            <div className="w-full lg:w-5/12 lg:px-16 mb-20">
               <Img fluid={data.kaktus.childImageSharp.fluid} />
             </div>
           </div>
