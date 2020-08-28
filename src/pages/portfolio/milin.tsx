@@ -8,6 +8,7 @@ import milinLogo from "../../images/milin/milin-logo.svg"
 import { P } from '../../components/Typo'
 import Container from "../../components/Container"
 import Cover from "../../components/Cover"
+import Dot from "../../components/Dot"
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
@@ -58,9 +59,9 @@ const MilinPage = () => {
             </h1>
             <P className="mt-3 mb-6 text-xl" style={{ color: '#92CBBF' }}>
               logo
-              <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+              <Dot />
               branding
-              <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+              <Dot />
               materiały reklamowe
             </P>
           </header>

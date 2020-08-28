@@ -6,10 +6,11 @@ import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from '../../components/Typo'
 import Container from "../../components/Container"
-import Cover from "../../components/Cover"
+// import Cover from "../../components/Cover"
+import Dot from "../../components/Dot"
 
-export const coverImage = graphql`
-  fragment coverImage on File {
+export const photo = graphql`
+  fragment photo on File {
     childImageSharp {
       fluid(maxWidth: 2560) {
         ...GatsbyImageSharpFluid_withWebp
@@ -21,7 +22,7 @@ export const coverImage = graphql`
 export const productImage = graphql`
   fragment productImage on File {
     childImageSharp {
-      fluid(maxWidth: 800) {
+      fluid(maxWidth: 1000, webpQuality: 75) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
@@ -31,12 +32,19 @@ export const productImage = graphql`
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      przeplotki: file(relativePath: { eq: "przeplotki.jpg" }) {
-        ...coverImage
+      cover: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
+        ...photo
       }
-      placeholder: file(relativePath: { eq: "placeholder.png" }) {
-        ...productImage
+      empty: file(relativePath: { eq: "empty.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
       }
+      # placeholder: file(relativePath: { eq: "placeholder.png" }) {
+      #   ...productImage
+      # }
       aleks: file(relativePath: { eq: "przeplotki/aleks.jpg" }) {
         ...productImage
       }
@@ -64,8 +72,35 @@ const MilinPage = () => {
       zezik: file(relativePath: { eq: "przeplotki/zezik.jpg" }) {
         ...productImage
       }
+      alfred: file(relativePath: { eq: "przeplotki/alfred.jpg" }) {
+        ...productImage
+      }
+      henio: file(relativePath: { eq: "przeplotki/henio.jpg" }) {
+        ...productImage
+      }
+      kotka: file(relativePath: { eq: "przeplotki/kotka.jpg" }) {
+        ...productImage
+      }
+      mis: file(relativePath: { eq: "przeplotki/mis.jpg" }) {
+        ...productImage
+      }
+      misia: file(relativePath: { eq: "przeplotki/misia.jpg" }) {
+        ...productImage
+      }
+      oskar: file(relativePath: { eq: "przeplotki/oskar.jpg" }) {
+        ...productImage
+      }
+      sarenka: file(relativePath: { eq: "przeplotki/sarenka.jpg" }) {
+        ...productImage
+      }
+      szczezyk: file(relativePath: { eq: "przeplotki/szczezyk.jpg" }) {
+        ...productImage
+      }
+      wieloryb: file(relativePath: { eq: "przeplotki/wieloryb.jpg" }) {
+        ...productImage
+      }
       przeplotki2: file(relativePath: { eq: "przeplotki2.jpg" }) {
-        ...coverImage
+        ...photo
       }
     }
   `)
@@ -73,62 +108,72 @@ const MilinPage = () => {
   return (
     <Layout>
       <SEO title="Przeplotki" />
-      <Cover fluid={data.przeplotki.childImageSharp.fluid} />
+      {/* <Cover fluid={data.przeplotki.childImageSharp.fluid} /> */}
       <Container>
-        <section className="mt-10">
-            <header>
-              <h1 className="text-2xl leading-tight">
-                przeplotki
-              </h1>
-              <P className="mt-5 mb-8 text-lg" style={{ color: '#00BDD9' }}>
-                zabawki
-                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
-                opakowanie
-                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
-                materiały reklamowe
-                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
-                systemy wystawiennicze
+        <div className="flex flex-wrap items-end pb-20">
+          <div className="w-full max-w-3xl md:w-1/2">
+            <Img fluid={{ ...data.cover.childImageSharp.fluid, aspectRatio: 4/5 }} />
+          </div>
+          <section className="w-full lg:w-1/2 lg:px-16 pt-16 lg:pt-0">
+              <header>
+
+                <h1 className="text-2xl leading-tight">
+                  przeplotki
+                </h1>
+                <P className="mt-5 mb-8 text-lg" style={{ color: '#00BDD9' }}>
+                  zabawki
+                  <Dot />
+                  opakowanie
+                  <Dot />
+                  materiały reklamowe
+                  <Dot />
+                  systemy wystawiennicze
+                </P>
+              </header>
+              <P className="mb-4">
+                Przeplotki to seria drewnianych zabawek z dziurkami i sznurówką w zestawie,
+                stworzonych pod marką <Link className="underline" to="/portfolio/milin/">Milin</Link>.
               </P>
-            </header>
-            <P className="mb-4">
-              Przeplotki to seria drewnianych zabawek z dziurkami i sznurówką w zestawie,
-              stworzonych pod marką <Link className="underline" to="/portfolio/milin/">Milin</Link>.
-            </P>
-            <P className="mb-4">
-              Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
-            </P>
-            <P className="mb-4">
-              Zaprojektowałam 18 wzorów oraz zestawy dla zaawansowanych przeplataczy – Panna Miś i Pan Miś z ubrankami.
-              Ponadto projekt obejmował wykrojniki opakowań indywidualnie dopasowanych do każdej zabawki,
-              nadruki na opakowania, ekspozytor oraz materiały marketingowe.
-            </P>
-        </section>
+              <P className="mb-4">
+                Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
+              </P>
+              <P className="mb-4">
+                Zaprojektowałam 18 wzorów oraz zestawy dla zaawansowanych przeplataczy – Panna Miś i Pan Miś z ubrankami.
+                Ponadto projekt obejmował wykrojniki opakowań indywidualnie dopasowanych do każdej zabawki,
+                nadruki na opakowania, ekspozytor oraz materiały marketingowe.
+              </P>
+          </section>
+        </div>
       </Container>
-      <Container>
-        <section className="my-8 grid gap-4 lg:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense">
-          {/* TODO: lightbox? */}
-          <Img fluid={data.felek.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.jezyk.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.aleks.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.antek.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.stefan.childImageSharp.fluid} className="col-span-2 row-span-2" />
-          <Img fluid={data.maks.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.tosia.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.trzeszczyk.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.zezik.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-2 row-span-2" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
-          <Img fluid={data.placeholder.childImageSharp.fluid} className="col-span-1" />
+      <Container className="py-10 lg:py-20">
+        <section className="my-8 grid gap-4 md:gap-6 lg:gap-8 grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 grid-flow-row-dense">
+          <Img fluid={data.stefan.childImageSharp.fluid} className="col-span-4 row-span-4" />
+          <Img fluid={data.empty.childImageSharp.fluid} className="col-span-2 row-span-2 empty-block" />
+          <Img fluid={data.sarenka.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.kotka.childImageSharp.fluid} className="col-span-3 row-span-3" />
+          <Img fluid={data.wieloryb.childImageSharp.fluid} className="col-span-3 row-span-3" />
+          <Img fluid={data.maks.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.antek.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.aleks.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.empty.childImageSharp.fluid} className="col-span-2 row-span-2 empty-block" />
+          <Img fluid={data.szczezyk.childImageSharp.fluid} className="col-span-4 row-span-4" />
+          <Img fluid={data.zezik.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.trzeszczyk.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.empty.childImageSharp.fluid} className="col-span-2 row-span-2 empty-block" />
+          <Img fluid={data.empty.childImageSharp.fluid} className="col-span-2 row-span-2 empty-block" />
+          <Img fluid={data.tosia.childImageSharp.fluid} className="col-span-4 row-span-4" />
+          <Img fluid={data.alfred.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.felek.childImageSharp.fluid} className="col-span-2 row-span-2" />
+
+          <Img fluid={data.oskar.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.henio.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.jezyk.childImageSharp.fluid} className="col-span-2 row-span-2" />
+          <Img fluid={data.mis.childImageSharp.fluid} className="col-span-3 row-span-3" />
+          <Img fluid={data.misia.childImageSharp.fluid} className="col-span-3 row-span-3" />
         </section>
       </Container>
 
-      <Img className="mt-6" fluid={data.przeplotki2.childImageSharp.fluid} />
+      <Img className="my-20" fluid={data.przeplotki2.childImageSharp.fluid} />
     </Layout>
   )
 }
