@@ -5,6 +5,8 @@
 html, body {
   @apply font-light;
   @apply font-sans;
+  @apply bg-gray-200;
+  @apply text-gray-600;
 }
 
 /* h1, h2, h3, h4, h5, h6 {

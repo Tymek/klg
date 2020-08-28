@@ -18,7 +18,7 @@ const IndexPage = () => {
           }
         }
       }
-      zakladki: file(relativePath: { eq: "zakladka-ptaszek.jpg" }) {
+      zakladki: file(relativePath: { eq: "zakladki/zakladka-ptaszek.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid_withWebp
