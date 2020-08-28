@@ -51,7 +51,7 @@ const MilinPage = () => {
         <Cover fluid={data.branding.childImageSharp.fluid} />
       </Container>
       <Container>
-        <section className="text-center max-w-4xl mx-auto text-gray-600">
+        <section className="text-center max-w-4xl mx-auto">
           <header>
             <h1 className="text-3xl leading-tight">
               milin
