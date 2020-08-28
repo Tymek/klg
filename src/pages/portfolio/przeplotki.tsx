@@ -77,21 +77,27 @@ const MilinPage = () => {
       <Container>
         <section className="mt-10">
             <header>
-              <h1 className="text-3xl text-gray-800 leading-tight">
-                Przeplotki
+              <h1 className="text-2xl leading-tight">
+                przeplotki
               </h1>
-              <P className="text-gray-800 mt-3 mb-6">
-                projekt zabawek
+              <P className="mt-5 mb-8 text-lg" style={{ color: '#00BDD9' }}>
+                zabawki
+                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+                opakowanie
+                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+                materiały reklamowe
+                <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+                systemy wystawiennicze
               </P>
             </header>
-            <P className="text-gray-700 mb-2">
+            <P className="mb-4">
               Przeplotki to seria drewnianych zabawek z dziurkami i sznurówką w zestawie,
               stworzonych pod marką <Link className="underline" to="/portfolio/milin/">Milin</Link>.
             </P>
-            <P className="text-gray-700 mb-2">
+            <P className="mb-4">
               Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
             </P>
-            <P className="text-gray-700 mb-2">
+            <P className="mb-4">
               Zaprojektowałam 18 wzorów oraz zestawy dla zaawansowanych przeplataczy – Panna Miś i Pan Miś z ubrankami.
               Ponadto projekt obejmował wykrojniki opakowań indywidualnie dopasowanych do każdej zabawki,
               nadruki na opakowania, ekspozytor oraz materiały marketingowe.

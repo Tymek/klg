@@ -51,16 +51,16 @@ const MilinPage = () => {
         <Cover fluid={data.branding.childImageSharp.fluid} />
       </Container>
       <Container>
-        <section className="text-center max-w-4xl mx-auto">
+        <section className="lg:pt-20 pt-16 text-center max-w-4xl mx-auto">
           <header>
             <h1 className="text-3xl leading-tight">
               milin
             </h1>
             <P className="mt-3 mb-6 text-xl" style={{ color: '#92CBBF' }}>
               logo
-              <span aria-label=", "><span aria-hidden="true" style={{ color: '#BBD1CB' }}> &#x2981; </span></span>
+              <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
               branding
-              <span aria-label=", "><span aria-hidden="true" style={{ color: '#BBD1CB' }}> &#x2981; </span></span>
+              <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
               materiały reklamowe
             </P>
           </header>
@@ -74,7 +74,7 @@ const MilinPage = () => {
             Logo ma lekką, minimalistyczną formę, by podkreślić charakter marki. Kolory użyte w identyfikacji pasować miały
             do odcieni drawna, biei oraz opakowań ekologicznych materiałów.
           </P>
-          <div className="pt-6 pb-10 max-w-xl mx-auto">
+          <div className="lg:pt-16 pt-12 lg:pb-20 pb-16 max-w-xl mx-auto">
             <img src={milinLogo} alt="Logo Milin Toys"/>
           </div>
         </section>
