@@ -28,27 +28,6 @@ const MilinPage = () => {
           }
         }
       }
-      # kamienica: file(relativePath: { eq: "zakladki/zakladka-kamienica.jpg" }) {
-      #   childImageSharp {
-      #     fluid(maxWidth: 2560) {
-      #       ...GatsbyImageSharpFluid_withWebp
-      #     }
-      #   }
-      # }
-      # wieloryb: file(relativePath: { eq: "zakladki/zakladka-wieloryb.jpg" }) {
-      #   childImageSharp {
-      #     fluid(maxWidth: 2560) {
-      #       ...GatsbyImageSharpFluid_withWebp
-      #     }
-      #   }
-      # }
-      # ptaszek: file(relativePath: { eq: "zakladki/zakladka-ptaszek.jpg" }) {
-      #   childImageSharp {
-      #     fluid(maxWidth: 2560) {
-      #       ...GatsbyImageSharpFluid_withWebp
-      #     }
-      #   }
-      # }
       allFile(filter: {relativeDirectory: {eq: "zakladki/lista"}}, sort: {fields: absolutePath, order: ASC}) {
         edges {
           node {
@@ -107,7 +86,7 @@ const MilinPage = () => {
 
           <div className="lg:ml-auto my-12 lg:my-20 lg:pb-10 w-full lg:w-5/6">
             <picture>
-              <source srcSet={`${gifLarge} 1280w, ${gifSmall} 640w`} type="image/webp" />
+              <source srcSet={`${webpLarge} 1280w, ${webpSmall} 640w`} type="image/webp" />
               <source srcSet={`${gifLarge} 1280w, ${gifSmall} 422w`} type="image/gif" />
               <img src={gifLarge} />
             </picture>
@@ -141,12 +120,6 @@ const MilinPage = () => {
           </div>
         </Container>
       </Layout>
-      {/* <div className="w-full max-w-6xl pr-24 mx-auto mb-24 mt-8">
-        <div className="px-10">
-          <Img fluid={data.ptaszek.childImageSharp.fluid} />
-        </div>
-      </div> */}
-
     </>
   )
 }
