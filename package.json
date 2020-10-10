@@ -37,7 +37,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
-    "tailwindcss": "1.8.12"
+    "tailwindcss": "1.8.13"
   },
   "keywords": [
     "gatsby"
