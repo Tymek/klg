@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 html, body {
-  @apply font-light;
-  @apply font-sans;
-  @apply bg-gray-200;
-  @apply text-gray-600;
 }
 
 /* h1, h2, h3, h4, h5, h6 {
@@ -19,6 +15,12 @@ html {
 }
 
 body {
+  @apply font-light;
+  @apply font-sans;
+  @apply bg-white;
+  @apply text-black;
+  @apply text-base;
+
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

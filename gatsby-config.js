@@ -27,41 +27,23 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts-v2`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: 'Lexend Deca',
+    //         weights: ['400']
+    //       },
+    //     ],
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-google-fonts-v2`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        fonts: [
-          {
-            family: 'Lexend Deca',
-            weights: ['400']
-          },
-          // {
-          //   family: 'Sora',
-          //   variable: true,
-          //   weights: ['100..800']
-          // },
-          // {
-          //   family: 'Varta',
-          //   variable: true,
-          //   weights: ['300..700']
-          // },
-          // {
-          //   family: 'Rosario',
-          //   variable: true,
-          //   weights: ['300..700', '300..700']
-          // },
-          // {
-          //   family: 'Josefin Sans',
-          //   variable: true,
-          //   weights: ['100..700']
-          // },
-          // {
-          //   family: 'Inter',
-          //   variable: true,
-          //   weights: ['100..900']
-          // },
-        ],
-      },
+        name: "fonts",
+        path: `${__dirname}/src/fonts/`
+      }
     },
     {
       resolve: 'gatsby-plugin-matomo',
