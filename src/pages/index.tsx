@@ -4,11 +4,9 @@ import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import Container from "../components/Container"
-
+import Wrapper from "../components/Wrapper"
 
 const IndexPage = () => {
-  
   const data = useStaticQuery(graphql`
     query {
       milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
@@ -39,7 +37,7 @@ const IndexPage = () => {
     <Layout>
       <SEO />
       <section id="portfolio">
-        <Container>
+        <Wrapper>
           <ul className="grid grid-cols-3 gap-4 mt-6">
             <li>
               <Link className="underline" to="/portfolio/milin/">
@@ -57,7 +55,7 @@ const IndexPage = () => {
               </Link>
             </li>
           </ul>
-        </Container>
+        </Wrapper>
       </section>
     </Layout>
   )

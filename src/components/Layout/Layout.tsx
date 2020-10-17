@@ -7,7 +7,7 @@ import "./fonts.css"
 const Layout: React.FC = ({ children }) => (
   <>
     <Header />
-    <main>{children}</main>
+    <main className="relative">{children}</main>
   </>
 )
 

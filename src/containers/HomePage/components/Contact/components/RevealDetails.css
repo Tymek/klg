@@ -1,0 +1,18 @@
+.revealDetails, .revealDetails * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.revealDetails .value {
+  transition: all 500ms ease;
+  z-index: 2;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.revealDetails .closed.value {
+  flex: 0;
+}
+
+.revealDetails .open.value {
+  flex: 1;
+}
