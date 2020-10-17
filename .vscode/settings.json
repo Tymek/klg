@@ -7,5 +7,9 @@
   },
   "tailwindCSS.includeLanguages": {
     "typescriptreact": "javascriptreact"
+  },
+  "editor.formatOnSave": false,
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
   }
 }

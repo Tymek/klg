@@ -239,7 +239,7 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
-      'hd': '112rem',
+      'hd': '106rem',
       full: '100%',
       ...breakpoints(theme('screens')),
     }),
