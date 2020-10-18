@@ -131,7 +131,7 @@ const MilinPage = () => {
               <Img fluid={data.kaktus.childImageSharp.fluid} />
             </div>
           </div>
-          <div className="hd:w-9/12 pb-20">
+          <div className="xxl:w-9/12 pb-20">
             <Img fluid={data.feather.childImageSharp.fluid} />
           </div>
         </Wrapper>

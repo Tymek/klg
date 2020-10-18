@@ -12,11 +12,13 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      xxs: '320px',
+      xs: '412px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      hd: '1660px',
+      xxl: '1660px',
     },
     colors: {
       transparent: 'transparent',
@@ -24,6 +26,7 @@ module.exports = {
       black: '#131112',
       white: '#fff',
       lightGray: '#f1f1f2',
+      fuchsia: '#f101a9',
     },
     spacing: {
       px: '1px',
@@ -159,10 +162,14 @@ module.exports = {
     //   '6xl': '4rem',
     // },
     fontSize: {
-      sm: '1.0625rem',
-      base: '1.25rem',
-      lg: '1.875rem',
-      xl: '3.75rem',
+      xs: '0.9375rem', // 15px
+      sm: '1.0625rem', // 17px
+      base: '1.25rem', // 20px
+      lg: '1.875rem', // 30px
+      xl: '2.5rem', // 40px
+      xxl: '3.75rem', // 60px
+      '3xl': '4.375rem', // 70px
+      giant: '6.25rem' // 100px
     },
     // fontWeight: {
     //   hairline: '100',
@@ -239,7 +246,7 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
-      'hd': '106rem',
+      '7xl': '106rem',
       full: '100%',
       ...breakpoints(theme('screens')),
     }),
