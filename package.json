@@ -30,6 +30,7 @@
     "gatsby-plugin-typescript": "2.4.22",
     "gatsby-source-filesystem": "2.3.35",
     "gatsby-transformer-sharp": "2.5.18",
+    "is-touch-device": "^1.0.1",
     "preact": "10.5.4",
     "preact-render-to-string": "5.1.10",
     "prettier": "2.1.2",
@@ -42,7 +43,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "GPL-3",
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "11.1.0",
+    "@types/is-touch-device": "^1.0.0",
     "autoprefixer": "10.0.1",
     "postcss": "8.1.1",
     "postcss-import": "12.0.1",
