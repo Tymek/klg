@@ -8,7 +8,7 @@ import HomePage from "../containers/HomePage/HomePage"
 const IndexPage = () => (
   <>
     <SEO />
-    <Layout>
+    <Layout largeDecoration>
       <Wrapper>
         <HomePage />
       </Wrapper>

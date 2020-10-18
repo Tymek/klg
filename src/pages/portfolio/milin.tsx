@@ -55,7 +55,7 @@ const MilinPage = () => {
         <section className="lg:pt-20 pt-16 text-center max-w-4xl mx-auto">
           <header>
             <h1 className="text-3xl leading-tight">milin</h1>
-            <P className="mt-3 mb-6 text-xl" style={{ color: "#92CBBF" }}>
+            <P className="mt-3 mb-6 text-xxl" style={{ color: "#92CBBF" }}>
               logo
               <Dot />
               branding

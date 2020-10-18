@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html, body {
+  scroll-behavior: smooth;
 }
 
 /* h1, h2, h3, h4, h5, h6 {
@@ -24,6 +25,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  color: white;
+  background: #f101a9;
+  opacity: 1;
 }
 
 /* Default Gatsby styles: */

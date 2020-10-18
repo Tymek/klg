@@ -1,12 +1,14 @@
-import React from "react"
+import React, { FC } from "react"
 
-import Header from "./components/Header"
+import Header, { HeaderProps } from "./components/Header"
 import "./styles.css"
 import "./fonts.css"
 
-const Layout: React.FC = ({ children }) => (
+export type LayoutProps = HeaderProps
+
+const Layout: FC<LayoutProps> = ({ children, largeDecoration }) => (
   <>
-    <Header />
+    <Header largeDecoration={largeDecoration} />
     <main className="relative">{children}</main>
   </>
 )
