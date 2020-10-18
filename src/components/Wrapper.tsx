@@ -6,7 +6,8 @@ const Wrapper: React.FC<{
 }> = ({ children, fullWidth, ...props }) => (
   <div
     {...props}
-    className={`relative mx-auto max-w-hd hd:px-4 px-4 sm:px-6 md:px-10 ${
+    data-component="wrapper"
+    className={`relative mx-auto max-w-hd px-4 sm:px-6 md:px-10 hd:px-4 ${
       props.className || ""
     }`}
   >

@@ -1,29 +1,32 @@
 import React from "react"
+import Wrapper from "../../../../components/Wrapper"
 import RevealDetails from "./components/RevealDetails"
 
 const Contact: React.FC = () => (
   <>
-    <section
-      id="kontakt"
-      style={{ paddingBottom: "256px" }}
-      className="flex flex-row-reverse"
-    >
-      <h2 className="text-xl uppercase font-bold max-w-3xl leading-none w-1/3 text-right">
-        Poznajmy się
-      </h2>
-      <div className="pb-12 text-lg text-right flex flex-col items-end">
-        <div>
-          <RevealDetails file="contact" item="email">
-            email
-          </RevealDetails>
+    <Wrapper>
+      <section
+        id="kontakt"
+        style={{ paddingBottom: "256px" }}
+        className="flex flex-col lg:flex-row-reverse"
+      >
+        <h2 className="mb-3 lg:mb-0 text-lg xl:text-xl uppercase font-bold max-w-3xl leading-none lg:w-1/3 text-right">
+          Poznajmy się
+        </h2>
+        <div className="pb-12 text-md lg:text-lg text-right flex flex-col items-end">
+          <div>
+            <RevealDetails file="contact" item="email">
+              email
+            </RevealDetails>
+          </div>
+          <div>
+            <RevealDetails file="contact" item="phone">
+              telefon
+            </RevealDetails>
+          </div>
         </div>
-        <div>
-          <RevealDetails file="contact" item="phone">
-            telefon
-          </RevealDetails>
-        </div>
-      </div>
-    </section>
+      </section>
+    </Wrapper>
     <div
       style={{
         width: "67%",

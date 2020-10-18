@@ -18,24 +18,23 @@ const HomePage: React.FC<HomePageProps> = () => {
       }
     }
   `)
+
   return (
     <>
-      <Wrapper>
-        <section className="h-screen">
-          <h1 className="text-xl uppercase font-bold max-w-3xl leading-none">
-            Zabawki / Ilustracja / Branding / Publikacja
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <Img
-            fluid={data.mainCoverPhoto.childImageSharp.fluid}
-            className="w-64"
-          />
-        </section>
-        <Contact />
-      </Wrapper>
+      <section className="h-screen">
+        <h1 className="text-lg lg:text-xl uppercase font-bold max-w-3xl leading-none">
+          Zabawki / Ilustracja / Branding / Publikacja
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <Img
+          fluid={data.mainCoverPhoto.childImageSharp.fluid}
+          className="w-64"
+        />
+      </section>
+      <Contact />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { FC, ReactText, useEffect, useReducer, useState } from "react"
+import isTouchDevice from "is-touch-device"
 import "./RevealDetails.css"
 
 type RevealDetailsProps = {
@@ -20,7 +21,6 @@ const reducer = (
   state: RevealDetailsState,
   action: RevealDetailsStateActions
 ) => {
-  console.log(action)
   switch (action) {
     case "allow":
       return { ...state, isAllowed: true }
@@ -34,7 +34,7 @@ const reducer = (
 
       return {
         ...state,
-        isOpen: !state.isOpen || state.isHovered,
+        isOpen: !state.isOpen || (!isTouchDevice() && state.isHovered),
         isLockedOpen: !state.isLockedOpen,
       }
     case "mouseOver": {
