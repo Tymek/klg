@@ -52,7 +52,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "@testing-library/react": "11.1.1",
+    "@testing-library/react": "11.1.2",
     "@types/is-touch-device": "1.0.0",
     "autoprefixer": "10.0.1",
     "postcss": "8.1.6",
