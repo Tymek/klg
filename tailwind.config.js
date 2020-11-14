@@ -18,7 +18,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      xxl: '1660px',
+      xxl: '1600px',
     },
     colors: {
       transparent: 'transparent',
@@ -246,7 +246,7 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
-      '7xl': '106rem',
+      '7xl': '108rem',
       full: '100%',
       ...breakpoints(theme('screens')),
     }),

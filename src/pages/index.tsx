@@ -1,64 +1,19 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import Wrapper from "../components/Wrapper"
+import HomePage from "../containers/HomePage"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      zakladki: file(relativePath: { eq: "zakladki/zakladka-ptaszek.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      przeplotki: file(relativePath: { eq: "przeplotki2.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
-
-  return (
-    <Layout>
-      <SEO />
-      <section id="portfolio">
-        <Wrapper>
-          <ul className="grid grid-cols-3 gap-4 mt-6">
-            <li>
-              <Link className="underline" to="/portfolio/milin/">
-                <Img fluid={data.milin.childImageSharp.fluid} />
-              </Link>
-            </li>
-            <li>
-              <Link className="underline" to="/portfolio/zakladki/">
-                <Img fluid={data.zakladki.childImageSharp.fluid} />
-              </Link>
-            </li>
-            <li>
-              <Link className="underline" to="/portfolio/przeplotki/">
-                <Img fluid={data.przeplotki.childImageSharp.fluid} />
-              </Link>
-            </li>
-          </ul>
-        </Wrapper>
-      </section>
+const IndexPage = () => (
+  <>
+    <SEO />
+    <Layout largeDecoration>
+      <Wrapper>
+        <HomePage />
+      </Wrapper>
     </Layout>
-  )
-}
+  </>
+)
 
 export default IndexPage
