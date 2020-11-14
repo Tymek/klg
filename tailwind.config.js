@@ -249,7 +249,8 @@ module.exports = {
       '4xl': '56rem', // 896px
       '5xl': '64rem', // 1024px
       '6xl': '72rem', // 1152px
-      '7xl': '108rem', // 1728px
+      '7xl': '88rem', // 1400px
+      '8xl': '108rem', // 1728px
       full: '100%',
       ...breakpoints(theme('screens')),
     }),

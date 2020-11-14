@@ -24,6 +24,7 @@ body {
   @apply text-base;
 
   margin: 0;
+  hyphens: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

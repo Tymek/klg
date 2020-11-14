@@ -1,254 +1,172 @@
-import React from "react"
+import React, { useMemo } from "react"
 
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Img, { FluidObject } from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
-// import Cover from "../../components/Cover"
 import Dot from "../../components/Dot"
+import NextPageButton from "../../components/NextPageButton/NextPageButton"
 
-export const photo = graphql`
-  fragment photo on File {
-    childImageSharp {
-      fluid(maxWidth: 2560) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-`
+const productGridSequence = [
+  "",
+  "",
+  "",
+  "",
+  "col-span-2 row-span-2",
+  "",
+  "",
+  "col-span-2 row-span-2",
+]
 
-export const productImage = graphql`
-  fragment productImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1000, webpQuality: 75) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
+const sortByBaseName = (
+  a: { node: { base: string } },
+  b: { node: { base: string } }
+) => {
+  if (a?.node?.base < b?.node?.base) {
+    return -1
   }
-`
+  if (a?.node?.base > b?.node?.base) {
+    return 1
+  }
+  return 0
+}
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
       cover: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
-        ...photo
-      }
-      empty: file(relativePath: { eq: "empty.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 1648) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      # placeholder: file(relativePath: { eq: "placeholder.png" }) {
-      #   ...productImage
-      # }
-      aleks: file(relativePath: { eq: "przeplotki/aleks.jpg" }) {
-        ...productImage
-      }
-      antek: file(relativePath: { eq: "przeplotki/antek.jpg" }) {
-        ...productImage
-      }
-      felek: file(relativePath: { eq: "przeplotki/felek.jpg" }) {
-        ...productImage
-      }
-      jezyk: file(relativePath: { eq: "przeplotki/jezyk.jpg" }) {
-        ...productImage
-      }
-      maks: file(relativePath: { eq: "przeplotki/maks.jpg" }) {
-        ...productImage
-      }
-      stefan: file(relativePath: { eq: "przeplotki/stefan.jpg" }) {
-        ...productImage
-      }
-      tosia: file(relativePath: { eq: "przeplotki/tosia.jpg" }) {
-        ...productImage
-      }
-      trzeszczyk: file(relativePath: { eq: "przeplotki/trzeszczyk.jpg" }) {
-        ...productImage
-      }
-      zezik: file(relativePath: { eq: "przeplotki/zezik.jpg" }) {
-        ...productImage
-      }
-      alfred: file(relativePath: { eq: "przeplotki/alfred.jpg" }) {
-        ...productImage
-      }
-      henio: file(relativePath: { eq: "przeplotki/henio.jpg" }) {
-        ...productImage
-      }
-      kotka: file(relativePath: { eq: "przeplotki/kotka.jpg" }) {
-        ...productImage
-      }
-      mis: file(relativePath: { eq: "przeplotki/mis.jpg" }) {
-        ...productImage
-      }
-      misia: file(relativePath: { eq: "przeplotki/misia.jpg" }) {
-        ...productImage
-      }
-      oskar: file(relativePath: { eq: "przeplotki/oskar.jpg" }) {
-        ...productImage
-      }
-      sarenka: file(relativePath: { eq: "przeplotki/sarenka.jpg" }) {
-        ...productImage
-      }
-      szczezyk: file(relativePath: { eq: "przeplotki/szczezyk.jpg" }) {
-        ...productImage
-      }
-      wieloryb: file(relativePath: { eq: "przeplotki/wieloryb.jpg" }) {
-        ...productImage
-      }
-      przeplotki2: file(relativePath: { eq: "przeplotki2.jpg" }) {
-        ...photo
+      przeplotki: allFile(filter: { dir: { regex: "/przeplotki/zabawka/" } }) {
+        edges {
+          node {
+            id
+            base
+            childImageSharp {
+              fluid(maxWidth: 1328, webpQuality: 75) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
   `)
 
+  const przeplotki: Array<{
+    fluid: FluidObject
+    className: string
+    key: string
+  }> = useMemo(
+    () =>
+      data.przeplotki.edges
+        .sort(sortByBaseName)
+        .map((edge: any, index: number) => ({
+          key: edge?.node?.id,
+          className: productGridSequence[index % productGridSequence.length],
+          fluid: edge?.node?.childImageSharp?.fluid,
+        })),
+    [data]
+  )
+
   return (
-    <Layout>
+    <Layout largeDecoration>
       <SEO title="Przeplotki" />
-      {/* <Cover fluid={data.przeplotki.childImageSharp.fluid} /> */}
-      <Wrapper>
-        <div className="flex flex-wrap items-end pb-20">
-          <div className="w-full max-w-3xl md:w-1/2">
-            <Img
-              fluid={{
-                ...data.cover.childImageSharp.fluid,
-                aspectRatio: 4 / 5,
-              }}
-            />
+      <div
+        className="pb-24 md:pb-56 mt-16 md:mt-48"
+        style={{
+          background: "url(/assets/shoelace.svg) no-repeat center center",
+          backgroundSize: "cover",
+        }}
+      >
+        <Wrapper customWidth="max-w-7xl pb-0 md:pb-24">
+          <div className="flex justify-end px-10 md:px-0">
+            <div className="w-full max-w-4xl md:w-3/4 -mt-10 md:-mt-40">
+              <Img
+                fluid={{
+                  ...data.cover.childImageSharp.fluid,
+                  aspectRatio: 4 / 5,
+                }}
+              />
+            </div>
           </div>
-          <section className="w-full lg:w-1/2 lg:px-16 pt-16 lg:pt-0">
-            <header>
-              <h1 className="text-2xl leading-tight">przeplotki</h1>
-              <P className="mt-5 mb-8 text-lg" style={{ color: "#00BDD9" }}>
-                zabawki
-                <Dot />
-                opakowanie
-                <Dot />
-                materiały reklamowe
-                <Dot />
-                systemy wystawiennicze
-              </P>
-            </header>
-            <P className="mb-4">
-              Przeplotki to seria drewnianych zabawek z dziurkami i sznurówką w
-              zestawie, stworzonych pod marką{" "}
-              <Link className="underline" to="/portfolio/milin/">
-                Milin
-              </Link>
-              .
-            </P>
-            <P className="mb-4">
-              Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga
-              w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
-            </P>
-            <P className="mb-4">
-              Zaprojektowałam 18 wzorów oraz zestawy dla zaawansowanych
-              przeplataczy – Panna Miś i Pan Miś z ubrankami. Ponadto projekt
-              obejmował wykrojniki opakowań indywidualnie dopasowanych do każdej
-              zabawki, nadruki na opakowania, ekspozytor oraz materiały
-              marketingowe.
-            </P>
-          </section>
-        </div>
-      </Wrapper>
-      <Wrapper className="py-10 lg:py-20">
-        <section className="my-8 grid gap-4 md:gap-6 lg:gap-8 grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 grid-flow-row-dense">
-          <Img
-            fluid={data.stefan.childImageSharp.fluid}
-            className="col-span-4 row-span-4"
-          />
-          <Img
-            fluid={data.empty.childImageSharp.fluid}
-            className="col-span-2 row-span-2 empty-block"
-          />
-          <Img
-            fluid={data.sarenka.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.kotka.childImageSharp.fluid}
-            className="col-span-3 row-span-3"
-          />
-          <Img
-            fluid={data.wieloryb.childImageSharp.fluid}
-            className="col-span-3 row-span-3"
-          />
-          <Img
-            fluid={data.maks.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.antek.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.aleks.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.empty.childImageSharp.fluid}
-            className="col-span-2 row-span-2 empty-block"
-          />
-          <Img
-            fluid={data.szczezyk.childImageSharp.fluid}
-            className="col-span-4 row-span-4"
-          />
-          <Img
-            fluid={data.zezik.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.trzeszczyk.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.empty.childImageSharp.fluid}
-            className="col-span-2 row-span-2 empty-block"
-          />
-          <Img
-            fluid={data.empty.childImageSharp.fluid}
-            className="col-span-2 row-span-2 empty-block"
-          />
-          <Img
-            fluid={data.tosia.childImageSharp.fluid}
-            className="col-span-4 row-span-4"
-          />
-          <Img
-            fluid={data.alfred.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.felek.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
+        </Wrapper>
+      </div>
+      <Wrapper customWidth="max-w-7xl">
+        <section className="xl:mx-48 md:-mt-24 xl:-mt-40">
+          <h1 className="text-giant font-bold uppercase mb-12 leading-none">
+            Prze&shy;plot&shy;ki
+          </h1>
+          <P className="mb-12">
+            Przeplotki to drewniane zabawki z dziurkami i sznurówką w zestawie,
+            zrealizowane dla marki{" "}
+            <Link className="underline" to="/portfolio/milin/">
+              Milin
+            </Link>
+            .
+          </P>
 
-          <Img
-            fluid={data.oskar.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.henio.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.jezyk.childImageSharp.fluid}
-            className="col-span-2 row-span-2"
-          />
-          <Img
-            fluid={data.mis.childImageSharp.fluid}
-            className="col-span-3 row-span-3"
-          />
-          <Img
-            fluid={data.misia.childImageSharp.fluid}
-            className="col-span-3 row-span-3"
-          />
+          <P className="mb-12">
+            Seria zawiera 18 zabawek oraz zestawy dla zaawansowanych
+            przeplataczy – Panna Miś i Pan Miś z ubrankami. Projekt obejmował
+            wzory zabawek, wykrojniki opakowań indywidualnie dopasowanych do
+            każdej zabawki, nadruki na opakowania, ekspozytory oraz materiały
+            marketingowe.
+          </P>
+
+          <P className="mb-12">
+            Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga w
+            wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
+          </P>
         </section>
-      </Wrapper>
 
-      <Img className="my-20" fluid={data.przeplotki2.childImageSharp.fluid} />
+        <h2 className="text-lg text-center uppercase pt-16 pb-48 mb-12">
+          Zabawki
+          <Dot style={{ color: "#1eb3c9" }} />
+          Opakowania
+          <Dot style={{ color: "#1eb3c9" }} />
+          Materiały reklamowe
+          <Dot style={{ color: "#1eb3c9" }} />
+          Systemy wystawiennicze
+        </h2>
+
+        <div className="grid gap-4 sm:gap-8 lg:gap-16 grid-cols-2 grid-flow-row-dense">
+          {przeplotki.map(({ key, fluid, className }) => (
+            <Img key={key} fluid={fluid} className={className} />
+          ))}
+        </div>
+
+        <section className="max-w-4xl mx-auto mt-20 md:mt-48 mb-16 md:mb-32">
+          <div className="md:w-2/3">
+            <P className="mb-12">
+              Zabawki w opakowaniach miały być dobrze widoczne, tak by ułatwić
+              klientom wybór ulubionej przeplotki. Udało się to dzięki
+              opakowaniom przypominającym ubranka, indywidualnie dopasowanym do
+              każdego wzoru.
+            </P>
+
+            <P className="mb-12">
+              Opakowania wykonane zostały z kartonu kraft z białym nadrukiem, co
+              podkreślić ma ekologiczny charakter marki. Opakowanie składane
+              jest za pomocą nap do tkanin, które dodatkowo są drobnym akcentem
+              kolorystycznym.
+            </P>
+
+            <P className="mb-12">
+              Opakowanie zwiera przeplotkę oraz zwiniętą z tyłu opakowania
+              sznurówkę.
+            </P>
+          </div>
+        </section>
+
+        <div className="text-right">{/* <NextPageButton /> */}</div>
+      </Wrapper>
     </Layout>
   )
 }

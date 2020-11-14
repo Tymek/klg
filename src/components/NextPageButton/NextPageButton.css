@@ -1,0 +1,14 @@
+.next-page-button {
+  text-stroke: 0.1875rem black;
+  -ms-text-stroke: 0.1875rem black;
+  -webkit-text-stroke: 0.1875rem black;
+}
+
+.next-page-button:hover,
+.next-page-button:focus,
+.next-page-button:active {
+  text-stroke: 0px transparent;
+  -ms-text-stroke: 0px transparent;
+  -webkit-text-stroke: 0px transparent;
+  color: black;
+}

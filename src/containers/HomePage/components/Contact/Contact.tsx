@@ -4,7 +4,7 @@ import RevealDetails from "./components/RevealDetails"
 
 const Contact: React.FC = () => (
   <>
-    <Wrapper>
+    <Wrapper className="pt-48">
       <section
         id="kontakt"
         style={{ paddingBottom: "256px" }}

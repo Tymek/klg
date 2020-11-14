@@ -3,13 +3,15 @@ import React from "react"
 const Wrapper: React.FC<{
   className?: string
   fullWidth?: boolean
-}> = ({ children, fullWidth, ...props }) => (
+  notRelative?: true
+  customWidth?: string
+}> = ({ children, fullWidth, notRelative, customWidth, ...props }) => (
   <div
     {...props}
     data-component="wrapper"
-    className={`relative mx-auto max-w-7xl px-4 sm:px-6 md:px-10 ${
-      props.className || ""
-    }`}
+    className={`mx-auto px-4 sm:px-6 md:px-10 ${props.className || ""} ${
+      notRelative ? "" : "relative"
+    } ${customWidth || "max-w-8xl"}`}
   >
     {children}
   </div>

@@ -36,8 +36,8 @@ const AboutMe: FC<AboutMeProps> = () => {
       <p className="relative z-10 xxl:ml-48 max-w-lg sm:mt-8 lg:mt-12 xl:-mt-48 xxl:-mt-56">
         <Span className="text-xs sm:text-sm md:text-base leading-7 xl:leading-10">
           Tutaj powinien znaleźć się krótki opis na mój temat, ale jeszcze go
-          nie zredagowałam. Ta strona nie jest jeszcze skończona. Możesz
-          oczekiwać ostatecznej wersji przed końcem roku.
+          nie zredagowałam. Ta strona nie jest skończona. Możesz oczekiwać
+          ostatecznej wersji przed końcem roku.
         </Span>
       </p>
     </section>

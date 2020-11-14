@@ -1,0 +1,15 @@
+.portfolio-item h3 {
+  text-stroke: 0.1875rem black;
+  -ms-text-stroke: 0.1875rem black;
+  -webkit-text-stroke: 0.1875rem black;
+  color: transparent;
+}
+
+.portfolio-item:hover h3,
+.portfolio-item:focus h3,
+.portfolio-item:active h3 {
+  text-stroke: 0px transparent;
+  -ms-text-stroke: 0px transparent;
+  -webkit-text-stroke: 0px transparent;
+  color: black;
+}

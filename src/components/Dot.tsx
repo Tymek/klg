@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { FC, HTMLProps } from "react"
 
-const Dot: React.FC = () => (
-  <span aria-label=", "><span aria-hidden="true"> &#x2981; </span></span>
+const Dot: FC<HTMLProps<HTMLSpanElement>> = ({ ...props }) => (
+  <span aria-label=", " {...props}>
+    <span aria-hidden="true"> &#x2981; </span>
+  </span>
 )
 
 export default Dot
