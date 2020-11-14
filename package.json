@@ -31,7 +31,7 @@
     "gatsby-source-filesystem": "2.4.2",
     "gatsby-transformer-sharp": "2.5.21",
     "is-touch-device": "1.0.1",
-    "preact": "10.5.5",
+    "preact": "10.5.7",
     "preact-render-to-string": "5.1.11",
     "prettier": "2.1.2",
     "prop-types": "15.7.2",
