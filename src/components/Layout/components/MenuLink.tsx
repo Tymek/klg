@@ -2,7 +2,9 @@ import React, { FC, ComponentProps } from "react"
 import { Link } from "gatsby"
 import "./MenuLink.css"
 
-const MenuLink: FC<ComponentProps<typeof Link>> = ({ children, to }) => {
+type MenuLinkProps = Pick<ComponentProps<typeof Link>, "children" | "to">
+
+const MenuLink: FC<MenuLinkProps> = ({ children, to }) => {
   const contents = (
     <>
       <span className="pb-1 px-1">{children}</span>

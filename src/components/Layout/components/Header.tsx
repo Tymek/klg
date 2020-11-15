@@ -41,31 +41,25 @@ const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
         <header className="pt-6 md:pt-12 pb-4 md:pb-10">
           <div className="md:w-3/4 z-1 relative">
             <nav className="flex text:md flex-wrap flex-col md:flex-row ml-0 xs:ml-10 md:ml-0">
-              <h1 className="lowercase font-bold text-lg">
+              <span data-test="logo" className="lowercase font-bold text-lg">
                 <Link to="/">Magda Klag</Link>
-              </h1>
-              <ul className="mr-auto md:mr-0 md:ml-auto md:w-auto text-sm grid gap-x-3 grid-flow-col">
+              </span>
+              <ul
+                data-test="menu"
+                className="mr-auto md:mr-0 md:ml-auto md:w-auto text-sm grid gap-x-3 grid-flow-col"
+              >
                 <li>
-                  <MenuLink
-                    className="menuLink"
-                    to={isHomePage ? "#o-mnie" : "/#o-mnie"}
-                  >
+                  <MenuLink to={isHomePage ? "#o-mnie" : "/#o-mnie"}>
                     o mnie
                   </MenuLink>
                 </li>
                 <li>
-                  <MenuLink
-                    className="menuLink"
-                    to={isHomePage ? "#portfolio" : "/#portfolio"}
-                  >
+                  <MenuLink to={isHomePage ? "#portfolio" : "/#portfolio"}>
                     portfolio
                   </MenuLink>
                 </li>
                 <li>
-                  <MenuLink
-                    className="menuLink"
-                    to={isHomePage ? "#kontakt" : "/#kontakt"}
-                  >
+                  <MenuLink to={isHomePage ? "#kontakt" : "/#kontakt"}>
                     kontakt
                   </MenuLink>
                 </li>

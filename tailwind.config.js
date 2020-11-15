@@ -5,6 +5,8 @@ module.exports = {
     "./src/**/*.jsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./src/**/*.md",
+    "./src/**/*.mdx",
   ],
   target: 'relaxed',
   prefix: '',

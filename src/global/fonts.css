@@ -2,7 +2,7 @@
   font-family: Gilroy;
   font-weight: 300;
   font-style: normal;
-  src: url("../../fonts/Gilroy-Light.woff2") format("woff2");
+  src: url("../fonts/Gilroy-Light.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -10,6 +10,6 @@
   font-family: Gilroy;
   font-weight: 800;
   font-style: normal;
-  src: url("../../fonts/Gilroy-ExtraBold.woff2") format("woff2");
+  src: url("../fonts/Gilroy-ExtraBold.woff2") format("woff2");
   font-display: swap;
 }
