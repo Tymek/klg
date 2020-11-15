@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 
 import Header, { HeaderProps } from "./components/Header"
-import "./styles.css"
-import "./fonts.css"
+import "../../global/styles.css"
+import "../../global/fonts.css"
 
 export type LayoutProps = HeaderProps
 

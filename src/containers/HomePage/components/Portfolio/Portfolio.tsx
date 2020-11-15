@@ -4,6 +4,9 @@ import Img from "gatsby-image"
 import { P } from "../../../../components/Typo"
 import Dot from "../../../../components/Dot"
 import "./Portfolio.css"
+import OutlinedLink, {
+  OutlinedLinkTarget,
+} from "../../../../components/OutlinedLink/OutlinedLink"
 
 type PortfolioProps = {}
 
@@ -22,10 +25,13 @@ const Portfolio: FC<PortfolioProps> = () => {
 
   return (
     <section id="portfolio" className="pt-24 pb-56">
-      <Link to="/portfolio/przeplotki" className="portfolio-item">
+      <h2 className="sr-only">Portfolio</h2>
+      <OutlinedLink to="/portfolio/przeplotki" className="portfolio-item">
         <div className="relative grid grid-cols-2 gap-6 mx-auto">
           <div className="flex flex-col justify-center">
-            <h3 className="text-3xl font-bold uppercase">Przeplotki</h3>
+            <h3 className="text-3xl font-bold uppercase">
+              <OutlinedLinkTarget>Przeplotki</OutlinedLinkTarget>
+            </h3>
             <P className="mb-4 text-lg leading-tight">
               zabawki
               <Dot />
@@ -45,7 +51,7 @@ const Portfolio: FC<PortfolioProps> = () => {
             />
           </div>
         </div>
-      </Link>
+      </OutlinedLink>
     </section>
   )
 }

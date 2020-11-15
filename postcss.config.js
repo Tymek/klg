@@ -1,6 +1,8 @@
+const dir = `${__dirname}`
+
 module.exports = () => ({
   plugins: [
-    require("tailwindcss")("./tailwind.config.js"),
+    require("tailwindcss")(`${dir}/tailwind.config.js`),
     require("autoprefixer"),
   ],
 })
