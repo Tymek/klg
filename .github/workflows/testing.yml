@@ -1,10 +1,10 @@
-name: Cypress
+name: Automated tests
 on: push
 jobs:
-  e2e:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      - name: Dump context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
@@ -16,10 +16,13 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Unit tests
+        run: npm run test:jest
+
       - name: Build
         run: npm run build
 
-      - name: Test
+      - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
           record: true
