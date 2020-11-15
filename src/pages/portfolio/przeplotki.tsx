@@ -7,7 +7,6 @@ import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Dot from "../../components/Dot"
-import NextPageButton from "../../components/NextPageButton/NextPageButton"
 
 const productGridSequence = [
   "",
@@ -164,8 +163,6 @@ const MilinPage = () => {
             </P>
           </div>
         </section>
-
-        <div className="text-right">{/* <NextPageButton /> */}</div>
       </Wrapper>
     </Layout>
   )

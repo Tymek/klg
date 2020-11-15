@@ -1,5 +1,5 @@
 
 ```shell
-yarn install
-yarn develop
+npm install
+npm run develop
 ```
