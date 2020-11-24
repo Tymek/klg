@@ -1,7 +1,19 @@
-name: End-to-end tests
+name: Automated tests
 on: push
 jobs:
-  test:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: npm ci
+
+      - name: Unit tests
+        run: npm run test:jest
+
+  e2e:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -13,7 +25,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: E2E tests
+      - name: End-to-end tests
         uses: cypress-io/github-action@v2
         with:
           record: true
