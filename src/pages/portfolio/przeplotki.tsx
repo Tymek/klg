@@ -42,6 +42,50 @@ const MilinPage = () => {
           }
         }
       }
+      showcase1: file(
+        relativePath: { eq: "przeplotki/przeplotki-milin-zabawka.jpg" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      showcase2: file(relativePath: { eq: "przeplotki/milin-toy.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      showcase3: file(relativePath: { eq: "przeplotki/on-the-shelf.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      showcase4: file(relativePath: { eq: "przeplotki/opakowania.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      showcase5: file(relativePath: { eq: "przeplotki/opakowanie.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      showcase6: file(relativePath: { eq: "przeplotki/sklep.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
       przeplotki: allFile(filter: { dir: { regex: "/przeplotki/zabawka/" } }) {
         edges {
           node {
@@ -125,7 +169,7 @@ const MilinPage = () => {
           </P>
         </section>
 
-        <h2 className="text-lg text-center uppercase pt-16 pb-48 mb-12">
+        <h2 className="text-lg text-center uppercase pt-16 pb-40 mb-12">
           Zabawki
           <Dot style={{ color: "#1eb3c9" }} />
           Opakowania
@@ -135,10 +179,27 @@ const MilinPage = () => {
           Systemy wystawiennicze
         </h2>
 
+        <div className="mb-20">
+          <Img fluid={data.showcase1.childImageSharp.fluid} />
+        </div>
+        <div className="mb-32">
+          <Img fluid={data.showcase2.childImageSharp.fluid} />
+        </div>
+
         <div className="grid gap-4 sm:gap-8 lg:gap-16 grid-cols-2 grid-flow-row-dense">
           {przeplotki.map(({ key, fluid, className }) => (
             <Img key={key} fluid={fluid} className={className} />
           ))}
+        </div>
+
+        <div className="mt-24 mb-20">
+          <Img fluid={data.showcase3.childImageSharp.fluid} />
+        </div>
+        <div className="mb-20">
+          <Img fluid={data.showcase4.childImageSharp.fluid} />
+        </div>
+        <div className="mb-20">
+          <Img fluid={data.showcase5.childImageSharp.fluid} />
         </div>
 
         <section className="max-w-4xl mx-auto mt-20 md:mt-48 mb-16 md:mb-32">
@@ -163,6 +224,10 @@ const MilinPage = () => {
             </P>
           </div>
         </section>
+
+        <div className="mt-24 mb-20">
+          <Img fluid={data.showcase6.childImageSharp.fluid} />
+        </div>
       </Wrapper>
     </Layout>
   )
