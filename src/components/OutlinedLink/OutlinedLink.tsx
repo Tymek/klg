@@ -14,7 +14,11 @@ const OutlinedLink: FC<OutlinedLinkProps> = ({
   ...props
 }) => (
   <Link to={to} {...props} className={`outlined-link ${className || ""}`}>
-    {children}
+    {typeof children === "string" ? (
+      <OutlinedLinkTarget>{children}</OutlinedLinkTarget>
+    ) : (
+      children
+    )}
   </Link>
 )
 

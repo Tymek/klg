@@ -1,0 +1,17 @@
+.interactive-dot {
+  width: 3rem;
+  height: 3rem;
+  padding-bottom: 2rem;
+}
+
+.interactive-dot:after {
+  @apply block;
+  @apply block;
+  @apply bg-fuchsia;
+  @apply rounded-full;
+  @apply mx-auto;
+
+  content: ' ';
+  width: 0.75rem;
+  height: 0.75rem;
+}

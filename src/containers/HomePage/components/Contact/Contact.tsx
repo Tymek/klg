@@ -1,5 +1,6 @@
 import React from "react"
 import Wrapper from "../../../../components/Wrapper"
+import Footer from "../../../../components/Footer"
 import RevealDetails from "./components/RevealDetails"
 
 const Contact: React.FC = () => (
@@ -27,17 +28,7 @@ const Contact: React.FC = () => (
         </div>
       </section>
     </Wrapper>
-    <div
-      style={{
-        width: "67%",
-        height: "256px",
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        zIndex: -2,
-      }}
-      className="bg-lightGray"
-    />
+    <Footer className="absolute" />
   </>
 )
 
