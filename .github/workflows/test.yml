@@ -29,7 +29,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
-          start: npm start
-          wait-on: 'http://localhost:8000'
+          start: npm run serve
+          wait-on: 'http://localhost:9000'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
