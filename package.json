@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.2.4",
+  "version": "0.3.4",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "deploy": "npm ci && npm build",
