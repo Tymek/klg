@@ -4,20 +4,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Install
         run: npm ci
-
-      - name: Unit tests
-        run: npm run test:jest
 
       - name: Build
         run: npm run build
