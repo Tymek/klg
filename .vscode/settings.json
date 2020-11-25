@@ -11,5 +11,9 @@
   "editor.formatOnSave": false,
   "[typescriptreact]": {
     "editor.formatOnSave": true
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background" : "#131112",
+    "statusBar.foreground": "#f101a9"
   }
 }
