@@ -31,5 +31,6 @@ jobs:
           record: true
           start: npm run serve
           wait-on: 'http://localhost:9000'
+          config: baseUrl=http://localhost:9000
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
