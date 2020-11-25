@@ -8,7 +8,6 @@ module.exports = {
     "./src/**/*.md",
     "./src/**/*.mdx",
   ],
-  target: 'relaxed',
   prefix: '',
   important: false,
   separator: ':',
