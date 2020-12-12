@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { ComponentProps, FC } from "react"
+import React, { ComponentProps, FC, ReactNode } from "react"
 import "./OutlinedLink.css"
 
 type OutlinedLinkProps = Pick<
@@ -23,10 +23,10 @@ const OutlinedLink: FC<OutlinedLinkProps> = ({
 )
 
 export const OutlinedLinkTarget: FC<{
-  children: string
+  children: ReactNode
   className?: string
 }> = ({ children, className }) => (
-  <span className={`outlined-link__target ${className}`}>
+  <span className={`outlined-link__target ${className || ""}`}>
     <span className="outlined-link__target__text">{children}</span>
     <div aria-hidden className="outlined-link__target--plain">
       <div>{children}</div>

@@ -1,3 +1,9 @@
+.portfolio-item {
+  display: block;
+  @apply mb-8;
+  @apply xl:mb-16;
+}
+
 .portfolio-item h3 {
   text-stroke: 0.1875rem black;
   -ms-text-stroke: 0.1875rem black;
