@@ -1,0 +1,49 @@
+body {
+  background-color: #fff;
+}
+
+svg {
+  width: 100%;
+}
+
+.text {
+  @apply font-bold;
+  @apply uppercase;
+  @apply font-sans;
+  font-size: 1em;
+}
+
+.stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.25rem;
+  /* stroke-dasharray: 100%;
+  stroke-dashoffset: 0;
+  animation-name: outline;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: backwards;
+  animation-delay: 1s; */
+}
+
+
+.outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.0625rem;
+  /* stroke-width: 0.125rem; */
+}
+
+.fill {
+  fill: currentColor;
+}
+
+@keyframes outline {
+  from {
+    stroke-dashoffset: 100%;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

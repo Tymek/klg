@@ -34,6 +34,12 @@ body {
   background: #f101a9;
   opacity: 1;
 }
+svg text::selection,
+svg tspan::selection {
+  color: white;
+  background: #f101a9;
+  opacity: 1;
+}
 
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
