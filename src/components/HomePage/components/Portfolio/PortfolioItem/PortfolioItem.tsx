@@ -3,7 +3,7 @@ import Img, { FluidObject } from "gatsby-image"
 
 import OutlinedLink, {
   OutlinedLinkTarget,
-} from "../../../../../components/OutlinedLink/OutlinedLink"
+} from "../../../../OutlinedLink/OutlinedLink"
 import "./PortfolioItem.css"
 
 type PortfolioItemProps = {

@@ -1,6 +1,6 @@
 import React from "react"
-import Wrapper from "../../../../components/Wrapper"
-import Footer from "../../../../components/Footer"
+import Wrapper from "../../../Wrapper"
+import Footer from "../../../Footer"
 import RevealDetails from "./components/RevealDetails"
 
 const Contact: React.FC = () => (

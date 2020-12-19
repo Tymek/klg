@@ -1,9 +1,8 @@
 import React, { FC } from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
-import Wrapper from "../../../../components/Wrapper"
-import { Span } from "../../../../components/Typo"
-import Dots from "./components/Dots"
+import Wrapper from "../../../Wrapper"
+import { Span } from "../../../Typo"
 import "./AboutMe.css"
 
 type AboutMeProps = {}
@@ -23,7 +22,6 @@ const AboutMe: FC<AboutMeProps> = () => {
 
   return (
     <Wrapper notRelative>
-      <Dots />
       <section id="o-mnie" className="about-me relative">
         <div className="flex flex-col lg:flex-row relative">
           <div className="ml-10 -mr-4 sm:ml-auto sm:mr-6 md:mr-0 lg:ml-auto xl:mr-40 w-auto sm:w-2/3 lg:w-1/2 xl:w-1/3 z-0">

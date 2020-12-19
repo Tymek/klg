@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import Wrapper from "../../../../components/Wrapper"
+import Wrapper from "../../../Wrapper"
 import PortfolioItem from "./PortfolioItem"
 
-import { P } from "../../../../components/Typo"
-import Dot from "../../../../components/Dot"
+import { P } from "../../../Typo"
+import Dot from "../../../Dot"
 
 type PortfolioProps = {}
 
