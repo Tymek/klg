@@ -1,5 +1,12 @@
 /// <reference types="resize-observer-browser" />
-import React, { FC, Fragment, useEffect, useMemo, useRef } from "react"
+import React, {
+  FC,
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import useWindowSize from "../utilities/useWindowSize"
 import "./test.css"
 
@@ -11,17 +18,52 @@ type TestProps = {
 const Test: FC<TestProps> = ({ id, children }) => {
   const lines = useMemo(() => children.split("\n"), [children])
   const refs = useRef<SVGTSpanElement[]>([])
+  const [values, setValues] = useState<Array<number>>(lines.map(() => 0))
   useEffect(() => {
+    let sizes = values
+
     if (refs.current) {
+      const recalculate = () => {
+        let value = 75
+        let total = sizes.reduce((acc, curr) => acc + curr, 0)
+        let target = total * (value / 100)
+
+        setValues(
+          sizes.reduce((acc, curr) => {
+            const fill = Math.min(curr, target)
+            const percentage = (100 * fill) / curr || 0
+            target -= fill
+            total -= curr
+
+            acc.push(percentage)
+            return acc
+          }, [] as number[])
+        )
+      }
+
+      const resize = () => {
+        sizes = refs.current
+          .map(ref => ref.getBoundingClientRect().width)
+          .slice(0, lines.length)
+        recalculate()
+      }
+
+      resize()
+      const resizeObserver = new ResizeObserver(resize)
+
       refs.current.forEach(ref => {
-        const { width } = ref.getBoundingClientRect()
-        console.log(width)
+        resizeObserver.observe(ref)
       })
+
+      return () => {
+        resizeObserver.disconnect()
+      }
     }
-  }, [refs.current])
+  }, [refs.current, lines.length])
 
   return (
     <div>
+      {/* TODO: div to link */}
       <svg className="text-3xl" height={`${lines.length}em`}>
         {lines.map((line, index) => {
           const name = `${id}-${index}`
@@ -53,8 +95,8 @@ const Test: FC<TestProps> = ({ id, children }) => {
                   id={`${name}-gradient`}
                 >
                   <stop stopColor="white" offset="0%" />
-                  <stop stopColor="white" offset="75%" />
-                  <stop stopColor="black" offset="75%" />
+                  <stop stopColor="white" offset={`${values[index] || 0}%`} />
+                  <stop stopColor="black" offset={`${values[index] || 0}%`} />
                 </linearGradient>
                 <mask id={`${name}-fill`} maskContentUnits="objectBoundingBox">
                   <rect width="1" height="1" fill={`url(#${name}-gradient)`} />
@@ -79,7 +121,7 @@ const Test: FC<TestProps> = ({ id, children }) => {
   )
 }
 
-export default () => {
+const SizedText = () => {
   const { width } = useWindowSize()
   const text = useMemo(() => {
     if (width) {
@@ -105,3 +147,5 @@ export default () => {
     </div>
   )
 }
+
+export default SizedText
