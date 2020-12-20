@@ -13,3 +13,19 @@
   src: url("../fonts/Gilroy-ExtraBold.woff2") format("woff2");
   font-display: swap;
 }
+
+@font-face {
+  font-family: GilroyBlock;
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/Gilroy-Light.woff2") format("woff2");
+  font-display: block;
+}
+
+@font-face {
+  font-family: GilroyBlock;
+  font-weight: 800;
+  font-style: normal;
+  src: url("../fonts/Gilroy-ExtraBold.woff2") format("woff2");
+  font-display: block;
+}
