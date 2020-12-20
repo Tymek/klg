@@ -52,7 +52,7 @@ const Portfolio: FC<PortfolioProps> = () => {
           }
         />
         <PortfolioItem
-          title="Modułowe domki dla lalek"
+          title={"Modułowe domki\ndla lalek"}
           link="/portfolio/modulowe-domki-dla-lalek"
           image={{
             ...data?.domki?.childImageSharp?.fluid,

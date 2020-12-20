@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
         }}
         className="bg-lightGray block xxl:hidden"
       />
-      <Wrapper>
+      <Wrapper className="relative z-10">
         <header className="pt-6 md:pt-12 pb-4 md:pb-10">
           <div className="md:w-3/4 z-1 relative">
             <nav className="flex text:md flex-wrap flex-col md:flex-row ml-0 xs:ml-10 md:ml-0">

@@ -4,7 +4,7 @@
   @apply xl:mb-16;
 }
 
-.portfolio-item h3 {
+/* .portfolio-item h3 {
   text-stroke: 0.1875rem black;
   -ms-text-stroke: 0.1875rem black;
   -webkit-text-stroke: 0.1875rem black;
@@ -18,4 +18,4 @@
   -ms-text-stroke: 0px transparent;
   -webkit-text-stroke: 0px transparent;
   color: black;
-}
+} */
