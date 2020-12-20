@@ -8,19 +8,6 @@ import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
 
-const sortByBaseName = (
-  a: { node: { base: string } },
-  b: { node: { base: string } }
-) => {
-  if (a?.node?.base < b?.node?.base) {
-    return -1
-  }
-  if (a?.node?.base > b?.node?.base) {
-    return 1
-  }
-  return 0
-}
-
 const DollhousePage = () => {
   const data = useStaticQuery(graphql`
     query {

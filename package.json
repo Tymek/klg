@@ -22,6 +22,7 @@
     "docz:serve": "cross-env DOCZ=true docz serve"
   },
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "cross-env": "7.0.3",
     "gatsby": "2.29.1",
     "gatsby-image": "2.8.0",
@@ -78,6 +79,7 @@
     "webpack-bundle-analyzer": "4.2.0"
   },
   "optionalDependencies": {
+    "@types/loadable__component": "^5.13.1",
     "@types/node": "14.14.14",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
