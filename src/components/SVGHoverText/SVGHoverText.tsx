@@ -46,7 +46,12 @@ type SVGHoverTextProps = {
  * }
  * ```
  */
-const SVGHoverText: FC<SVGHoverTextProps> = ({ id, children, isOpen }) => {
+const SVGHoverText: FC<SVGHoverTextProps> = ({
+  id,
+  children,
+  isOpen,
+  className,
+}) => {
   const lines = useMemo(() => children.split("\n"), [children])
   const refs = useRef<SVGTSpanElement[]>([])
   const [values, setValues] = useState<Array<number>>(lines.map(() => 0))
@@ -91,7 +96,7 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, children, isOpen }) => {
     setValues(
       sizes.reduce((acc, curr) => {
         const fill = Math.min(curr, target)
-        const percentage = (100 * fill) / curr || 0
+        const percentage = Math.max((100 * fill) / curr || 0, 0)
         target -= curr + settings.lineSpacing
 
         acc.push(percentage)
@@ -132,7 +137,7 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, children, isOpen }) => {
   }, [isOpen])
 
   return (
-    <svg className="text-3xl svgHover" height={`${lines.length}em`}>
+    <svg className={`svgHover ${className}`} height={`${lines.length}em`}>
       {lines.map((line, index) => {
         const name = `${id}-${index}`
         return (

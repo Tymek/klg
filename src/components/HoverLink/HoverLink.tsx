@@ -1,10 +1,10 @@
 import React, { FC, ComponentProps } from "react"
 import { Link } from "gatsby"
-import "./MenuLink.css"
+import "./HoverLink.css"
 
-type MenuLinkProps = Pick<ComponentProps<typeof Link>, "children" | "to">
+type HoverLinkProps = Pick<ComponentProps<typeof Link>, "children" | "to">
 
-const MenuLink: FC<MenuLinkProps> = ({ children, to }) => {
+const HoverLink: FC<HoverLinkProps> = ({ children, to }) => {
   const contents = (
     <>
       <span className="pb-1 px-1">{children}</span>
@@ -18,14 +18,14 @@ const MenuLink: FC<MenuLinkProps> = ({ children, to }) => {
   )
 
   return to.startsWith("#") ? ( // Anchor link
-    <a href={to} className="relative menuLink inline-block">
+    <a href={to} className="relative hoverLink inline-block">
       {contents}
     </a>
   ) : (
-    <Link to={to} className="relative menuLink inline-block">
+    <Link to={to} className="relative hoverLink inline-block">
       {contents}
     </Link>
   )
 }
 
-export default MenuLink
+export default HoverLink

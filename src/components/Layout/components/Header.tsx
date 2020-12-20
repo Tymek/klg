@@ -2,7 +2,7 @@ import React, { CSSProperties } from "react"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import Wrapper from "../../Wrapper"
-import MenuLink from "./MenuLink"
+import HoverLink from "../../HoverLink"
 
 export type HeaderProps = {
   largeDecoration?: boolean
@@ -49,19 +49,19 @@ const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
                 className="mr-auto md:mr-0 md:ml-auto md:w-auto text-sm grid gap-x-3 grid-flow-col"
               >
                 <li>
-                  <MenuLink to={isHomePage ? "#o-mnie" : "/#o-mnie"}>
+                  <HoverLink to={isHomePage ? "#o-mnie" : "/#o-mnie"}>
                     o mnie
-                  </MenuLink>
+                  </HoverLink>
                 </li>
                 <li>
-                  <MenuLink to={isHomePage ? "#portfolio" : "/#portfolio"}>
+                  <HoverLink to={isHomePage ? "#portfolio" : "/#portfolio"}>
                     portfolio
-                  </MenuLink>
+                  </HoverLink>
                 </li>
                 <li>
-                  <MenuLink to={isHomePage ? "#kontakt" : "/#kontakt"}>
+                  <HoverLink to={isHomePage ? "#kontakt" : "/#kontakt"}>
                     kontakt
-                  </MenuLink>
+                  </HoverLink>
                 </li>
               </ul>
             </nav>

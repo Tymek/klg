@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useState } from "react"
 import { Link } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
-import SVGHoverText from "../../../../SVGHoverText"
+import SVGHoverText from "../../../../../SVGHoverText"
 
 import "./PortfolioItem.css"
 
@@ -27,20 +27,21 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   }
 
   return (
-    <>
+    <li>
       <Link
         to={link}
         onMouseEnter={open}
         onMouseLeave={close}
         className="portfolio-item relative block"
       >
-        <div className="relative grid grid-cols-2 gap-6 mx-auto">
+        <div className="relative flex flex-col-reverse md:grid md:grid-cols-2 gap-6 mx-auto">
           <div className="flex flex-col justify-center">
             <span className="block">
-              <span className="text-3xl font-bold uppercase"></span>
+              <span className="font-bold uppercase"></span>
               <SVGHoverText
                 id={`svg-${link.replace(/[^\w]/g, "-")}`}
                 isOpen={isOpen}
+                className="text-xl md:text-3xl"
               >
                 {title}
               </SVGHoverText>
@@ -52,7 +53,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
           </div>
         </div>
       </Link>
-    </>
+    </li>
   )
 }
 

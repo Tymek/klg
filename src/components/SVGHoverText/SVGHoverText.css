@@ -12,17 +12,15 @@
 .svgHoverStroke {
   fill: none;
   stroke: currentColor;
-  stroke-width: 0.25rem;
+  stroke-width: 0.05714285714285714em; /* 4px at text-3xl (70px) */
 }
 
 .svgHoverOutline {
   fill: none;
   stroke: currentColor;
-  stroke-width: 0.0625rem;
+  stroke-width: 0.014285714285714285em; /* 1px at text-3xl (70px) */
 }
 
 .svgHoverFill {
   fill: currentColor;
 }
-
-

@@ -22,6 +22,7 @@ const clear = (ctx: CanvasRenderingContext2D) => () =>
 
 const SimulationCanvas: FC = () => {
   const ref = useRef<HTMLCanvasElement>(null)
+  const { width: windowWidth } = useWindowSize()
 
   useEffect(() => {
     if (!ref?.current) return
@@ -31,7 +32,7 @@ const SimulationCanvas: FC = () => {
 
     if (!ctx) return
 
-    ctx.canvas.width = width
+    ctx.canvas.width = windowWidth || width
     ctx.canvas.height = height
 
     loop.add("clear", {
@@ -60,7 +61,7 @@ const SimulationCanvas: FC = () => {
         removeParticle()
       })
     }
-  }, [ref.current])
+  }, [ref.current, windowWidth])
 
   return <canvas className="sumulationCanvas" ref={ref} />
 }

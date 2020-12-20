@@ -1,8 +1,8 @@
-.menuLink, .menuLink * {
+.hoverLink, .hoverLink * {
   -webkit-tap-highlight-color: transparent;
 }
 
-.menuLink div {
+.hoverLink div {
   width: 0;
   transition: all 333ms ease;
   z-index: 2;
@@ -10,6 +10,6 @@
   white-space: nowrap;
 }
 
-.menuLink:hover div, .menuLink:focus div, .menuLink:active div {
+.hoverLink:hover div, .hoverLink:focus div, .hoverLink:active div {
   width: 100%;
 }

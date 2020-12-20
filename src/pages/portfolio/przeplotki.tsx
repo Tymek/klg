@@ -8,9 +8,6 @@ import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Dot from "../../components/Dot"
 import Footer from "../../components/Footer"
-import OutlinedLink, {
-  OutlinedLinkTarget,
-} from "../../components/OutlinedLink/OutlinedLink"
 
 const productGridSequence = [
   "",
@@ -234,14 +231,14 @@ const MilinPage = () => {
             <Img fluid={data.showcase6.childImageSharp.fluid} />
           </div>
 
-          <div className="flex justify-end py-12">
+          {/* <div className="flex justify-end py-12">
             <OutlinedLink
               to="/portfolio/milin"
               className="text-3xl font-bold uppercase"
             >
               Następny
             </OutlinedLink>
-          </div>
+          </div> */}
         </Wrapper>
         <Footer />
       </Layout>

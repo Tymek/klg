@@ -1,16 +1,12 @@
-import React, { useMemo } from "react"
+import React from "react"
 
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
-import Dot from "../../components/Dot"
 import Footer from "../../components/Footer"
-import OutlinedLink, {
-  OutlinedLinkTarget,
-} from "../../components/OutlinedLink/OutlinedLink"
 
 const sortByBaseName = (
   a: { node: { base: string } },
