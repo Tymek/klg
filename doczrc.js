@@ -1,4 +1,4 @@
-const primary = "#f101a9"
+const primary = "#f12185"
 
 export const colors = {
   primary,

@@ -27,7 +27,7 @@ module.exports = {
       black: '#131112',
       white: '#fff',
       lightGray: '#f1f1f2',
-      fuchsia: '#f101a9',
+      fuchsia: '#f12185',
     },
     spacing: {
       px: '1px',

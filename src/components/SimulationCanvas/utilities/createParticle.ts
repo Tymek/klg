@@ -6,7 +6,7 @@ import {
 } from "./vectorMath"
 
 const settings = {
-  size: 6,
+  size: 4,
   mass: 20,
   stiffness: 100,
   dumping: 150,
@@ -39,7 +39,7 @@ const createParticle = (
 
   const drawCircle = (x: number, y: number, radius: number) => {
     ctx.beginPath()
-    ctx.fillStyle = "#f101a9"
+    ctx.fillStyle = "#f12185"
     ctx.arc(x, y, radius, 0, 2 * Math.PI, false)
     ctx.fill()
     ctx.closePath()

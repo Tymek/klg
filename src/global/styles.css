@@ -31,13 +31,13 @@ body {
 
 ::selection {
   color: white;
-  background: #f101a9;
+  @apply bg-fuchsia;
   opacity: 1;
 }
 svg text::selection,
 svg tspan::selection {
   color: white;
-  background: #f101a9;
+  @apply bg-fuchsia;
   opacity: 1;
 }
 

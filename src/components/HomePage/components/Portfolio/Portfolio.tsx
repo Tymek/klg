@@ -20,7 +20,7 @@ const Portfolio: FC<PortfolioProps> = () => {
           }
         }
       }
-      domki: file(relativePath: { eq: "domek/domek-skladany.jpg" }) {
+      domki: file(relativePath: { eq: "domek.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1648) {
             ...GatsbyImageSharpFluid_withWebp
@@ -28,6 +28,13 @@ const Portfolio: FC<PortfolioProps> = () => {
         }
       }
       festiwal: file(relativePath: { eq: "festiwal-kolorow.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1648) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1648) {
             ...GatsbyImageSharpFluid_withWebp
@@ -60,13 +67,14 @@ const Portfolio: FC<PortfolioProps> = () => {
   )
 
   return (
-    <Wrapper className="pt-24 pb-56">
+    <Wrapper className="mt-32 pt-24 pb-56">
       <section id="portfolio" className="relative">
         <h2 className="sr-only">Portfolio</h2>
         <Navigation>
           <a href="#">zabawki</a>
           <a href="#">ilustracja</a>
           <a href="#">branding</a>
+          <a href="#">publikacja</a>
           <a href="#">opakowania</a>
         </Navigation>
 
@@ -78,17 +86,17 @@ const Portfolio: FC<PortfolioProps> = () => {
               ...data?.przeplotki?.childImageSharp?.fluid,
               aspectRatio: 5 / 3,
             }}
-            description={
-              <P className="mb-4 text-md leading-tight">
-                zabawki
-                <Dot />
-                opakowania
-                <Dot />
-                materiały reklamowe
-                <Dot />
-                systemy wystawiennicze
-              </P>
-            }
+            // description={
+            //   <P className="mb-4 text-md leading-tight">
+            //     zabawki
+            //     <Dot />
+            //     opakowania
+            //     <Dot />
+            //     materiały reklamowe
+            //     <Dot />
+            //     systemy wystawiennicze
+            //   </P>
+            // }
           />
           <PortfolioItem
             title={mapTextWidth({
@@ -100,15 +108,15 @@ const Portfolio: FC<PortfolioProps> = () => {
               ...data?.domki?.childImageSharp?.fluid,
               aspectRatio: 5 / 3,
             }}
-            description={
-              <P className="mb-4 text-md leading-tight">
-                zabawki
-                <Dot />
-                opakowania
-                <Dot />
-                materiały reklamowe
-              </P>
-            }
+            // description={
+            //   <P className="mb-4 text-md leading-tight">
+            //     zabawki
+            //     <Dot />
+            //     opakowania
+            //     <Dot />
+            //     materiały reklamowe
+            //   </P>
+            // }
           />
           <PortfolioItem
             title={mapTextWidth({
@@ -119,9 +127,20 @@ const Portfolio: FC<PortfolioProps> = () => {
               ...data?.festiwal?.childImageSharp?.fluid,
               aspectRatio: 5 / 3,
             }}
-            description={
-              <P className="mb-4 text-md leading-tight">materiały reklamowe</P>
-            }
+            // description={
+            //   <P className="mb-4 text-md leading-tight">materiały reklamowe</P>
+            // }
+          />
+          <PortfolioItem
+            title={mapTextWidth({
+              0: "Milin",
+            })}
+            link="/portfolio/milin"
+            image={{
+              ...data?.milin?.childImageSharp?.fluid,
+              aspectRatio: 5 / 3,
+            }}
+            // description={<P className="mb-4 text-md leading-tight">branding</P>}
           />
         </ul>
       </section>

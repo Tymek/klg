@@ -10,7 +10,7 @@ type AboutMeProps = {}
 const AboutMe: FC<AboutMeProps> = () => {
   const data = useStaticQuery(graphql`
     query {
-      mainCoverPhoto: file(relativePath: { eq: "domek.jpg" }) {
+      mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid_withWebp

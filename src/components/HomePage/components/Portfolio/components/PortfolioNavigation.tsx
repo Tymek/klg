@@ -16,12 +16,15 @@ const PortfolioNavigation: FC = ({ children }) => {
           style={{
             transformOrigin: "left top",
             transform: "rotate(270deg) translate(-100%, 0%)",
-            top: "10vh",
+            top: "2vh",
+            fontSize: "calc(min(2.8571429vh, 1.25rem)",
           }}
         >
-          {Children.map(children, item => (
-            <li className="inline mr-5">{item}</li>
-          ))}
+          {Children.toArray(children)
+            .reverse() // TODO: reverse with flex & space between
+            .map(item => (
+              <li className="inline mr-5">{item}</li>
+            ))}
         </ul>
       </nav>
     </div>
