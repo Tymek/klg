@@ -12,32 +12,16 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const data = useStaticQuery(graphql`
     query {
       przeplotki: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1328) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       domki: file(relativePath: { eq: "domek.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       festiwal: file(relativePath: { eq: "festiwal-kolorow.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
     }
   `)

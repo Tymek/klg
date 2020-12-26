@@ -1,12 +1,12 @@
 import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
+import Image from "../../components/Image"
 
 const ColorFestivalPage = () => {
   const data = useStaticQuery(graphql`
@@ -16,7 +16,7 @@ const ColorFestivalPage = () => {
       ) {
         childImageSharp {
           fluid(maxWidth: 889) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -25,18 +25,14 @@ const ColorFestivalPage = () => {
       ) {
         childImageSharp {
           fluid(maxWidth: 506) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
       businessCards: file(
         relativePath: { eq: "festiwal-kolorow/business-cards.png" }
       ) {
-        childImageSharp {
-          fluid(maxWidth: 1326) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
     }
   `)
@@ -48,19 +44,19 @@ const ColorFestivalPage = () => {
         <Wrapper>
           <div className="grid grid-cols-9 xl:gap-x-15 mt-8">
             <div className="col-span-9 xl:col-start-3 xl:col-span-5 mt-16 mb-16">
-              <Img
+              <Image
                 fluid={data.cover.childImageSharp.fluid}
                 className="mb-4 sm:mb-8 xl:mb-32"
               />
             </div>
             <div className="col-span-9 xl:col-start-4 xl:col-span-3 mb-16">
-              <Img
+              <Image
                 fluid={data.secondary.childImageSharp.fluid}
                 className="mb-4 sm:mb-8 xl:mb-32"
               />
             </div>
             <div className="col-span-9 xl:col-start-2 xl:col-span-7">
-              <Img
+              <Image
                 fluid={data.businessCards.childImageSharp.fluid}
                 className="mb-4 sm:mb-8 xl:mb-32"
               />

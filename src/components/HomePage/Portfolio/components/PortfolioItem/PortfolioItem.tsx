@@ -1,7 +1,8 @@
 import React, { FC, ReactNode, useState } from "react"
 import { Link } from "gatsby"
-import Img, { FluidObject } from "gatsby-image"
+import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
+import Image from "../../../../Image"
 
 import "./PortfolioItem.css"
 
@@ -50,7 +51,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
             {description}
           </div>
           <div>
-            <Img fluid={image} />
+            <Image fluid={image} />
           </div>
         </div>
       </Link>

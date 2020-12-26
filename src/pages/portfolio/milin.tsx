@@ -9,37 +9,22 @@ import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Cover from "../../components/Cover"
 import Dot from "../../components/Dot"
+import Image from "../../components/Image"
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
       branding: file(relativePath: { eq: "milin/milin-branding.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       businessCards: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       catalogFront: file(relativePath: { eq: "milin/katalog-front.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       catalogInside: file(relativePath: { eq: "milin/katalog-wnetrze.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
     }
   `)
@@ -81,15 +66,18 @@ const MilinPage = () => {
         </section>
       </Wrapper>
 
-      <Img className="mt-6" fluid={data.businessCards.childImageSharp.fluid} />
+      <Image
+        className="mt-6"
+        fluid={data.businessCards.childImageSharp.fluid}
+      />
 
       <Wrapper>
         <div className="my-24 md:py-16 grid gap-x-8 xl:gap-x-24 gap-y-8 grid-cols-1 md:grid-cols-2">
-          <Img
+          <Image
             fluid={data.catalogFront.childImageSharp.fluid}
             alt="Katalog Milin – okładka"
           />
-          <Img
+          <Image
             fluid={data.catalogInside.childImageSharp.fluid}
             alt="Katalog Milin – wnętrze"
           />

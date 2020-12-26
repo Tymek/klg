@@ -3,30 +3,22 @@ import React from "react"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import Wrapper from "../../components/Wrapper"
 import gifLarge from "../../images/zakladki/open-book-full.gif"
 import gifSmall from "../../images/zakladki/open-book-small.gif"
 import webpLarge from "../../images/zakladki/open-book-full.webp"
 import webpSmall from "../../images/zakladki/open-book-small.webp"
+import Image from "../../components/Image"
 import { P } from "../../components/Typo"
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query Images {
       cover: file(relativePath: { eq: "zakladki/zakladka-cover.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       closedBook: file(relativePath: { eq: "zakladki/closed-book.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       allFile(
         filter: { relativeDirectory: { eq: "zakladki/lista" } }
@@ -38,32 +30,20 @@ const MilinPage = () => {
             absolutePath
             childImageSharp {
               fluid(maxWidth: 350) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
           }
         }
       }
       kaktus: file(relativePath: { eq: "zakladki/zakladka-kaktus.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       feather: file(relativePath: { eq: "zakladki/bookmark-feather.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       abstract: file(relativePath: { eq: "zakladki/bookmark-abstract.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
     }
   `)
@@ -74,16 +54,17 @@ const MilinPage = () => {
         <SEO title="Zakładka" />
         <Wrapper>
           <div className="mb-20">
-            <Img
+            <Image
               fluid={{
                 ...data.cover.childImageSharp.fluid,
                 aspectRatio: 16 / 7,
               }}
+              backgroundColor="#f1f1f1"
             />
           </div>
           <div className="flex flex-wrap items-end py-12 lg:py-20">
             <div className="w-full max-w-xl">
-              <Img fluid={data.closedBook.childImageSharp.fluid} />
+              <Image fluid={data.closedBook.childImageSharp.fluid} />
             </div>
             <div className="lg:px-20 lg:ml-8 mt-20 pb-3">
               <h1 className="text-2xl my-3">drewniane zakładki</h1>
@@ -115,7 +96,7 @@ const MilinPage = () => {
               {data.allFile.edges.map(
                 ({ node }: { node: { id: string; childImageSharp: any } }) => (
                   <div>
-                    <Img fluid={node.childImageSharp.fluid} />
+                    <Image fluid={node.childImageSharp.fluid} />
                   </div>
                 )
               )}
@@ -125,14 +106,14 @@ const MilinPage = () => {
         <Wrapper>
           <div className="flex flex-wrap items-end py-16 lg:-mx-16 lg:pb-20">
             <div className="w-full lg:w-7/12 lg:px-16 mb-20">
-              <Img fluid={data.abstract.childImageSharp.fluid} />
+              <Image fluid={data.abstract.childImageSharp.fluid} />
             </div>
             <div className="w-full lg:w-5/12 lg:px-16 mb-20">
-              <Img fluid={data.kaktus.childImageSharp.fluid} />
+              <Image fluid={data.kaktus.childImageSharp.fluid} />
             </div>
           </div>
           <div className="xxl:w-9/12 pb-20">
-            <Img fluid={data.feather.childImageSharp.fluid} />
+            <Image fluid={data.feather.childImageSharp.fluid} />
           </div>
         </Wrapper>
       </Layout>

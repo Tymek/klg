@@ -1,52 +1,32 @@
 import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
+import Image from "../../components/Image"
 
 const DollhousePage = () => {
   const data = useStaticQuery(graphql`
     query {
       cover: file(relativePath: { eq: "domek/domek-skladany.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase: file(
         relativePath: { eq: "domek/domek-dla-lalek-prezentacja.jpg" }
       ) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase3: file(relativePath: { eq: "domek/domek-skladany-3.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase4: file(relativePath: { eq: "domek/domek-skladany-4.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase5: file(relativePath: { eq: "domek/domek-skladany-5.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
     }
   `)
@@ -58,13 +38,13 @@ const DollhousePage = () => {
         <Wrapper>
           <div className="grid grid-cols-9 xl:gap-x-15 mt-8">
             <div className="col-span-9 xl:col-start-2 xl:col-span-7">
-              <Img
+              <Image
                 fluid={data.cover.childImageSharp.fluid}
                 className="mb-4 sm:mb-8 xl:mb-32"
               />
             </div>
             <div className="col-span-9 sm:col-span-7 sm:col-start-2 xl:col-span-3 xl:col-start-1 xxl:col-start-2 xxl:col-span-3">
-              <Img
+              <Image
                 fluid={data.showcase.childImageSharp.fluid}
                 className="mb-6 sm:mb-12"
               />
@@ -102,19 +82,19 @@ const DollhousePage = () => {
               </div>
             </div>
             <div className="col-span-9 xl:col-span-6">
-              <Img
+              <Image
                 fluid={data.showcase3.childImageSharp.fluid}
                 className="mb-4 md:mb-20 md:mt-16"
               />
             </div>
             <div className="col-span-9 xl:col-span-7 xl:col-start-2">
-              <Img
+              <Image
                 fluid={data.showcase4.childImageSharp.fluid}
                 className="mb-4 md:mb-20"
               />
             </div>
             <div className="col-span-9 xl:col-span-6 xl:col-start-3">
-              <Img
+              <Image
                 fluid={data.showcase5.childImageSharp.fluid}
                 className="mb-4 md:mb-20"
               />
