@@ -11,6 +11,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
   tags,
 }) => (
   <div className="absolute top-0 left-0 w-full h-full">
+    {console.log(active, tags)}
     <nav
       className="sticky top-0 left-0 uppercase z-30"
       style={{
@@ -36,6 +37,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
               marginRight: "calc(min(1.5rem, 2vh))",
             }}
           >
+            {console.log(active === tag, active, tag)}
             <div>
               <HoverLink
                 active={active === tag}

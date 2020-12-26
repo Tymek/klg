@@ -38,13 +38,9 @@ const HoverLink: FC<HoverLinkProps> = ({ children, to, className, active }) => {
     }
   }
 
-  const classList = useMemo(
-    () =>
-      `relative hoverLink inline-block ${active ? "active" : ""} ${
-        className ? className : ""
-      }`.trim(),
-    [className, active]
-  )
+  const classList = `relative hoverLink inline-block ${
+    active ? "active" : ""
+  } ${className ? className : ""}`.trim()
 
   return to.startsWith("#") ? ( // Anchor link
     <a href={to} className={classList} onClick={onAnchorClick}>

@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useEffect, useState } from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
@@ -11,8 +11,15 @@ import Contact from "../components/HomePage/Contact"
 const tagKey = "kategoria"
 
 const IndexPage: FC<PageProps> = ({ location }) => {
-  const params = new URLSearchParams(location?.search)
-  const tag = params.get(tagKey) || undefined
+  const [tag, setTag] = useState<string>()
+
+  useEffect(() => {
+    // Not working with SSG - Gatsby bug -- see https://www.joshwcomeau.com/react/the-perils-of-rehydration/
+    if (typeof window === "undefined") return
+
+    const params = new URLSearchParams(location?.search)
+    setTag(params?.get(tagKey) || undefined)
+  })
 
   return (
     <>
