@@ -22,7 +22,7 @@
     "docz:serve": "cross-env DOCZ=true docz serve"
   },
   "dependencies": {
-    "@loadable/component": "^5.14.1",
+    "@loadable/component": "5.14.1",
     "cross-env": "7.0.3",
     "gatsby": "2.29.2",
     "gatsby-image": "2.8.0",
