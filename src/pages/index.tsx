@@ -1,19 +1,29 @@
-import React from "react"
+import React, { FC } from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-// import Wrapper from "../components/Wrapper"
-import HomePage from "../components/HomePage"
 import SimulationCanvas from "../components/SimulationCanvas"
+import { PageProps } from "gatsby"
+import AboutMe from "../components/HomePage/AboutMe"
+import Portfolio from "../components/HomePage/Portfolio"
+import Contact from "../components/HomePage/Contact"
 
-const IndexPage = () => (
-  <>
-    <SEO />
-    <SimulationCanvas />
-    <Layout largeDecoration>
-      <HomePage />
-    </Layout>
-  </>
-)
+const tagKey = "kategoria"
 
+const IndexPage: FC<PageProps> = ({ location }) => {
+  const params = new URLSearchParams(location?.search)
+  const tag = params.get(tagKey) || undefined
+
+  return (
+    <>
+      <SEO />
+      <SimulationCanvas />
+      <Layout largeDecoration>
+        <AboutMe />
+        <Portfolio tag={tag} />
+        <Contact />
+      </Layout>
+    </>
+  )
+}
 export default IndexPage

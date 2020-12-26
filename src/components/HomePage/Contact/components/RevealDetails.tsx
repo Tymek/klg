@@ -104,7 +104,10 @@ const RevealDetails: FC<RevealDetailsProps> = ({ children, file, item }) => {
     <div
       onMouseOver={() => dispatch("mouseOver")}
       onMouseOut={() => dispatch("mouseOut")}
+      onFocus={() => dispatch("mouseOver")}
+      onBlur={() => dispatch("mouseOut")}
       onClick={() => dispatch("click")}
+      tabIndex={state.isAllowed ? 0 : -1}
       className="revealDetails flex justify-end"
     >
       <div className="cursor-pointer">{children}</div>

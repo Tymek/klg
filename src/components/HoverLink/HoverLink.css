@@ -8,8 +8,16 @@
   z-index: 2;
   overflow: hidden;
   white-space: nowrap;
+  @apply bg-black;
 }
 
-.hoverLink:hover div, .hoverLink:focus div, .hoverLink:active div {
+.hoverLink:hover div,
+.hoverLink:focus div,
+.hoverLink:active div {
+  width: 100%;
+}
+
+.hoverLink.active div {
+  @apply bg-fuchsia;
   width: 100%;
 }

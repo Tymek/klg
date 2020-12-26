@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
-import Wrapper from "../../../Wrapper"
-import { Span } from "../../../Typo"
+import Wrapper from "../../Wrapper"
+import { Span } from "../../Typo"
 import "./AboutMe.css"
 
 type AboutMeProps = {}

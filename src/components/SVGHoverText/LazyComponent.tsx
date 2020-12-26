@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react"
+import useIsMobileFirefox from "../../utilities/useIsMobileFirefox"
 import "./SVGHoverText.css"
 
 const settings = {
@@ -20,9 +21,8 @@ const settings = {
 
 type SVGHoverTextProps = {
   id: string
-  children: string
+  lines: string[]
   isOpen?: boolean
-  className?: string
 }
 
 /**
@@ -46,15 +46,10 @@ type SVGHoverTextProps = {
  * }
  * ```
  */
-const SVGHoverText: FC<SVGHoverTextProps> = ({
-  id,
-  children,
-  isOpen,
-  className,
-}) => {
-  const lines = useMemo(() => children.split("\n"), [children])
+const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
   const refs = useRef<SVGTSpanElement[]>([])
   const [values, setValues] = useState<Array<number>>(lines.map(() => 0))
+  const isMobileFirefox = useIsMobileFirefox()
   const [sizes, setSizes] = useState<Array<number>>(values)
   const width = useMemo(
     () =>
@@ -137,59 +132,68 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({
   }, [isOpen])
 
   return (
-    <svg className={`svgHover ${className}`} height={`${lines.length}em`}>
-      {lines.map((line, index) => {
-        const name = `${id}-${index}`
-        return (
-          <Fragment key={line}>
-            <defs>
-              <text id={`${name}`} y="1em" className="svgHoverText">
-                <tspan
-                  y={`${index + 0.85}em`}
-                  x="0"
-                  ref={ref => {
-                    if (ref) {
-                      refs.current[index] = ref
-                    }
-                  }}
+    <div className="relative">
+      {/* <div className="z-20 leading-none" aria-hidden="true">
+        {lines.join("\n")}
+      </div> */}
+      <svg
+        className="svgHover"
+        height={`${lines.length * (isMobileFirefox ? 1.5 : 1)}em`} // Android Firefox bug
+        viewBox="0 0 100% 100%"
+      >
+        {lines.map((line, index) => {
+          const name = `${id}-${index}`
+          return (
+            <Fragment key={line}>
+              <defs>
+                <text id={`${name}`} y="1em" className="svgHoverText">
+                  <tspan
+                    y={`${index + 0.85}em`}
+                    x="0"
+                    ref={ref => {
+                      if (ref) {
+                        refs.current[index] = ref
+                      }
+                    }}
+                  >
+                    {line}{" "}
+                  </tspan>
+                </text>
+                <clipPath id={`${name}-clip`}>
+                  {/* clip text with itself – inset stroke fix */}
+                  <use href={`#${name}`} />
+                </clipPath>
+                <linearGradient
+                  y1="0%"
+                  x1="0%"
+                  y2="0%"
+                  x2="100%"
+                  id={`${name}-gradient`}
                 >
-                  {line}{" "}
-                </tspan>
-              </text>
-              <clipPath id={`${name}-clip`}>
-                {/* clip text with itself – inset stroke fix */}
-                <use href={`#${name}`} />
-              </clipPath>
-              <linearGradient
-                y1="0%"
-                x1="0%"
-                y2="0%"
-                x2="100%"
-                id={`${name}-gradient`}
-              >
-                <stop stopColor="white" offset="0%" />
-                <stop stopColor="white" offset={`${values[index] || 0}%`} />
-                <stop stopColor="black" offset={`${values[index] || 0}%`} />
-              </linearGradient>
-              <mask id={`${name}-fill`} maskContentUnits="objectBoundingBox">
-                <rect width="1" height="1" fill={`url(#${name}-gradient)`} />
-              </mask>
-            </defs>
-            <use href={`#${name}`} className="svgHoverOutline" />
-            <use
-              href={`#${name}`}
-              clip-path={`url(#${name}-clip)`}
-              className="svgHoverStroke"
-            />
-            <use
-              href={`#${name}`}
-              mask={`url(#${name}-fill)`}
-              className="svgHoverFill"
-            />
-          </Fragment>
-        )
-      })}
-    </svg>
+                  <stop stopColor="white" offset="0%" />
+                  <stop stopColor="white" offset={`${values[index] || 0}%`} />
+                  <stop stopColor="black" offset={`${values[index] || 0}%`} />
+                </linearGradient>
+                <mask id={`${name}-fill`} maskContentUnits="objectBoundingBox">
+                  <rect width="1" height="1" fill={`url(#${name}-gradient)`} />
+                </mask>
+              </defs>
+              <use href={`#${name}`} className="svgHoverOutline" />
+              <use
+                href={`#${name}`}
+                clip-path={`url(#${name}-clip)`}
+                className="svgHoverStroke"
+              />
+              <use
+                href={`#${name}`}
+                mask={`url(#${name}-fill)`}
+                className="svgHoverFill"
+              />
+            </Fragment>
+          )
+        })}
+      </svg>
+    </div>
   )
 }
 
