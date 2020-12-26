@@ -1,5 +1,4 @@
 import React, { FC, useCallback, useMemo } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import PortfolioItem from "./PortfolioItem"
 
 import useWindowSize from "../../../../utilities/useWindowSize"

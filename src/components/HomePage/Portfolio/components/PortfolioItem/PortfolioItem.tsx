@@ -39,7 +39,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
       >
         <div className="relative flex flex-col-reverse md:grid md:grid-cols-2 gap-6 mx-auto">
           <div className="flex flex-col justify-center">
-            <div className="font-bold uppercase text-xl md:text-3xl">
+            <div className="font-bold uppercase text-xl xl:text-3xl">
               <SVGHoverText
                 id={`svg-${link.replace(/[^\w]/g, "-")}`}
                 isOpen={isOpen}

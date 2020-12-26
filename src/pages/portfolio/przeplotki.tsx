@@ -100,6 +100,13 @@ const MilinPage = () => {
           }
         }
       }
+      prize: file(relativePath: { eq: "zabawkaroku_logo_w.png" }) {
+        childImageSharp {
+          fixed(width: 250) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
     }
   `)
 
@@ -169,6 +176,16 @@ const MilinPage = () => {
               Przeplatanie sznurówki przez dziurki rozwija motorykę małą, pomaga
               w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
             </P>
+
+            <div className="mb-5 flex justify-center">
+              <a
+                href="https://www.zabawkaroku.pl/produkt/?id=7770"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Img fixed={data.prize.childImageSharp.fixed} />
+              </a>
+            </div>
           </section>
 
           <h2 className="text-lg text-center uppercase pt-16 pb-40 mb-12">
