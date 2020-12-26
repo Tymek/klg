@@ -27,6 +27,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
           width: "100vh",
           fontSize: "calc(min(2.8571429vh, 1.25rem)",
         }}
+        data-test="portfolio-navigation"
       >
         {tags.map(tag => (
           <li

@@ -57,7 +57,7 @@ const PortfolioList: FC<PortfolioListProps> = ({ items, className }) => {
   )
 
   return (
-    <ul className={className}>
+    <ul className={className} data-test="portfolio-list">
       {parsedItems.map(item => (
         <PortfolioItem key={item.link} {...item} />
       ))}
