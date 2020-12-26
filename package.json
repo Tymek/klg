@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "deploy": "npm ci && npm build",
@@ -22,7 +22,7 @@
     "docz:serve": "cross-env DOCZ=true docz serve"
   },
   "dependencies": {
-    "@loadable/component": "^5.14.1",
+    "@loadable/component": "5.14.1",
     "cross-env": "7.0.3",
     "gatsby": "2.29.1",
     "gatsby-image": "2.8.0",
