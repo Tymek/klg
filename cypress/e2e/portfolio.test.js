@@ -19,4 +19,14 @@ describe("Portfolio", () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/#portfolio`)
     cy.get('[data-test=portfolio-list]').children().its('length').should('eq', 4)
   })
+
+  it("can change filter", () => {
+    cy.visit("/?kategoria=zabawki#portfolio")
+    cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').should('have.class', 'active')
+    cy.get('[data-test=portfolio-navigation] > :nth-child(2) a').should('not.have.class', 'active')
+    cy.get('[data-test=portfolio-navigation] > :nth-child(2) a').click()
+    cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').should('not.have.class', 'active')
+    cy.get('[data-test=portfolio-navigation] > :nth-child(2) a').should('have.class', 'active')
+    cy.url().should('eq', `${Cypress.config().baseUrl}/?kategoria=ilustracja#portfolio`)
+  })
 })
