@@ -1,8 +1,8 @@
 import React, { FC } from "react"
-import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import Wrapper from "../../Wrapper"
 import { Span } from "../../Typo"
+import Image from "../../Image"
 import "./AboutMe.css"
 
 type AboutMeProps = {}
@@ -12,8 +12,11 @@ const AboutMe: FC<AboutMeProps> = () => {
     query {
       mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_withWebp
+          fluid(
+            maxWidth: 1000
+            traceSVG: { background: "#ffffff", color: "#f1f1f1" }
+          ) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -25,9 +28,11 @@ const AboutMe: FC<AboutMeProps> = () => {
       <section id="o-mnie" className="about-me relative">
         <div className="flex flex-col lg:flex-row relative">
           <div className="ml-10 -mr-4 sm:ml-auto sm:mr-6 md:mr-0 lg:ml-auto xl:mr-40 w-auto sm:w-2/3 lg:w-1/2 xl:w-1/3 z-0">
-            <Img
-              fluid={data.mainCoverPhoto.childImageSharp.fluid}
-              className=""
+            <Image
+              fluid={{
+                ...data.mainCoverPhoto.childImageSharp.fluid,
+                backgroundColor: "#f1f1f2",
+              }}
             />
           </div>
           <div className="-mt-24 md:mt-0 mb-6 sm:mb-0 sm:pr-24 sm:absolute sm:bottom-1/3 md:bottom-1/3 xl:bottom-1/2 xxl:w-3/4 flex justify-end">

@@ -1,13 +1,14 @@
 import React, { useMemo } from "react"
 
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img, { FluidObject } from "gatsby-image"
+import { FluidObject } from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Dot from "../../components/Dot"
 import Footer from "../../components/Footer"
+import Image from "../../components/Image"
 
 const productGridSequence = [
   "",
@@ -37,55 +38,27 @@ const MilinPage = () => {
   const data = useStaticQuery(graphql`
     query {
       cover: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase1: file(
         relativePath: { eq: "przeplotki/przeplotki-milin-zabawka.jpg" }
       ) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase2: file(relativePath: { eq: "przeplotki/milin-toy.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase3: file(relativePath: { eq: "przeplotki/on-the-shelf.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase4: file(relativePath: { eq: "przeplotki/opakowania.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase5: file(relativePath: { eq: "przeplotki/opakowanie.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       showcase6: file(relativePath: { eq: "przeplotki/sklep.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1648) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
+        ...ImageFragment
       }
       przeplotki: allFile(filter: { dir: { regex: "/przeplotki/zabawka/" } }) {
         edges {
@@ -94,7 +67,7 @@ const MilinPage = () => {
             base
             childImageSharp {
               fluid(maxWidth: 1328, webpQuality: 75) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
           }
@@ -103,7 +76,7 @@ const MilinPage = () => {
       prize: file(relativePath: { eq: "zabawkaroku_logo_w.png" }) {
         childImageSharp {
           fixed(width: 250) {
-            ...GatsbyImageSharpFixed_withWebp
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -140,7 +113,7 @@ const MilinPage = () => {
           <Wrapper customWidth="max-w-7xl pb-0 md:pb-24">
             <div className="flex justify-end px-10 md:px-0">
               <div className="w-full max-w-4xl md:w-3/4 -mt-10 md:-mt-40">
-                <Img
+                <Image
                   fluid={{
                     ...data.cover.childImageSharp.fluid,
                     aspectRatio: 4 / 5,
@@ -183,7 +156,7 @@ const MilinPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Img fixed={data.prize.childImageSharp.fixed} />
+                <Image fixed={data.prize.childImageSharp.fixed} />
               </a>
             </div>
           </section>
@@ -199,26 +172,26 @@ const MilinPage = () => {
           </h2>
 
           <div className="mb-20">
-            <Img fluid={data.showcase1.childImageSharp.fluid} />
+            <Image fluid={data.showcase1.childImageSharp.fluid} />
           </div>
           <div className="mb-32">
-            <Img fluid={data.showcase2.childImageSharp.fluid} />
+            <Image fluid={data.showcase2.childImageSharp.fluid} />
           </div>
 
           <div className="grid gap-4 sm:gap-8 lg:gap-16 grid-cols-2 grid-flow-row-dense">
             {przeplotki.map(({ key, fluid, className }) => (
-              <Img key={key} fluid={fluid} className={className} />
+              <Image key={key} fluid={fluid} className={className} />
             ))}
           </div>
 
           <div className="mt-24 mb-20">
-            <Img fluid={data.showcase3.childImageSharp.fluid} />
+            <Image fluid={data.showcase3.childImageSharp.fluid} />
           </div>
           <div className="mb-20">
-            <Img fluid={data.showcase4.childImageSharp.fluid} />
+            <Image fluid={data.showcase4.childImageSharp.fluid} />
           </div>
           <div className="mb-20">
-            <Img fluid={data.showcase5.childImageSharp.fluid} />
+            <Image fluid={data.showcase5.childImageSharp.fluid} />
           </div>
 
           <section className="max-w-4xl mx-auto mt-20 md:mt-48 mb-16 md:mb-32">
@@ -245,7 +218,7 @@ const MilinPage = () => {
           </section>
 
           <div className="mt-24 mb-20">
-            <Img fluid={data.showcase6.childImageSharp.fluid} />
+            <Image fluid={data.showcase6.childImageSharp.fluid} />
           </div>
 
           {/* <div className="flex justify-end py-12">
