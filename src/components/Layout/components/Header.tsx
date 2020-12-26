@@ -18,6 +18,7 @@ const decorationStyles: CSSProperties = {
 const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
   const location = useLocation()
   const isHomePage = location?.pathname === "/"
+  const navigation = ["o mnie", "portfolio", "kontakt"]
 
   return (
     <>
@@ -48,21 +49,15 @@ const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
                 data-test="menu"
                 className="mr-auto md:mr-0 md:ml-auto md:w-auto text-sm grid gap-x-3 grid-flow-col"
               >
-                <li>
-                  <HoverLink to={isHomePage ? "#o-mnie" : "/#o-mnie"}>
-                    o mnie
-                  </HoverLink>
-                </li>
-                <li>
-                  <HoverLink to={isHomePage ? "#portfolio" : "/#portfolio"}>
-                    portfolio
-                  </HoverLink>
-                </li>
-                <li>
-                  <HoverLink to={isHomePage ? "#kontakt" : "/#kontakt"}>
-                    kontakt
-                  </HoverLink>
-                </li>
+                {navigation.map(text => {
+                  const link = text.replace(/[^\w\d]/g, "-")
+                  const to = isHomePage ? `#${link}` : `/#${link}`
+                  return (
+                    <li>
+                      <HoverLink to={to}>{text}</HoverLink>
+                    </li>
+                  )
+                })}
               </ul>
             </nav>
           </div>

@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 html, body {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
   overflow-scrolling: touch;
   margin: 0;
 }

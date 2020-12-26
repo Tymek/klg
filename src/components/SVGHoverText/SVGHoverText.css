@@ -1,5 +1,8 @@
 .svgHover {
+  /* position: absolute;
+  top: 0; */
   width: 100%;
+  min-height: 100%;
   text-rendering: geometricPrecision;
   font-family: GilroyBlock, Gilroy, sans-serif;
   letter-spacing: 0.03em;
