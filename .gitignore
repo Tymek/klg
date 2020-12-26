@@ -77,3 +77,6 @@ yarn.lock
 
 # Docz
 .docz
+
+# Cypress
+/cypress/videos

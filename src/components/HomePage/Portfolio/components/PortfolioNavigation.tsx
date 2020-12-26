@@ -33,7 +33,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
           <li
             className="inline mr-5"
             style={{
-              marginRight: "calc(min(1.5rem, 3.333vh))",
+              marginRight: "calc(min(1.5rem, 2vh))",
             }}
           >
             <div>

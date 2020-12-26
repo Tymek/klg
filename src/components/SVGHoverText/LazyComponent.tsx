@@ -139,7 +139,6 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
       <svg
         className="svgHover"
         height={`${lines.length * (isMobileFirefox ? 1.5 : 1)}em`} // Android Firefox bug
-        viewBox="0 0 100% 100%"
       >
         {lines.map((line, index) => {
           const name = `${id}-${index}`
