@@ -3,6 +3,7 @@ import PortfolioItem from "./PortfolioItem"
 
 import useWindowSize from "../../../../utilities/useWindowSize"
 import { PortfolioItemProps } from "./PortfolioItem/PortfolioItem"
+import LayoutShift from "../../../LayoutShift"
 
 const aspectRatio = 1
 
@@ -55,18 +56,20 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
   )
 
   return (
-    <ul
-      data-test="portfolio-list"
-      className="grid md:grid-cols-9 gap-x-15 gap-y-15 md:gap-y-12 pb-12 md:pb-0"
-    >
-      {parsedItems.map(item => (
-        <PortfolioItem
-          key={item.link}
-          className="ml-12 md:ml-0 md:col-start-2 md:col-span-8"
-          {...item}
-        />
-      ))}
-    </ul>
+    <LayoutShift>
+      <ul
+        data-test="portfolio-list"
+        className="grid gap-y-15 md:gap-y-12 grid-cols-9"
+      >
+        {parsedItems.map(item => (
+          <PortfolioItem
+            key={item.link}
+            className="ml-12 -mr-4 xs:mx-0 col-span-9 md:col-start-2 md:col-span-8"
+            {...item}
+          />
+        ))}
+      </ul>
+    </LayoutShift>
   )
 }
 

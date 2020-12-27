@@ -6,12 +6,12 @@ import {
 } from "./vectorMath"
 
 const settings = {
-  size: 4,
-  mass: 20,
+  size: 5,
+  mass: 30,
   stiffness: 100,
-  dumping: 150,
+  dumping: 75,
   charge: 1000,
-  chargeLimit: 750,
+  chargeLimit: 500,
   time: 100,
 }
 
@@ -24,12 +24,13 @@ const createParticle = (
   onCleanup: () => void
 } => {
   const { left, top } = ctx.canvas.getBoundingClientRect()
-  let prevPosition: Vector = anchor
+  let prevPosition: Vector = vectorAdd(anchor, [Math.random() * 10, Math.random() * 10])
   let position: Vector = prevPosition
   let velocity: Vector = [0, 0]
   let forces: Array<Vector> = []
   let cursorX: number
   let cursorY: number
+  const k = settings.stiffness + (Math.random() * 50 - 25)
 
   const updateCursorPosition = (e: MouseEvent) => {
     cursorX = e.pageX - left
@@ -48,12 +49,11 @@ const createParticle = (
   const onUpdate = (delta?: number) => {
     // constants
     const {
-      mass,
       charge: chargeMagnitude,
       chargeLimit,
       dumping,
       time,
-      stiffness: k,
+      mass,
     } = settings
     const charge = Math.pow(chargeMagnitude, 2)
 
@@ -70,7 +70,7 @@ const createParticle = (
     }
     const theta = Math.atan2(distance[0], distance[1]) || 0
     const attraction =
-      charge / (r < chargeLimit ? chargeLimit : Math.pow(r, 1.1)) || 0
+      charge / (r < chargeLimit ? chargeLimit : Math.pow(r, 1.25)) || 0
     const chargeForce: Vector = [
       attraction * Math.sin(theta),
       attraction * Math.cos(theta),

@@ -90,7 +90,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
             ]}
           />
 
-          <div>
+          <div className="pb-12 md:pb-0">
             {filteredItems.length > 0 ? (
               <PortfolioList items={filteredItems} />
             ) : (
