@@ -6,15 +6,15 @@ route: /
 # ⬤ Magda Klag
 
 ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m786769186-976d1c00d57fc91b71fc6829)
-![Test status](https://github.com/Tymek/klg/workflows/tests/badge.svg)
 ![David](https://img.shields.io/david/Tymek/klg)
+![Test status](https://github.com/Tymek/klg/workflows/tests/badge.svg)
 
 Project stack:
-  - ![](https://simpleicons.org/icons/typescript.svg | width=16) TypeScript
-  - ![](https://simpleicons.org/icons/gatsby.svg | width=16) Gatsby
-  - ![](https://simpleicons.org/icons/tailwindcss.svg | width=16) Tailwind
-  - ![](https://simpleicons.org/icons/cypress.svg | width=16) Cypress
-  - ![](https://simpleicons.org/icons/jest.svg | width=16) Jest
+  - <img src="https://simpleicons.org/icons/typescript.svg" width=16 height=16/> TypeScript
+  - <img src="https://simpleicons.org/icons/gatsby.svg" width=16 height=16/> Gatsby
+  - <img src="https://simpleicons.org/icons/tailwindcss.svg" width=16 height=16/> Tailwind
+  - <img src="https://simpleicons.org/icons/cypress.svg" width=16 height=16/> Cypress
+  - <img src="https://simpleicons.org/icons/jest.svg" width=16 height=16/> Jest
 <br/>
 
 ## ⌨️ Development
