@@ -5,9 +5,9 @@ route: /
 
 # ⬤ Magda Klag
 
-![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m786769186-976d1c00d57fc91b71fc6829)
-![David](https://img.shields.io/david/Tymek/klg)
+![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m786769186-976d1c00d57fc91b71fc6829?logo=Vercel&labelColor=111)
 ![Test status](https://github.com/Tymek/klg/workflows/tests/badge.svg)
+![David](https://img.shields.io/david/Tymek/klg?logo=RenovateBot)
 
 Project stack:
   - <img src="https://simpleicons.org/icons/typescript.svg" width=16 height=16/> TypeScript
