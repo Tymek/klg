@@ -3,15 +3,19 @@ name: README.md
 route: /
 ---
 
-# ✍🏻 Magda Klag
+# ⬤ Magda Klag
+
+![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m786769186-976d1c00d57fc91b71fc6829)
+![Test status](https://github.com/Tymek/klg/workflows/tests/badge.svg)
+![David](https://img.shields.io/david/Tymek/klg)
 
 Project stack:
-  - Gatsby
-  - Tailwind
-  - Vercel
-  - Cypress
-  - Jest
-  - Docz
+  - ![](https://simpleicons.org/icons/typescript.svg | width=16) TypeScript
+  - ![](https://simpleicons.org/icons/gatsby.svg | width=16) Gatsby
+  - ![](https://simpleicons.org/icons/tailwindcss.svg | width=16) Tailwind
+  - ![](https://simpleicons.org/icons/cypress.svg | width=16) Cypress
+  - ![](https://simpleicons.org/icons/jest.svg | width=16) Jest
+<br/>
 
 ## ⌨️ Development
 
@@ -25,10 +29,12 @@ npm run develop
   - Physics-based animation for decorations
   - Keyboard navigation support
   - Phone number and email obscured from bots
-  - Fast, lightweight, responsive
+  - Lightweight and wicked fast
+  - Responsive and optimized for touch devices
 
 ## ⚠️ TODO
 Before release
   - Change photo
   - Update favicon
   - Set SECRET for email & phone number
+  - Social media share images
