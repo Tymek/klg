@@ -3,7 +3,7 @@ name: README.md
 route: /
 ---
 
-# <img src="https://github.com/Tymek/klg/blob/readme-update/src/images/icon.png" width=32 height=32/> Magda Klag
+# <img src="https://github.com/Tymek/klg/blob/master/src/images/icon.png" width=32 height=32/> Magda Klag
 
 [![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m786769186-976d1c00d57fc91b71fc6829?logo=Vercel&labelColor=111)](https://magdaklag.pl)
 [![GitHub actions status](https://github.com/Tymek/klg/workflows/tests/badge.svg)](https://github.com/Tymek/klg/actions)
