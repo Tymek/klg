@@ -1,5 +1,0 @@
-.portfolio-item {
-  display: block;
-  @apply mb-8;
-  @apply xl:mb-16;
-}

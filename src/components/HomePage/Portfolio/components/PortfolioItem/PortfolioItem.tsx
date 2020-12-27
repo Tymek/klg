@@ -4,14 +4,13 @@ import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
 import Image from "../../../../Image"
 
-import "./PortfolioItem.css"
-
 export type PortfolioItemProps = {
   image: FluidObject
   link: string
   title: string
   tags?: string[]
   description?: ReactNode
+  className?: string
 }
 
 const PortfolioItem: FC<PortfolioItemProps> = ({
@@ -19,6 +18,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   link,
   image,
   description,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const open = () => {
@@ -29,18 +29,18 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   }
 
   return (
-    <li>
+    <li className={className}>
       <Link
         to={link}
         onMouseEnter={open}
         onFocus={open}
         onMouseLeave={close}
         onBlur={close}
-        className="portfolio-item relative block"
+        className="relative block sm:mr-32 md:mr-0"
       >
-        <div className="relative flex flex-col-reverse md:grid md:grid-cols-2 gap-6 mx-auto">
-          <div className="flex flex-col justify-center">
-            <div className="font-bold uppercase text-xl xl:text-3xl">
+        <div className="relative flex flex-col-reverse md:grid md:grid-cols-8 gap-x-15 gap-y-6 mx-auto">
+          <div className="flex flex-col justify-center md:col-span-4">
+            <div className="font-bold uppercase text-xl xl:text-xxl">
               <SVGHoverText
                 id={`svg-${link.replace(/[^\w]/g, "-")}`}
                 isOpen={isOpen}
@@ -50,7 +50,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
             </div>
             {description}
           </div>
-          <div>
+          <div className="md:col-span-4 lg:col-span-3">
             <Image fluid={image} />
           </div>
         </div>

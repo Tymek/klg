@@ -28,14 +28,6 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
 
   const items: PortfolioListProps["items"] = [
     {
-      link: "/portfolio/przeplotki",
-      title: "Przeplotki",
-      image: {
-        ...data?.przeplotki?.childImageSharp?.fluid,
-      },
-      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
-    },
-    {
       link: "/portfolio/modulowe-domki-dla-lalek",
       title: {
         0: "Modułowe\ndomki\ndla lalek",
@@ -57,6 +49,14 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       tags: ["branding"],
     },
     {
+      link: "/portfolio/przeplotki",
+      title: "Przeplotki",
+      image: {
+        ...data?.przeplotki?.childImageSharp?.fluid,
+      },
+      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
+    },
+    {
       link: "/portfolio/milin",
       title: {
         0: "Milin",
@@ -75,29 +75,31 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   }, [tag])
 
   return (
-    <Wrapper className="mt-32 pt-24 pb-56">
-      <section id="portfolio" className="relative pt-10 min-h-screen">
-        <h2 className="sr-only">Portfolio</h2>
-        <Navigation
-          active={tag}
-          tags={[
-            "zabawki",
-            "ilustracja",
-            "branding",
-            "publikacja",
-            "opakowania",
-          ]}
-        />
+    <section id="portfolio" className="mt-48 mb-56 bg-lightGray">
+      <Wrapper>
+        <div className="relative min-h-screen">
+          <h2 className="sr-only">Portfolio</h2>
+          <Navigation
+            active={tag}
+            tags={[
+              "zabawki",
+              "ilustracja",
+              "branding",
+              "publikacja",
+              "opakowania",
+            ]}
+          />
 
-        <div className="ml-16 md:ml-24 xl:ml-32">
-          {filteredItems.length > 0 ? (
-            <PortfolioList items={filteredItems} />
-          ) : (
-            <div>Brak prac w tej kategorii</div>
-          )}
+          <div>
+            {filteredItems.length > 0 ? (
+              <PortfolioList items={filteredItems} />
+            ) : (
+              <div className="text-center p-16">Brak prac w tej kategorii</div>
+            )}
+          </div>
         </div>
-      </section>
-    </Wrapper>
+      </Wrapper>
+    </section>
   )
 }
 

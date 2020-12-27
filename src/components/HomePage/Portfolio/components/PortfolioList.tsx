@@ -4,7 +4,7 @@ import PortfolioItem from "./PortfolioItem"
 import useWindowSize from "../../../../utilities/useWindowSize"
 import { PortfolioItemProps } from "./PortfolioItem/PortfolioItem"
 
-const aspectRatio = 5 / 3
+const aspectRatio = 1
 
 export type PortfolioListProps = {
   items: Array<
@@ -12,10 +12,9 @@ export type PortfolioListProps = {
       title: string | Record<string, string>
     }
   >
-  className?: string
 }
 
-const PortfolioList: FC<PortfolioListProps> = ({ items, className }) => {
+const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
   const { width } = useWindowSize()
 
   const mapTextWidth = useCallback(
@@ -56,9 +55,16 @@ const PortfolioList: FC<PortfolioListProps> = ({ items, className }) => {
   )
 
   return (
-    <ul className={className} data-test="portfolio-list">
+    <ul
+      data-test="portfolio-list"
+      className="grid md:grid-cols-9 gap-x-15 gap-y-15 md:gap-y-12 pb-12 md:pb-0"
+    >
       {parsedItems.map(item => (
-        <PortfolioItem key={item.link} {...item} />
+        <PortfolioItem
+          key={item.link}
+          className="ml-12 md:ml-0 md:col-start-2 md:col-span-8"
+          {...item}
+        />
       ))}
     </ul>
   )

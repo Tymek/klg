@@ -21,9 +21,10 @@ Project stack:
 
 ```shell
 npm install
-npm run develop
+npm start
 # or `npm run docz:dev`
 ```
+<br/>
 
 ## 🍒 Features
   - Physics-based animation for decorations
@@ -31,9 +32,11 @@ npm run develop
   - Phone number and email obscured from bots
   - Lightweight and wicked fast
   - Responsive and optimized for touch devices
+<br/>
 
 ## ⚠️ TODO
 Before release
   - Change photo
   - Set SECRET for email & phone number
   - Social media share images
+<br/>

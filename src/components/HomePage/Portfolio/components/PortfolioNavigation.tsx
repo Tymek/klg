@@ -12,13 +12,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
 }) => (
   <div className="absolute top-0 left-0 w-full h-full">
     {console.log(active, tags)}
-    <nav
-      className="sticky top-0 left-0 uppercase z-30"
-      style={{
-        height: "75vh",
-        width: "1.5em",
-      }}
-    >
+    <nav className="sticky top-0 left-0 uppercase z-30 w-6 h-screen">
       <ul
         className="absolute flex flex-row-reverse justify-start"
         style={{
