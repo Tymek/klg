@@ -23,6 +23,9 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
         ...ImageFragment
       }
+      pocztowki: file(relativePath: { eq: "pocztowki.jpg" }) {
+        ...ImageFragment
+      }
     }
   `)
 
@@ -37,6 +40,14 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.domki?.childImageSharp?.fluid,
       },
       tags: ["zabawki", "opakowania", "systemy wystawiennicze", "branding"],
+    },
+    {
+      link: "/portfolio/pocztowki",
+      title: "Pocztówki",
+      image: {
+        ...data?.pocztowki?.childImageSharp?.fluid,
+      },
+      tags: ["ilustracja"],
     },
     {
       link: "/portfolio/festiwal-kolorow",

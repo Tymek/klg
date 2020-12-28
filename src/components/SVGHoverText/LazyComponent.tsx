@@ -138,7 +138,10 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
       </div> */}
       <svg
         className="svgHover"
-        height={`${lines.length * (isMobileFirefox ? 1.5 : 1)}em`} // Android Firefox bug
+        height={`${lines.length * (isMobileFirefox ? 1.5 : 1) + 0.3}em`} // Android Firefox bug
+        style={{
+          marginTop: "-0.15em",
+        }}
       >
         {lines.map((line, index) => {
           const name = `${id}-${index}`
@@ -147,7 +150,7 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
               <defs>
                 <text id={`${name}`} y="1em" className="svgHoverText">
                   <tspan
-                    y={`${index + 0.85}em`}
+                    y={`${index + 1}em`}
                     x="0"
                     ref={ref => {
                       if (ref) {
