@@ -42,12 +42,12 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       tags: ["zabawki", "opakowania", "systemy wystawiennicze", "branding"],
     },
     {
-      link: "/portfolio/pocztowki",
+      link: "/portfolio/kartki/pocztowki",
       title: "Pocztówki",
       image: {
         ...data?.pocztowki?.childImageSharp?.fluid,
       },
-      tags: ["ilustracja"],
+      tags: ["ilustracja", "kartki"],
     },
     {
       link: "/portfolio/festiwal-kolorow",

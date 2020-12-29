@@ -1,12 +1,12 @@
 import React, { FC } from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../../components/Layout"
-import SEO from "../../components/seo"
-import { P } from "../../components/Typo"
-import Wrapper from "../../components/Wrapper"
-import Footer from "../../components/Footer"
-import Image from "../../components/Image"
+import Layout from "../../../components/Layout"
+import SEO from "../../../components/seo"
+import { P } from "../../../components/Typo"
+import Wrapper from "../../../components/Wrapper"
+import Footer from "../../../components/Footer"
+import Image from "../../../components/Image"
 import { FluidObject } from "gatsby-image"
 
 const GenericWrapper: FC = ({ children }) => (
@@ -48,10 +48,10 @@ const VerticalPostcardWrapper: FC = ({ children }) => (
 const PocztowkiPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      krk: file(relativePath: { eq: "kartki/kartkak.jpg" }) {
+      krk: file(relativePath: { eq: "kartki/pocztowki/kartkak.jpg" }) {
         ...ImageFragment
       }
-      krk2: file(relativePath: { eq: "kartki/kartkal.jpg" }) {
+      krk2: file(relativePath: { eq: "kartki/pocztowki/kartkal.jpg" }) {
         childImageSharp {
           fluid(
             maxHeight: 1400
@@ -62,11 +62,11 @@ const PocztowkiPage = () => {
           }
         }
       }
-      trn: file(relativePath: { eq: "kartki/kartka_Tarnów.jpg" }) {
+      trn: file(relativePath: { eq: "kartki/pocztowki/kartka_Tarnów.jpg" }) {
         ...ImageFragment
       }
       tarnowRynek: file(
-        relativePath: { eq: "kartki/tarnow-rynek-pocztowka.png" }
+        relativePath: { eq: "kartki/pocztowki/tarnow-rynek-pocztowka.png" }
       ) {
         childImageSharp {
           fluid(
@@ -78,12 +78,12 @@ const PocztowkiPage = () => {
         }
       }
       trnDworzec: file(
-        relativePath: { eq: "kartki/kartka_Tarnów_dworzec.jpg" }
+        relativePath: { eq: "kartki/pocztowki/kartka_Tarnów_dworzec.jpg" }
       ) {
         ...ImageFragment
       }
       tarnowDworzec: file(
-        relativePath: { eq: "kartki/tarnow-dworzec-pocztowka.png" }
+        relativePath: { eq: "kartki/pocztowki/tarnow-dworzec-pocztowka.png" }
       ) {
         childImageSharp {
           fluid(
@@ -94,19 +94,23 @@ const PocztowkiPage = () => {
           }
         }
       }
-      waw: file(relativePath: { eq: "kartki/kartka_pałac_kultury.jpg" }) {
+      waw: file(
+        relativePath: { eq: "kartki/pocztowki/kartka_pałac_kultury.jpg" }
+      ) {
         ...ImageFragment
       }
-      syrenka: file(relativePath: { eq: "kartki/kartka_syrenka.jpg" }) {
+      syrenka: file(
+        relativePath: { eq: "kartki/pocztowki/kartka_syrenka.jpg" }
+      ) {
         ...ImageFragment
       }
       wawStarowka: file(
-        relativePath: { eq: "kartki/kartka_warszawa_kamienice.jpg" }
+        relativePath: { eq: "kartki/pocztowki/kartka_warszawa_kamienice.jpg" }
       ) {
         ...ImageFragment
       }
       warszawaStarowka: file(
-        relativePath: { eq: "kartki/warszawa-starowka-pocztowka.png" }
+        relativePath: { eq: "kartki/pocztowki/warszawa-starowka-pocztowka.png" }
       ) {
         childImageSharp {
           fluid(
@@ -119,7 +123,7 @@ const PocztowkiPage = () => {
       }
       dom: file(
         relativePath: {
-          eq: "kartki/kartka_wszędzie_dobrze_ale_w_domu_najlepiej.jpg"
+          eq: "kartki/pocztowki/kartka_wszędzie_dobrze_ale_w_domu_najlepiej.jpg"
         }
       ) {
         ...ImageFragment
