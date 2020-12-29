@@ -10,7 +10,17 @@ const plugins = [
     },
   },
   "gatsby-transformer-sharp",
-  "gatsby-plugin-sharp",
+  {
+    resolve: "gatsby-plugin-sharp",
+    options: {
+      // base64Width: 20,
+      // forceBase64Format: ``, // valid formats: png,jpg,webp
+      // useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
+      // stripMetadata: true,
+      defaultQuality: 95,
+      // failOnError: true,
+    },
+  },
   {
     resolve: "gatsby-plugin-manifest",
     options: {

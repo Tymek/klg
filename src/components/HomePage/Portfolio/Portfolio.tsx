@@ -12,19 +12,19 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const data = useStaticQuery(graphql`
     query {
       przeplotki: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
-        ...ImageFragment
+        ...PortfolioImage
       }
       domki: file(relativePath: { eq: "domek.jpg" }) {
-        ...ImageFragment
+        ...PortfolioImage
       }
       festiwal: file(relativePath: { eq: "festiwal-kolorow.png" }) {
-        ...ImageFragment
+        ...PortfolioImage
       }
       milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
-        ...ImageFragment
+        ...PortfolioImage
       }
       pocztowki: file(relativePath: { eq: "pocztowki.jpg" }) {
-        ...ImageFragment
+        ...PortfolioImage
       }
     }
   `)
