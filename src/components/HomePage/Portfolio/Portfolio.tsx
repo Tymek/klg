@@ -26,6 +26,11 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       pocztowki: file(relativePath: { eq: "pocztowki.jpg" }) {
         ...PortfolioImage
       }
+      kartkiUrodzinowe: file(
+        relativePath: { eq: "kartki/urodzinowe/18-kartka_30.jpg" }
+      ) {
+        ...PortfolioImage
+      }
     }
   `)
 
@@ -76,6 +81,14 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.milin?.childImageSharp?.fluid,
       },
       tags: ["branding"],
+    },
+    {
+      link: "/portfolio/kartki/urodzinowe",
+      title: "Kartki\nurodzinowe",
+      image: {
+        ...data?.kartkiUrodzinowe?.childImageSharp?.fluid,
+      },
+      tags: ["ilustracja", "kartki"],
     },
   ]
 

@@ -66,7 +66,7 @@ const MilinPage = () => {
             id
             base
             childImageSharp {
-              fluid(maxWidth: 1328, webpQuality: 75) {
+              fluid(maxWidth: 1366, webpQuality: 80) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }

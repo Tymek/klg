@@ -134,7 +134,7 @@ const PocztowkiPage = () => {
   return (
     <>
       <Layout largeDecoration>
-        <SEO title="Festiwal kolorów – Obóz wakacyjny dla dzieci" />
+        <SEO title="Pocztówki" />
         <Wrapper className="pb-16">
           <div className="relative">
             <div className="relative grid grid-cols-12 mt-8">

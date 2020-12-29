@@ -5,7 +5,7 @@ export const PortfolioImage = graphql`
     childImageSharp {
       fluid(
         maxWidth: 700,
-        traceSVG: { background: "transparent", color: "#f1f1f1" }
+        traceSVG: { background: "transparent", color: "#fff" }
       ) {
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }

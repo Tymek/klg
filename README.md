@@ -24,14 +24,17 @@ npm install
 npm start
 # or `npm run docz:dev`
 ```
+Be patient. Processing large number of images can take a while. `gatsby-plugin-sharp` will use cache after first run.
 <br/>
 
 ## 🍒 Features
-  - Physics-based animation for decorations
-  - Keyboard navigation support
+  - **Physics-based animation** for decorations
   - Phone number and email obscured from bots
+  - Atypical grid system (1648px / **9** with 60px gutter)
+  - Custom multi-layered **SVG text fill animation**
+  - Responsive and **optimized for touch** devices
   - Lightweight and wicked fast
-  - Responsive and optimized for touch devices
+  - Keyboard navigation support
 <br/>
 
 ## ⚠️ TODO
