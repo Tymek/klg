@@ -28,6 +28,9 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       pocztowki: file(relativePath: { eq: "cover-portfolio/pocztowki.png" }) {
         ...PortfolioImage
       }
+      wiersze: file(relativePath: { eq: "cover-portfolio/wiersze.jpg" }) {
+        ...PortfolioImage
+      }
       kartkiUrodzinowe: file(
         relativePath: { eq: "cover-portfolio/kartki_urodzinowe.png" }
       ) {
@@ -37,6 +40,25 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   `)
 
   const items: PortfolioListProps["items"] = [
+    {
+      link: "/portfolio/przeplotki",
+      title: "Przeplotki",
+      image: {
+        ...data?.przeplotki?.childImageSharp?.fluid,
+      },
+      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
+    },
+    {
+      link: "/portfolio/wiersze-dla-dzieci",
+      title: {
+        0: "Wiersze\ndla\ndzieci",
+        500: "Wiersze\ndla dzieci",
+      },
+      image: {
+        ...data?.wiersze?.childImageSharp?.fluid,
+      },
+      tags: ["ilustracja", "publikacja"],
+    },
     {
       link: "/portfolio/modulowe-domki-dla-lalek",
       title: {
@@ -55,14 +77,6 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.pocztowki?.childImageSharp?.fluid,
       },
       tags: ["ilustracja", "kartki"],
-    },
-    {
-      link: "/portfolio/przeplotki",
-      title: "Przeplotki",
-      image: {
-        ...data?.przeplotki?.childImageSharp?.fluid,
-      },
-      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
     },
     {
       link: "/portfolio/festiwal-kolorow",
@@ -97,7 +111,10 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const filteredItems = useMemo(() => {
     if (!tag) return items
 
-    return items.filter(item => item.tags?.includes(tag))
+    const filtered = items.filter(item => item.tags?.includes(tag))
+    if (tag !== "branding" && tag !== "opakowania") return filtered
+
+    return filtered.reverse()
   }, [tag])
 
   return (

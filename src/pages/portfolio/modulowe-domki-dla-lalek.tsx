@@ -52,7 +52,7 @@ const DollhousePage = () => {
             <div className="col-span-9 md:col-span-7 md:col-start-2 lg:col-span-7 xl:col-span-5 xl:col-start-4 xxl:col-start-5 xxl:col-span-4">
               <p className="text-md sm: text-lg uppercase leading-tight mb-8 lg:pl-10">
                 Zabawki / Opakowania / Materiały
-                <span className="hidden"> reklamowe</span>
+                <span className="sr-only"> reklamowe</span>
               </p>
               <h1 className="text-xl sm:text-3xl lg:text-giant font-bold leading-none uppercase mb-12 lg:pl-16">
                 Mo&shy;du&shy;ło&shy;we domki dla lalek
