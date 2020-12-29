@@ -11,23 +11,25 @@ type PortfolioProps = {
 const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const data = useStaticQuery(graphql`
     query {
-      przeplotki: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
+      przeplotki: file(relativePath: { eq: "cover-portfolio/przeplotki.jpg" }) {
         ...PortfolioImage
       }
-      domki: file(relativePath: { eq: "domek.jpg" }) {
+      domki: file(relativePath: { eq: "cover-portfolio/domek.jpg" }) {
         ...PortfolioImage
       }
-      festiwal: file(relativePath: { eq: "festiwal-kolorow.png" }) {
+      festiwal: file(
+        relativePath: { eq: "cover-portfolio/festiwal-kolorow.jpg" }
+      ) {
         ...PortfolioImage
       }
-      milin: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
+      milin: file(relativePath: { eq: "cover-portfolio/wizytowki-milin.jpg" }) {
         ...PortfolioImage
       }
-      pocztowki: file(relativePath: { eq: "pocztowki.jpg" }) {
+      pocztowki: file(relativePath: { eq: "cover-portfolio/pocztowki.png" }) {
         ...PortfolioImage
       }
       kartkiUrodzinowe: file(
-        relativePath: { eq: "kartki/urodzinowe/18-kartka_30.jpg" }
+        relativePath: { eq: "cover-portfolio/kartki_urodzinowe.png" }
       ) {
         ...PortfolioImage
       }
@@ -55,6 +57,14 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       tags: ["ilustracja", "kartki"],
     },
     {
+      link: "/portfolio/przeplotki",
+      title: "Przeplotki",
+      image: {
+        ...data?.przeplotki?.childImageSharp?.fluid,
+      },
+      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
+    },
+    {
       link: "/portfolio/festiwal-kolorow",
       title: {
         0: "Festiwal\nkolorów",
@@ -63,14 +73,6 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.festiwal?.childImageSharp?.fluid,
       },
       tags: ["branding"],
-    },
-    {
-      link: "/portfolio/przeplotki",
-      title: "Przeplotki",
-      image: {
-        ...data?.przeplotki?.childImageSharp?.fluid,
-      },
-      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
     },
     {
       link: "/portfolio/milin",
