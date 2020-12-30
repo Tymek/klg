@@ -24,7 +24,7 @@ describe("Interactions", () => {
     cy.get('[data-test=menu] > :nth-child(3)').click()
     cy.url().should('eq', Cypress.config().baseUrl + '/#kontakt')
     cy.window().then(($window) => {
-      expect($window.scrollY).to.be.greaterThan(300)
+      expect($window.scrollY).to.be.greaterThan(1)
     })
   })
 })
