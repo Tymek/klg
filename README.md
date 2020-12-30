@@ -40,6 +40,5 @@ Be patient. Processing large number of images can take a while. `gatsby-plugin-s
 ## ⚠️ TODO
 Before release
   - Change photo
-  - Set SECRET for email & phone number
   - Social media share images
 <br/>
