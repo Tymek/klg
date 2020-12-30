@@ -3,7 +3,7 @@
 describe("Portfolio", () => {
   it("filters items", () => {
     cy.visit("/#portfolio")
-    cy.get('[data-test=portfolio-list]').children().its('length').should('eq', 6)
+    cy.get('[data-test=portfolio-list]').children().its('length').should('eq', 7)
     cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').should('not.have.class', 'active')
     cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').click()
     cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').should('have.class', 'active')
@@ -17,7 +17,7 @@ describe("Portfolio", () => {
     cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').click()
     cy.get('[data-test=portfolio-navigation] > :nth-child(1) a').should('not.have.class', 'active')
     cy.url().should('eq', `${Cypress.config().baseUrl}/#portfolio`)
-    cy.get('[data-test=portfolio-list]').children().its('length').should('eq', 6)
+    cy.get('[data-test=portfolio-list]').children().its('length').should('eq', 7)
   })
 
   it("can change filter", () => {
