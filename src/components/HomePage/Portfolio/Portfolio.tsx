@@ -36,6 +36,9 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       ) {
         ...PortfolioImage
       }
+      tabliczki: file(relativePath: { eq: "cover-portfolio/tabliczki.jpg" }) {
+        ...PortfolioImage
+      }
     }
   `)
 
@@ -105,6 +108,14 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.kartkiUrodzinowe?.childImageSharp?.fluid,
       },
       tags: ["ilustracja", "kartki"],
+    },
+    {
+      link: "/portfolio/tabliczki-kredowe",
+      title: "Tabliczki\nkredowe",
+      image: {
+        ...data?.tabliczki?.childImageSharp?.fluid,
+      },
+      tags: ["zabawki", "opakowania"],
     },
   ]
 
