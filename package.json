@@ -5,6 +5,7 @@
   "version": "0.3.6",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
+    "postinstall": "node ./scripts/postinstall.js",
     "deploy": "npm ci && npm build",
     "build": "gatsby build",
     "develop": "gatsby develop",
