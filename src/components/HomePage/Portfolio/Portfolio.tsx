@@ -39,6 +39,9 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       tabliczki: file(relativePath: { eq: "cover-portfolio/tabliczki.jpg" }) {
         ...PortfolioImage
       }
+      zakladki: file(relativePath: { eq: "cover-portfolio/zakladka.jpg" }) {
+        ...PortfolioImage
+      }
     }
   `)
 
@@ -116,6 +119,17 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         ...data?.tabliczki?.childImageSharp?.fluid,
       },
       tags: ["zabawki", "opakowania"],
+    },
+    {
+      link: "/portfolio/zakladki",
+      title: {
+        0: "Zakładki\ndrewniane",
+        1900: "Zakładki drewniane",
+      },
+      image: {
+        ...data?.zakladki?.childImageSharp?.fluid,
+      },
+      tags: ["ilustracja"],
     },
   ]
 

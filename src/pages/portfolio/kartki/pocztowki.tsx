@@ -148,7 +148,7 @@ const PocztowkiPage = () => {
             <div className="xl:absolute xl:top-1/3">
               <div className="inline-flex flex-col justify-start">
                 <div className="ml-auto pb-4">
-                  <span className="uppercase text-md md:text-lg">
+                  <span className="uppercase text-base md:text-lg">
                     Ilustracja
                   </span>
                 </div>

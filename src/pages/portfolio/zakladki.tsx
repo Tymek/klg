@@ -9,9 +9,10 @@ import gifSmall from "../../images/zakladki/open-book-small.gif"
 import webpLarge from "../../images/zakladki/open-book-full.webp"
 import webpSmall from "../../images/zakladki/open-book-small.webp"
 import Image from "../../components/Image"
+import Grid, { Column } from "../../components/Grid"
 import { P } from "../../components/Typo"
 
-const MilinPage = () => {
+const BookmarksPage = () => {
   const data = useStaticQuery(graphql`
     query Images {
       cover: file(relativePath: { eq: "zakladki/zakladka-cover.jpg" }) {
@@ -29,7 +30,10 @@ const MilinPage = () => {
             id
             absolutePath
             childImageSharp {
-              fluid(maxWidth: 350) {
+              fluid(
+                maxWidth: 420
+                traceSVG: { background: "#f1f1f1", color: "#31343e" }
+              ) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
@@ -50,30 +54,56 @@ const MilinPage = () => {
 
   return (
     <>
-      <Layout>
+      <Layout largeDecoration>
         <SEO title="Zakładka" />
         <Wrapper>
-          <div className="mb-20">
-            <Image
-              fluid={{
-                ...data.cover.childImageSharp.fluid,
-                aspectRatio: 16 / 7,
-              }}
-              backgroundColor="#f1f1f1"
-            />
-          </div>
-          <div className="flex flex-wrap items-end py-12 lg:py-20">
-            <div className="w-full max-w-xl">
+          <Grid>
+            <Column className="lg:col-start-2 lg:col-span-7">
+              <Image
+                fluid={{
+                  ...data.cover.childImageSharp.fluid,
+                  aspectRatio: 5 / 3,
+                }}
+                className="-mx-4 sm:-mx-6 md:mx-0 mt-4"
+              />
+            </Column>
+          </Grid>
+
+          <Grid className="my-16 lg:my-32">
+            <div className="col-span-7 col-start-3 sm:col-start-5 sm:col-span-5 lg:col-start-2 lg:col-span-4">
               <Image fluid={data.closedBook.childImageSharp.fluid} />
             </div>
-            <div className="lg:px-20 lg:ml-8 mt-20 pb-3">
-              <h1 className="text-2xl my-3">drewniane zakładki</h1>
-              <P className="text-lg mb-6" style={{ color: "#953F1B" }}>
-                ilustracja
-              </P>
-              <P>Projekt zakładek do książek zrealizowany dla firmy Fabrykat</P>
-            </div>
-          </div>
+            <Column className="relative lg:col-start-6 lg:col-span-4 self-end">
+              <div className="mt-6 sm:mt-24 lg:mt-0">
+                <div className="grid grid-cols-4 sm:gap-x-15">
+                  <div className="col-span-4 xl:col-span-3">
+                    <div className="sm:w-2/3 lg:w-full">
+                      <p className="uppercase leading-snug text-base xl:text-lg text-right mb-10">
+                        ilustracja
+                      </p>
+                      <P className="mb-12 text-sm xl:text-base leading-relaxed">
+                        Zwierzątka z kredą w zestawie to seria zabawek
+                        zrealizowanych dla marki Milin. Wykonana są ze sklejki
+                        pokrytej farbą tablicową. Zabawki zachęcać mają dzieci
+                        do swobodnego rysowania. Pobudzają kreatywność i
+                        wyobraźnie, rozwijają umiejętności motoryki małej.
+                      </P>
+                      <P className="mb-12 text-sm xl:text-base leading-relaxed">
+                        Projekt obejmował wzory zabawek, wykrojniki opakowań
+                        indywidualnie dopasowanych do każdej zabawki, nadruki na
+                        opakowania, ekspozytory oraz materiały marketingowe.
+                      </P>
+                    </div>
+                  </div>
+                </div>
+                <div className="xl:pt-4">
+                  <h1 className="text-xl sm:text-xxl lg:text-3xl font-bold leading-none uppercase">
+                    Drewniane zakładki
+                  </h1>
+                </div>
+              </div>
+            </Column>
+          </Grid>
 
           <div className="lg:ml-auto my-12 lg:my-20 lg:pb-10 w-full lg:w-5/6">
             <picture>
@@ -90,19 +120,28 @@ const MilinPage = () => {
           </div>
         </Wrapper>
 
-        <div className="bg-gray-800 py-20 my-12 lg:my-16">
-          <Wrapper>
-            <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-20">
-              {data.allFile.edges.map(
-                ({ node }: { node: { id: string; childImageSharp: any } }) => (
-                  <div>
-                    <Image fluid={node.childImageSharp.fluid} />
-                  </div>
-                )
-              )}
-            </div>
-          </Wrapper>
-        </div>
+        <Wrapper>
+          <Grid className="py-20 my-12 lg:my-16">
+            <Column className="lg:col-start-2 lg:col-span-7 -mx-4 sm:-mx-6 md:mx-0">
+              <div
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-2 py-16"
+                style={{ background: "#31343e" }}
+              >
+                {data.allFile.edges.map(
+                  ({
+                    node,
+                  }: {
+                    node: { id: string; childImageSharp: any }
+                  }) => (
+                    <div>
+                      <Image fluid={node.childImageSharp.fluid} />
+                    </div>
+                  )
+                )}
+              </div>
+            </Column>
+          </Grid>
+        </Wrapper>
         <Wrapper>
           <div className="flex flex-wrap items-end py-16 lg:-mx-16 lg:pb-20">
             <div className="w-full lg:w-7/12 lg:px-16 mb-20">
@@ -121,4 +160,4 @@ const MilinPage = () => {
   )
 }
 
-export default MilinPage
+export default BookmarksPage

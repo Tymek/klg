@@ -78,7 +78,7 @@ const PoemsPage = () => {
                 </P>
               </div>
               <div className="mb-12 lg:pb-32">
-                <p className="text-md sm:text-lg uppercase leading-tight">
+                <p className="text-base sm:text-lg uppercase leading-tight">
                   Ilustracja / Skład tesktu / Publikacja
                 </p>
               </div>

@@ -57,7 +57,7 @@ const BirthdayCardsPage = () => {
                   <div className="grid grid-cols-9 sm:gap-x-15">
                     <div className="col-span-9 sm:col-start-2 sm:col-span-8">
                       <div className="ml-auto pb-4">
-                        <span className="uppercase text-md md:text-lg">
+                        <span className="uppercase text-base md:text-lg">
                           Ilustracja
                         </span>
                       </div>

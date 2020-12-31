@@ -1,19 +1,15 @@
-import React, { FC } from "react"
+import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
+import { FluidObject } from "gatsby-image"
+
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
 import Image from "../../components/Image"
-import { FluidObject } from "gatsby-image"
-
-const Grid: FC<{ className?: string }> = ({ children, className }) => (
-  <div className={`grid grid-cols-9 sm:gap-x-15 ${className || ""}`}>
-    {children}
-  </div>
-)
+import Grid, { Column } from "../../components/Grid"
 
 const ChalkBoardsPage = () => {
   const data = useStaticQuery(graphql`
@@ -59,23 +55,23 @@ const ChalkBoardsPage = () => {
       <SEO title="Tabliczki kredowe" />
       <Wrapper>
         <Grid>
-          <div className="col-span-9 lg:col-start-2 lg:col-span-7">
+          <Column className="lg:col-start-2 lg:col-span-7">
             <Image
               fluid={{
                 ...data.cover.childImageSharp.fluid,
                 aspectRatio: 5 / 3,
               }}
-              className="-mx-4 xs:-mx-6 md:mx-0"
+              className="-mx-4 xs:-mx-6 md:mx-0 mt-4"
             />
-          </div>
+          </Column>
         </Grid>
 
         <Grid className="my-16 lg:my-48">
           <div className="col-span-7 col-start-3 lg:col-start-1 lg:col-span-4">
             <Image fluid={data.title.childImageSharp.fluid} />
           </div>
-          <div className="relative col-span-9 lg:col-start-5 lg:col-span-4">
-            <div className="mt-6 sm:mt-20 lg:absolute bottom-0">
+          <Column className="relative lg:col-start-5 lg:col-span-4 self-end">
+            <div className="mt-6 sm:mt-20">
               <div className="xxl:grid xxl:grid-cols-4 xxl:gap-x-15">
                 <div className="xxl:col-start-2">
                   <h1 className="text-xl sm:text-3xl lg:text-giant font-bold leading-none uppercase">
@@ -83,7 +79,7 @@ const ChalkBoardsPage = () => {
                   </h1>
                 </div>
               </div>
-              <div className="text-sm mt-10 sm:w-1/2 lg:w-full">
+              <div className="text-sm mt-10 sm:w-1/2 lg:w-full leading-relaxed">
                 <P className="mb-12">
                   Zwierzątka z kredą w zestawie to seria zabawek zrealizowanych
                   dla marki Milin. Wykonana są ze sklejki pokrytej farbą
@@ -101,7 +97,7 @@ const ChalkBoardsPage = () => {
                 zabawki / opakowania / materiały reklamowe
               </p>
             </div>
-          </div>
+          </Column>
         </Grid>
 
         <Grid className="my-16 lg:my-48">
@@ -123,9 +119,9 @@ const ChalkBoardsPage = () => {
         </Grid>
 
         <Grid className="my-16 lg:my-48 xl:my-64">
-          <div className="col-span-9 lg:col-start-2 lg:col-span-7">
+          <Column className="lg:col-start-2 lg:col-span-7">
             <Image fluid={data.presentation.childImageSharp.fluid} />
-          </div>
+          </Column>
         </Grid>
       </Wrapper>
       <Footer />
