@@ -133,15 +133,14 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
 
   return (
     <div className="relative">
-      {/* <div className="z-20 leading-none" aria-hidden="true">
-        {lines.join("\n")}
-      </div> */}
+      <div className="z-20 leading-none sr-only">{lines.join("\n")}</div>
       <svg
         className="svgHover"
         height={`${lines.length * (isMobileFirefox ? 1.5 : 1) + 0.3}em`} // Android Firefox bug
         style={{
           marginTop: "-0.15em",
         }}
+        aria-hidden="true"
       >
         {lines.map((line, index) => {
           const name = `${id}-${index}`

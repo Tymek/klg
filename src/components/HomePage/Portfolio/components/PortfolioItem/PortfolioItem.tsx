@@ -36,9 +36,9 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
         onFocus={open}
         onMouseLeave={close}
         onBlur={close}
-        className="relative block sm:mr-32 md:mr-0"
+        className="relative block sm:mr-32 md:mr-0 outline-none"
       >
-        <div className="relative flex flex-col-reverse md:grid md:grid-cols-8 gap-x-15 gap-y-6 mx-auto">
+        <div className="relative flex flex-col-reverse md:grid md:grid-cols-7 gap-x-15 gap-y-6 mx-auto">
           <div className="flex flex-col justify-center md:col-span-4">
             <div className="font-bold uppercase text-xl xl:text-xxl">
               <SVGHoverText

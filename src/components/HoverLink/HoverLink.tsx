@@ -26,9 +26,10 @@ const HoverLink: FC<HoverLinkProps> = ({ children, to, className, active }) => {
   const onAnchorClick = (event: MouseEvent) => {
     event.preventDefault()
 
-    const element = document.querySelector(to)
+    const element = document.getElementById(to.substring(1))
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+      element.focus({ preventScroll: true })
     }
 
     if (history.pushState) {
@@ -38,7 +39,7 @@ const HoverLink: FC<HoverLinkProps> = ({ children, to, className, active }) => {
     }
   }
 
-  const classList = `relative hoverLink inline-block ${
+  const classList = `relative hoverLink inline-block outline-none ${
     active ? "active" : ""
   } ${className ? className : ""}`.trim()
 

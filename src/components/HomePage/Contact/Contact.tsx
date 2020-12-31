@@ -8,8 +8,9 @@ const Contact: React.FC = () => (
     <Wrapper className="pt-48">
       <section
         id="kontakt"
+        tabIndex={-1}
         style={{ paddingBottom: "256px" }}
-        className="flex flex-col lg:flex-row-reverse"
+        className="flex flex-col lg:flex-row-reverse outline-none"
       >
         <h2 className="mb-3 lg:mb-0 text-lg xl:text-xxl uppercase font-bold max-w-3xl leading-none lg:w-1/3 text-right">
           Poznajmy się

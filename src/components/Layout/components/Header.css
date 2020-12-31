@@ -1,0 +1,7 @@
+.headerLogo:focus-visible,
+.headerLogo:focus span {
+  @apply bg-fuchsia;
+  @apply text-white;
+  @apply -m-1;
+  @apply p-1;
+}

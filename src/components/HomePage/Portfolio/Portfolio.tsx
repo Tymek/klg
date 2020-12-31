@@ -143,7 +143,11 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   }, [tag])
 
   return (
-    <section id="portfolio" className="mt-48 mb-56 bg-lightGray">
+    <section
+      id="portfolio"
+      tabIndex={-1}
+      className="mt-48 mb-56 bg-lightGray outline-none focus:shadow-outline"
+    >
       <Wrapper>
         <div className="relative min-h-screen">
           <h2 className="sr-only">Portfolio</h2>

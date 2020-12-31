@@ -64,7 +64,7 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
         {parsedItems.map(item => (
           <PortfolioItem
             key={item.link}
-            className="ml-12 -mr-4 xs:mx-0 col-span-9 md:col-start-2 md:col-span-8"
+            className="ml-12 -mr-4 xs:mx-0 col-span-9 md:col-start-2 md:col-span-7"
             {...item}
           />
         ))}

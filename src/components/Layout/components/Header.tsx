@@ -4,6 +4,7 @@ import { useLocation } from "@reach/router"
 import Wrapper from "../../Wrapper"
 import HoverLink from "../../HoverLink"
 import LayoutShift from "../../LayoutShift"
+import "./Header.css"
 
 export type HeaderProps = {
   largeDecoration?: boolean
@@ -45,7 +46,11 @@ const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
             <LayoutShift>
               <nav className="flex text:md flex-wrap flex-col md:flex-row">
                 <span data-test="logo" className="lowercase font-bold text-lg">
-                  <Link to="/">Magda Klag</Link>
+                  <Link to="/" className="outline-none headerLogo">
+                    <span tabIndex={-1} className="outline-none">
+                      Magda Klag
+                    </span>
+                  </Link>
                 </span>
                 <ul
                   data-test="menu"
