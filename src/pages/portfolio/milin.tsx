@@ -47,8 +47,8 @@ const MilinPage = () => {
         }
       />
 
-      <Wrapper fullWidth>
-        <Cover fluid={data.branding.childImageSharp.fluid} />
+      <Wrapper>
+        <Cover image={data.branding.childImageSharp.fluid} />
       </Wrapper>
       <Wrapper>
         <section className="lg:pt-20 pt-16 text-center max-w-4xl mx-auto">

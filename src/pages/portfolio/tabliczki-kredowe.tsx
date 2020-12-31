@@ -10,6 +10,7 @@ import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
 import Image from "../../components/Image"
 import Grid, { Column } from "../../components/Grid"
+import Cover from "../../components/Cover"
 
 const ChalkBoardsPage = () => {
   const data = useStaticQuery(graphql`
@@ -54,17 +55,12 @@ const ChalkBoardsPage = () => {
     <Layout largeDecoration>
       <SEO title="Tabliczki kredowe" />
       <Wrapper>
-        <Grid>
-          <Column className="lg:col-start-2 lg:col-span-7">
-            <Image
-              fluid={{
-                ...data.cover.childImageSharp.fluid,
-                aspectRatio: 5 / 3,
-              }}
-              className="-mx-4 xs:-mx-6 md:mx-0 mt-4"
-            />
-          </Column>
-        </Grid>
+        <Cover
+          image={{
+            ...data.cover.childImageSharp.fluid,
+            aspectRatio: 5 / 3,
+          }}
+        />
 
         <Grid className="my-16 lg:my-48">
           <div className="col-span-7 col-start-3 lg:col-start-1 lg:col-span-4">

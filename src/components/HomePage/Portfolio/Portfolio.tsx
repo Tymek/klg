@@ -92,7 +92,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       image: {
         ...data?.festiwal?.childImageSharp?.fluid,
       },
-      tags: ["branding"],
+      tags: ["branding", "publikacja"],
     },
     {
       link: "/portfolio/milin",
