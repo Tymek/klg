@@ -4,6 +4,8 @@
 [![GitHub actions status](https://github.com/Tymek/klg/workflows/tests/badge.svg)](https://github.com/Tymek/klg/actions)
 [![David dependencies check](https://img.shields.io/david/Tymek/klg?logo=RenovateBot)](https://github.com/Tymek/klg/blob/master/package.json)
 
+Personal portfolio website for my sister. Visit at [magdaklag.pl](https://magdaklag.pl).
+
 Project stack:
   - <img src="https://simpleicons.org/icons/typescript.svg" width=16 height=16/> TypeScript
   - <img src="https://simpleicons.org/icons/gatsby.svg" width=16 height=16/> Gatsby
@@ -38,8 +40,9 @@ npm start
 ## ⚠️ TODO
   - Change main photo
   - Social media share images
-  - SEO descriptions
+  - SEO descriptions (portfolio and main page)
   - Link to next showcase
   - `/portfolio/festiwal-kolorow` change logo to vector graphics
   - Verify categories of projects
+  - Highlight projects on mobile devices
 <br/>
