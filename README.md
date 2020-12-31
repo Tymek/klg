@@ -41,4 +41,5 @@ npm start
   - SEO descriptions
   - Link to next showcase
   - `/portfolio/festiwal-kolorow` change logo to vector graphics
+  - Verify categories of projects
 <br/>

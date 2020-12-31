@@ -62,7 +62,10 @@ module.exports = {
     title: "Magda Klag",
     description: "Design",
     author: "Magda Klag",
+    creator: "Tymek.Cz",
+    publisher: "Scroll-Lock.pl",
     siteUrl: 'https://magdaklag.pl',
+    repository: 'https://github.com/Tymek/klg',
   },
   plugins,
 }

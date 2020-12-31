@@ -39,6 +39,9 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title, image }) => {
             title
             description
             author
+            creator
+            publisher
+            repository
           }
         }
       }
@@ -112,6 +115,22 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title, image }) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `designer`,
+          content: site.siteMetadata.author,
+        },
+        {
+          name: `creator`,
+          content: site.siteMetadata.creator,
+        },
+        {
+          name: `publisher`,
+          content: site.siteMetadata.publisher,
+        },
+        {
+          name: `repository`,
+          content: site.siteMetadata.repository,
         },
       ]
         .concat(metaImage)
