@@ -10,27 +10,32 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 export type MetaItem = {
-  name: string;
-  content: string;
-};
+  name: string
+  content: string
+}
 
 export type SEOProps = {
-  lang?: string,
-  title?: string;
-  description?: string;
-  url?: string;
-  author?: string;
-  keywords?: string[];
-  meta?: MetaItem[];
-  image?: string;
-};
+  lang?: string
+  title?: string
+  description?: string
+  url?: string
+  author?: string
+  keywords?: string[]
+  meta?: MetaItem[]
+  image?: {
+    src: string
+    width: number
+    height: number
+  }
+}
 
-const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<SEOProps> = ({ description, lang, meta, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
+            siteUrl
             title
             description
             author
@@ -41,6 +46,32 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaImage =
+    image && image.src
+      ? [
+          {
+            property: "og:image",
+            content: `${site.siteMetadata.siteUrl}${image.src}`,
+          },
+          {
+            property: "og:image:width",
+            content: image.width,
+          },
+          {
+            property: "og:image:height",
+            content: image.height,
+          },
+          {
+            name: "twitter:card",
+            content: "summary_large_image",
+          },
+        ]
+      : [
+          {
+            name: "twitter:card",
+            content: "summary",
+          },
+        ]
 
   return (
     <Helmet
@@ -82,7 +113,9 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta || [])}
+      ]
+        .concat(metaImage)
+        .concat(meta || [])}
     />
   )
 }

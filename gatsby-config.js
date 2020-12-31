@@ -61,7 +61,8 @@ module.exports = {
   siteMetadata: {
     title: "Magda Klag",
     description: "Design",
-    author: "Tymek.Cz",
+    author: "Magda Klag",
+    siteUrl: 'https://magdaklag.pl',
   },
   plugins,
 }

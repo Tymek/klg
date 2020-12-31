@@ -36,4 +36,5 @@ Be patient. Processing large number of images can take a while. `gatsby-plugin-s
 Before release
   - Change photo
   - Social media share images
+  - SEO descriptions
 <br/>

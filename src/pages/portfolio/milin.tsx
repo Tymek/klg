@@ -17,6 +17,9 @@ const MilinPage = () => {
       branding: file(relativePath: { eq: "milin/milin-branding.jpg" }) {
         ...ImageFragment
       }
+      og: file(relativePath: { eq: "milin/milin-branding.jpg" }) {
+        ...ShareImage
+      }
       businessCards: file(relativePath: { eq: "milin/wizytowki-milin.jpg" }) {
         ...ImageFragment
       }
@@ -31,7 +34,18 @@ const MilinPage = () => {
 
   return (
     <Layout>
-      <SEO title="Milin" />
+      <SEO
+        title="Milin"
+        image={data.og.sharp.shareImage}
+        description={
+          "Milin to marka, która tworzy drewniane zabawki, " +
+          "wykorzystując ekologiczne materiały. Działa w duchu less waste. " +
+          "Założeniem marki Milin jest tworzenie zabawek o prostych formaci " +
+          "i dobrym designie, jednocześnie rozwijających, pobudzających " +
+          "wyobraźnie, tak by w pełniwykorzystywać potencjał dzieci i " +
+          "kształtować wrażliwość wizualną."
+        }
+      />
 
       <Wrapper fullWidth>
         <Cover fluid={data.branding.childImageSharp.fluid} />

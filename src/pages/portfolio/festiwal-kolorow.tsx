@@ -20,6 +20,11 @@ const ColorFestivalPage = () => {
           }
         }
       }
+      og: file(
+        relativePath: { eq: "festiwal-kolorow/festiwal-kolorow-logo-1.png" }
+      ) {
+        ...ShareImage
+      }
       secondary: file(
         relativePath: { eq: "festiwal-kolorow/festiwal-logo-2.png" }
       ) {
@@ -40,7 +45,16 @@ const ColorFestivalPage = () => {
   return (
     <>
       <Layout>
-        <SEO title="Festiwal kolorów – Obóz wakacyjny dla dzieci" />
+        <SEO
+          title="Festiwal kolorów – Obóz wakacyjny dla dzieci"
+          image={data.og.sharp.shareImage}
+          description={
+            "Festiwal kolorów to program edukacyjny przeznaczony na letnie obozy" +
+            " i zajęcia dla dzieci, zrealizowany przez wydawnictwo Misja Pokoleń." +
+            " Program zawiera 7 lekcji, do każdej przypisany jest kolor o znaczeniu" +
+            " nawiązującym do treści lekcji."
+          }
+        />
         <Wrapper>
           <div className="grid grid-cols-9 xl:gap-x-15 mt-8">
             <div className="col-span-9 xl:col-start-3 xl:col-span-5 mt-16 mb-16">
@@ -67,13 +81,13 @@ const ColorFestivalPage = () => {
                 <br />
                 kolorów
               </h1>
-              <P>
+              <P className="mb-6">
                 Festiwal kolorów to program edukacyjny przeznaczony na letnie
                 obozy i zajęcia dla dzieci, zrealizowany przez wydawnictwo Misja
                 Pokoleń. Program zawiera 7 lekcji, do każdej przypisany jest
                 kolor o znaczeniu nawiązującym do treści lekcji.
               </P>
-              <P>
+              <P className="mb-6">
                 Projekt obejmował identyfikacje wizualną, skład podręcznika dla
                 nauczyciela oraz materiały pomocne podczas pracy z dziećmi m.in.
                 kolorowanki, ćwiczenia, ilustracje.
