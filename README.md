@@ -14,12 +14,15 @@ Project stack:
 
 ## ⌨️ Development
 
+Processing large number of images can take a while.
+`gatsby-plugin-sharp` will use cache after first run.
+Be patient.
+
 ```shell
 npm install
 npm start
 # or `npm run docz:dev`
 ```
-Be patient. Processing large number of images can take a while. `gatsby-plugin-sharp` will use cache after first run.
 <br/>
 
 ## 🍒 Features
@@ -33,8 +36,9 @@ Be patient. Processing large number of images can take a while. `gatsby-plugin-s
 <br/>
 
 ## ⚠️ TODO
-Before release
-  - Change photo
+  - Change main photo
   - Social media share images
   - SEO descriptions
+  - Link to next showcase
+  - `/portfolio/festiwal-kolorow` change logo to vector graphics
 <br/>
