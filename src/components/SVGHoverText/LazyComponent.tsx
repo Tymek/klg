@@ -23,6 +23,7 @@ type SVGHoverTextProps = {
   id: string
   lines: string[]
   isOpen?: boolean
+  alignRight?: boolean
 }
 
 /**
@@ -46,7 +47,12 @@ type SVGHoverTextProps = {
  * }
  * ```
  */
-const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
+const SVGHoverText: FC<SVGHoverTextProps> = ({
+  id,
+  lines,
+  isOpen,
+  alignRight,
+}) => {
   const refs = useRef<SVGTSpanElement[]>([])
   const [values, setValues] = useState<Array<number>>(lines.map(() => 0))
   const isMobileFirefox = useIsMobileFirefox()
@@ -147,10 +153,15 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({ id, lines, isOpen }) => {
           return (
             <Fragment key={line}>
               <defs>
-                <text id={`${name}`} y="1em" className="svgHoverText">
+                <text
+                  id={`${name}`}
+                  y="1em"
+                  className="svgHoverText"
+                  text-anchor={alignRight ? "end" : "start"}
+                >
                   <tspan
                     y={`${index + 1}em`}
-                    x="0"
+                    x={alignRight ? "100%" : "0"}
                     ref={ref => {
                       if (ref) {
                         refs.current[index] = ref

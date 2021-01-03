@@ -49,9 +49,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
     {
       link: "/portfolio/przeplotki",
       title: "Przeplotki",
-      image: {
-        ...data?.przeplotki?.childImageSharp?.fluid,
-      },
+      image: data?.przeplotki?.childImageSharp?.fluid,
       tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
     },
     {
@@ -60,9 +58,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         0: "Wiersze\ndla\ndzieci",
         500: "Wiersze\ndla dzieci",
       },
-      image: {
-        ...data?.wiersze?.childImageSharp?.fluid,
-      },
+      image: data?.wiersze?.childImageSharp?.fluid,
       tags: ["ilustracja", "publikacja"],
     },
     {
@@ -71,17 +67,13 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         0: "Modułowe\ndomki\ndla lalek",
         1500: "Modułowe domki\ndla lalek",
       },
-      image: {
-        ...data?.domki?.childImageSharp?.fluid,
-      },
+      image: data?.domki?.childImageSharp?.fluid,
       tags: ["zabawki", "opakowania", "systemy wystawiennicze", "branding"],
     },
     {
       link: "/portfolio/kartki/pocztowki",
       title: "Pocztówki",
-      image: {
-        ...data?.pocztowki?.childImageSharp?.fluid,
-      },
+      image: data?.pocztowki?.childImageSharp?.fluid,
       tags: ["ilustracja", "kartki"],
     },
     {
@@ -89,9 +81,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       title: {
         0: "Festiwal\nkolorów",
       },
-      image: {
-        ...data?.festiwal?.childImageSharp?.fluid,
-      },
+      image: data?.festiwal?.childImageSharp?.fluid,
       tags: ["branding", "publikacja"],
     },
     {
@@ -99,25 +89,19 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       title: {
         0: "Milin",
       },
-      image: {
-        ...data?.milin?.childImageSharp?.fluid,
-      },
+      image: data?.milin?.childImageSharp?.fluid,
       tags: ["branding"],
     },
     {
       link: "/portfolio/kartki/urodzinowe",
       title: "Kartki\nurodzinowe",
-      image: {
-        ...data?.kartkiUrodzinowe?.childImageSharp?.fluid,
-      },
+      image: data?.kartkiUrodzinowe?.childImageSharp?.fluid,
       tags: ["ilustracja", "kartki"],
     },
     {
       link: "/portfolio/tabliczki-kredowe",
       title: "Tabliczki\nkredowe",
-      image: {
-        ...data?.tabliczki?.childImageSharp?.fluid,
-      },
+      image: data?.tabliczki?.childImageSharp?.fluid,
       tags: ["zabawki", "opakowania"],
     },
     {
@@ -126,9 +110,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         0: "Zakładki\ndrewniane",
         1900: "Zakładki drewniane",
       },
-      image: {
-        ...data?.zakladki?.childImageSharp?.fluid,
-      },
+      image: data?.zakladki?.childImageSharp?.fluid,
       tags: ["ilustracja"],
     },
   ]

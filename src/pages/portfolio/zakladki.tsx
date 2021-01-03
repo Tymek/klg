@@ -11,6 +11,7 @@ import webpSmall from "../../images/zakladki/open-book-small.webp"
 import Image from "../../components/Image"
 import Grid, { Column } from "../../components/Grid"
 import { P } from "../../components/Typo"
+import Footer from "../../components/Footer"
 
 const BookmarksPage = () => {
   const data = useStaticQuery(graphql`
@@ -155,6 +156,7 @@ const BookmarksPage = () => {
             <Image fluid={data.feather.childImageSharp.fluid} />
           </div>
         </Wrapper>
+        <Footer />
       </Layout>
     </>
   )

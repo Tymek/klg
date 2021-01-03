@@ -5,6 +5,7 @@ export type SVGHoverTextProps = {
   id: string
   children: string
   isOpen?: boolean
+  alignRight?: boolean
   className?: string
 }
 

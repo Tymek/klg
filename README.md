@@ -41,7 +41,6 @@ npm start
   - Change main photo
   - Social media share images
   - SEO descriptions (portfolio and main page)
-  - Link to next showcase
   - `/portfolio/festiwal-kolorow` change logo to vector graphics
   - Verify categories of projects
 <br/>
