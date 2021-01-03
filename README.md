@@ -44,5 +44,4 @@ npm start
   - Link to next showcase
   - `/portfolio/festiwal-kolorow` change logo to vector graphics
   - Verify categories of projects
-  - Highlight projects on mobile devices
 <br/>
