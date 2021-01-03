@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useEffect, useRef, useState } from "react"
 import { Link } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
@@ -11,6 +11,8 @@ export type PortfolioItemProps = {
   tags?: string[]
   description?: ReactNode
   className?: string
+  isOpen?: boolean
+  onVisibilityChange?: (isVisible: boolean) => void
 }
 
 const PortfolioItem: FC<PortfolioItemProps> = ({
@@ -19,7 +21,10 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   image,
   description,
   className,
+  isOpen: forceOpen,
+  onVisibilityChange,
 }) => {
+  const ref = useRef<HTMLLIElement>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const open = () => {
     setIsOpen(true)
@@ -28,8 +33,29 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
     setIsOpen(false)
   }
 
+  useEffect(() => {
+    if (ref.current && onVisibilityChange) {
+      const observer = new IntersectionObserver(
+        (entities: IntersectionObserverEntry[]) => {
+          if (onVisibilityChange && entities?.length) {
+            onVisibilityChange(entities[0].intersectionRatio === 1 || false)
+          }
+        },
+        {
+          threshold: [0, 1], // only trigger when 0% and 100% visible
+        }
+      )
+
+      observer.observe(ref.current)
+
+      return () => {
+        observer.disconnect()
+      }
+    }
+  }, [ref.current, onVisibilityChange])
+
   return (
-    <li className={className}>
+    <li ref={ref} className={className}>
       <Link
         to={link}
         onMouseEnter={open}
@@ -43,7 +69,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
             <div className="font-bold uppercase text-xl xl:text-xxl">
               <SVGHoverText
                 id={`svg-${link.replace(/[^\w]/g, "-")}`}
-                isOpen={isOpen}
+                isOpen={forceOpen || isOpen}
               >
                 {title}
               </SVGHoverText>

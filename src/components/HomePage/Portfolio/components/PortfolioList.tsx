@@ -1,9 +1,10 @@
-import React, { FC, useCallback, useMemo } from "react"
+import React, { FC, useCallback, useMemo, useState } from "react"
 import PortfolioItem from "./PortfolioItem"
 
 import useWindowSize from "../../../../utilities/useWindowSize"
 import { PortfolioItemProps } from "./PortfolioItem/PortfolioItem"
 import LayoutShift from "../../../LayoutShift"
+import { useIsTouchDevice } from "../../../../utilities/isTouchDevice"
 
 const aspectRatio = 1
 
@@ -17,6 +18,21 @@ export type PortfolioListProps = {
 
 const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
   const { width } = useWindowSize()
+  const isTouch = useIsTouchDevice()
+  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set())
+
+  const updateVisibleItems = (link: string, isVisible: boolean) => {
+    const items = new Set(visibleItems)
+    if (isVisible) {
+      if (!items.has(link)) {
+        items.add(link)
+        setVisibleItems(items)
+      }
+    } else if (items.has(link)) {
+      items.delete(link)
+      setVisibleItems(items)
+    }
+  }
 
   const mapTextWidth = useCallback(
     (sizes: Record<string, string>): string => {
@@ -55,6 +71,13 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
     [items, mapTextWidth]
   )
 
+  const highlightedItem = useMemo(() => {
+    if (!isTouch) return undefined
+
+    const item = items.find(({ link }) => visibleItems.has(link))
+    return item?.link
+  }, [items, visibleItems])
+
   return (
     <LayoutShift>
       <ul
@@ -64,7 +87,13 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
         {parsedItems.map(item => (
           <PortfolioItem
             key={item.link}
+            isOpen={item.link === highlightedItem}
             className="ml-12 -mr-4 xs:mx-0 col-span-9 md:col-start-2 md:col-span-7"
+            onVisibilityChange={
+              isTouch
+                ? isVisible => updateVisibleItems(item.link, isVisible)
+                : undefined
+            }
             {...item}
           />
         ))}
