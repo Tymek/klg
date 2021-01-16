@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -39,7 +39,7 @@
     "gatsby-source-filesystem": "2.9.0",
     "gatsby-transformer-sharp": "2.10.1",
     "is-touch-device": "1.0.1",
-    "preact": "10.5.9",
+    "preact": "10.5.10",
     "preact-render-to-string": "5.1.12",
     "prettier": "2.2.1",
     "react": "17.0.1",
@@ -73,7 +73,7 @@
     "docz": "2.3.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
-    "postcss": "8.2.3",
+    "postcss": "8.2.4",
     "postcss-import": "14.0.0",
     "react-test-renderer": "17.0.1",
     "typescript": "4.1.3",
@@ -81,10 +81,10 @@
   },
   "optionalDependencies": {
     "@types/loadable__component": "5.13.1",
-    "@types/node": "14.14.20",
+    "@types/node": "14.14.21",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
     "@types/react-helmet": "6.1.0",
-    "@types/resize-observer-browser": "0.1.4"
+    "@types/resize-observer-browser": "0.1.5"
   }
 }
