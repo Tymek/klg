@@ -1,6 +1,8 @@
-import React, { FC, useMemo } from "react"
+import React, { FC, ReactNode, useMemo } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Wrapper from "../../Wrapper"
+import Image from "../../Image"
+import routes from "./routes.json"
 import Navigation from "./components/PortfolioNavigation"
 import PortfolioList, { PortfolioListProps } from "./components/PortfolioList"
 
@@ -42,78 +44,38 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       zakladki: file(relativePath: { eq: "cover-portfolio/zakladka.jpg" }) {
         ...PortfolioImage
       }
+      toyContestBadge: file(
+        relativePath: { eq: "zabawkaroku_logo_contrast.png" }
+      ) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            src
+            srcSet
+            sizes
+          }
+        }
+      }
     }
   `)
 
-  const items: PortfolioListProps["items"] = [
-    {
-      link: "/portfolio/przeplotki",
-      title: "Przeplotki",
-      image: data?.przeplotki?.childImageSharp?.fluid,
-      tags: ["zabawki", "opakowania", "branding", "systemy wystawiennicze"],
-    },
-    {
-      link: "/portfolio/wiersze-dla-dzieci",
-      title: {
-        0: "Wiersze\ndla\ndzieci",
-        500: "Wiersze\ndla dzieci",
-      },
-      image: data?.wiersze?.childImageSharp?.fluid,
-      tags: ["ilustracja", "publikacja"],
-    },
-    {
-      link: "/portfolio/modulowe-domki-dla-lalek",
-      title: {
-        0: "Modułowe\ndomki\ndla lalek",
-        1500: "Modułowe domki\ndla lalek",
-      },
-      image: data?.domki?.childImageSharp?.fluid,
-      tags: ["zabawki", "opakowania", "systemy wystawiennicze", "branding"],
-    },
-    {
-      link: "/portfolio/kartki/pocztowki",
-      title: "Pocztówki",
-      image: data?.pocztowki?.childImageSharp?.fluid,
-      tags: ["ilustracja", "kartki"],
-    },
-    {
-      link: "/portfolio/festiwal-kolorow",
-      title: {
-        0: "Festiwal\nkolorów",
-      },
-      image: data?.festiwal?.childImageSharp?.fluid,
-      tags: ["branding", "publikacja"],
-    },
-    {
-      link: "/portfolio/milin",
-      title: {
-        0: "Milin",
-      },
-      image: data?.milin?.childImageSharp?.fluid,
-      tags: ["branding"],
-    },
-    {
-      link: "/portfolio/kartki/urodzinowe",
-      title: "Kartki\nurodzinowe",
-      image: data?.kartkiUrodzinowe?.childImageSharp?.fluid,
-      tags: ["ilustracja", "kartki"],
-    },
-    {
-      link: "/portfolio/tabliczki-kredowe",
-      title: "Tabliczki\nkredowe",
-      image: data?.tabliczki?.childImageSharp?.fluid,
-      tags: ["zabawki", "opakowania"],
-    },
-    {
-      link: "/portfolio/zakladki",
-      title: {
-        0: "Zakładki\ndrewniane",
-        1900: "Zakładki drewniane",
-      },
-      image: data?.zakladki?.childImageSharp?.fluid,
-      tags: ["ilustracja"],
-    },
-  ]
+  const badges: Record<string, ReactNode> = {
+    przeplotki: (
+      <div className="absolute right-0 top-0 md:left-0 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-32 xl:w-40 xxl:w-48">
+        <Image fluid={data?.toyContestBadge?.childImageSharp?.fluid} />
+      </div>
+    ),
+  }
+
+  const items: PortfolioListProps["items"] = routes.map(item => ({
+    ...item,
+    title: item.title as string | Record<string, string>,
+    link: `/portfolio/${item.link}`,
+    image: data[item.image].childImageSharp?.fluid,
+    badge: Object.keys(badges).includes(item.link)
+      ? badges[item.link]
+      : undefined,
+  }))
 
   const filteredItems = useMemo(() => {
     if (!tag) return items

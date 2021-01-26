@@ -10,6 +10,7 @@ export type PortfolioItemProps = {
   title: string
   tags?: string[]
   description?: ReactNode
+  badge?: ReactNode
   className?: string
   isOpen?: boolean
   onVisibilityChange?: (isVisible: boolean) => void
@@ -20,6 +21,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   link,
   image,
   description,
+  badge,
   className,
   isOpen: forceOpen,
   onVisibilityChange,
@@ -76,8 +78,9 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
             </div>
             {description}
           </div>
-          <div className="md:col-span-4 lg:col-span-3">
+          <div className="relative md:col-span-3 lg:col-span-3">
             <Image fluid={image} />
+            {badge}
           </div>
         </div>
       </Link>
