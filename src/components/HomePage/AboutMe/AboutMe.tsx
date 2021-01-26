@@ -60,7 +60,7 @@ const AboutMe: FC<AboutMeProps> = () => {
                   grafikę na potrzeby identyfikacji wizualnej marek oraz
                   projektuję zabawki – przy czym bawię się równie dobrze, jak
                   odbiorcy. Jestem miłośniczką oszczędnej, czystej formy,
-                  poprawnej typografi i swobodnych dziecięcej twórczości.
+                  poprawnej typografi i swobodnej dziecięcej twórczości.
                 </Span>
               </p>
             </div>
