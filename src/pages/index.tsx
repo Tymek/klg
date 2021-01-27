@@ -25,7 +25,7 @@ const IndexPage: FC<PageProps> = ({ location }) => {
     <>
       <SEO />
       <SimulationCanvas />
-      <Layout largeDecoration>
+      <Layout largeDecoration nonRelative>
         <AboutMe />
         <Portfolio tag={tag} />
         <Contact />

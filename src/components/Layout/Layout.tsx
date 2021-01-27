@@ -4,12 +4,18 @@ import Header, { HeaderProps } from "./components/Header"
 import "../../global/styles.css"
 import "../../global/fonts.css"
 
-export type LayoutProps = HeaderProps
+export type LayoutProps = HeaderProps & {
+  nonRelative?: boolean
+}
 
-const Layout: FC<LayoutProps> = ({ children, largeDecoration }) => (
+const Layout: FC<LayoutProps> = ({
+  children,
+  largeDecoration,
+  nonRelative,
+}) => (
   <>
     <Header largeDecoration={largeDecoration} />
-    <main className="relative">{children}</main>
+    <main className={nonRelative ? "" : "relative"}>{children}</main>
   </>
 )
 
