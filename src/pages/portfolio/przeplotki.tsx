@@ -220,15 +220,6 @@ const MilinPage = () => {
           <div className="mt-24 mb-20">
             <Image fluid={data.showcase6.childImageSharp.fluid} />
           </div>
-
-          {/* <div className="flex justify-end py-12">
-            <OutlinedLink
-              to="/portfolio/milin"
-              className="text-3xl font-bold uppercase"
-            >
-              Następny
-            </OutlinedLink>
-          </div> */}
         </Wrapper>
         <Footer />
       </Layout>

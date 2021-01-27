@@ -3,23 +3,14 @@ import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import SVGHoverText from "./SVGHoverText"
 import Wrapper from "./Wrapper"
+import routes from "./HomePage/Portfolio/routes.json"
 
 type FooterProps = {
   className?: string
   nextLink?: boolean
 }
 
-const routes = [
-  "/portfolio/przeplotki/",
-  "/portfolio/wiersze-dla-dzieci/",
-  "/portfolio/modulowe-domki-dla-lalek/",
-  "/portfolio/kartki/pocztowki/",
-  "/portfolio/festiwal-kolorow/",
-  "/portfolio/milin/",
-  "/portfolio/kartki/urodzinowe/",
-  "/portfolio/tabliczki-kredowe/",
-  "/portfolio/zakladki/",
-]
+const links = routes.map(({ link }) => `/portfolio/${link}/`)
 
 const NextLink: FC<{ to: ComponentProps<typeof Link>["to"] }> = ({ to }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -54,8 +45,8 @@ const NextLink: FC<{ to: ComponentProps<typeof Link>["to"] }> = ({ to }) => {
 
 const Footer: FC<FooterProps> = ({ className }) => {
   const location = useLocation()
-  const index = routes.findIndex(route => route === location.pathname)
-  const nextLink = index >= 0 ? routes[(index + 1) % routes.length] : null
+  const index = links.findIndex(route => route === location.pathname)
+  const nextLink = index >= 0 ? links[(index + 1) % links.length] : null
 
   return (
     <>
