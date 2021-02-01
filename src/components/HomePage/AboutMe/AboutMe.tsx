@@ -6,9 +6,7 @@ import Image from "../../Image"
 import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
 
-type AboutMeProps = {}
-
-const AboutMe: FC<AboutMeProps> = () => {
+const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {
@@ -58,11 +56,7 @@ const AboutMe: FC<AboutMeProps> = () => {
               <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-1 md:mt-4 xl:top-auto xxl:bottom-0">
                 <p className="col-span-9 md:col-start-2 md:col-span-5 xl:col-start-2 xl:col-span-3">
                   <Span className="text-xs sm:text-sm md:text-base leading-7 xl:leading-10 relative z-30">
-                    Zajmuję się projektowaniem wzorniczym, ilustruję, tworzę
-                    grafikę na potrzeby identyfikacji wizualnej marek oraz
-                    projektuję zabawki – przy czym bawię się równie dobrze, jak
-                    odbiorcy. Jestem miłośniczką oszczędnej, czystej formy,
-                    poprawnej typografi i swobodnej dziecięcej twórczości.
+                    {children}
                   </Span>
                 </p>
               </div>
