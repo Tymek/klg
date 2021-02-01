@@ -38,9 +38,7 @@ npm start
 <br/>
 
 ## ⚠️ TODO
-  - Change main photo
   - Social media share images
   - SEO descriptions (portfolio and main page)
   - `/portfolio/festiwal-kolorow` change logo to vector graphics
   - Verify categories of projects
-<br/>
