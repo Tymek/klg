@@ -179,7 +179,7 @@ const BirthdayCardsPage = () => {
             </div>
           </div>
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

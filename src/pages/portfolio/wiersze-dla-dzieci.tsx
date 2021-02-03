@@ -156,7 +156,7 @@ const PoemsPage = () => {
             className="relative z-30"
           />
         </Container>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

@@ -232,7 +232,7 @@ const PocztowkiPage = () => {
             />
           </VerticalPostcardWrapper>
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

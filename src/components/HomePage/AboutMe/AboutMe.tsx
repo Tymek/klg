@@ -6,6 +6,8 @@ import Image from "../../Image"
 import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
 
+const Divider = () => <span> / </span>
+
 const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -45,7 +47,13 @@ const AboutMe: FC = ({ children }) => {
                   <div className="col-span-9 md:col-span-8 sm:pb-6 md:pb-0 lg:col-span-6 xl:col-start-2 xxl:ml-15">
                     <h1 className="relative leading-none uppercase font-bold z-30">
                       <span className="text-xl sm:text-xxl xl:text-3xl">
-                        Zabawki / Ilustracja / Branding / Publikacja
+                        Zabawki
+                        <Divider />
+                        Ilustracja
+                        <Divider />
+                        Branding
+                        <Divider />
+                        Publikacja
                       </span>
                     </h1>
                   </div>

@@ -137,7 +137,7 @@ const MilinPage = () => {
           </Column>
         </Grid>
       </Wrapper>
-      <Footer />
+      <Footer nextLink />
     </Layout>
   )
 }

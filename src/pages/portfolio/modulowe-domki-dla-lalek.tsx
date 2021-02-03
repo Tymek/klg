@@ -101,7 +101,7 @@ const DollhousePage = () => {
             </div>
           </div>
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

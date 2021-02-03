@@ -221,7 +221,7 @@ const ColorFestivalPage = () => {
             className="lg:mt-12"
           />
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

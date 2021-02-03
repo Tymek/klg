@@ -120,7 +120,7 @@ const ChalkBoardsPage = () => {
           </Column>
         </Grid>
       </Wrapper>
-      <Footer />
+      <Footer nextLink />
     </Layout>
   )
 }

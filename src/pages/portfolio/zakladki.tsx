@@ -156,7 +156,7 @@ const BookmarksPage = () => {
             <Image fluid={data.feather.childImageSharp.fluid} />
           </div>
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )

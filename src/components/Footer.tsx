@@ -43,14 +43,14 @@ const NextLink: FC<{ to: ComponentProps<typeof Link>["to"] }> = ({ to }) => {
   )
 }
 
-const Footer: FC<FooterProps> = ({ className }) => {
+const Footer: FC<FooterProps> = ({ nextLink, className }) => {
   const location = useLocation()
   const index = links.findIndex(route => route.includes(location.pathname))
-  const nextLink = index >= 0 ? links[(index + 1) % links.length] : null
+  const nextLinkIndex = index >= 0 ? links[(index + 1) % links.length] : null
 
   return (
     <>
-      {nextLink && <NextLink to={nextLink} />}
+      {nextLink && nextLinkIndex !== null && <NextLink to={nextLinkIndex} />}
       <div
         style={{
           width: "66%",

@@ -221,7 +221,7 @@ const MilinPage = () => {
             <Image fluid={data.showcase6.childImageSharp.fluid} />
           </div>
         </Wrapper>
-        <Footer />
+        <Footer nextLink />
       </Layout>
     </>
   )
