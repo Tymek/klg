@@ -1,4 +1,11 @@
-import React, { FC, ReactText, useEffect, useReducer, useState } from "react"
+import React, {
+  FC,
+  ReactText,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react"
 import isTouchDevice from "is-touch-device"
 import "./RevealDetails.css"
 
@@ -15,7 +22,13 @@ type RevealDetailsState = {
   isHovered: boolean
 }
 
-type RevealDetailsStateActions = "allow" | "mouseOver" | "mouseOut" | "click"
+type RevealDetailsStateActions =
+  | "allow"
+  | "mouseOver"
+  | "mouseOut"
+  | "click"
+  | "show"
+  | "hide"
 
 const reducer = (
   state: RevealDetailsState,
@@ -58,6 +71,28 @@ const reducer = (
         isHovered: false,
       }
     }
+    case "show": {
+      if (isTouchDevice()) {
+        return {
+          ...state,
+          isHovered: true,
+          isOpen: true,
+        }
+      }
+
+      return { ...state }
+    }
+    case "hide": {
+      if (!state.isLockedOpen) {
+        return {
+          ...state,
+          isHovered: false,
+          isOpen: false,
+        }
+      }
+
+      return { ...state }
+    }
     default:
       return state
   }
@@ -76,6 +111,7 @@ const fetchData = async (file: string, key: string): Promise<string> => {
 }
 
 const RevealDetails: FC<RevealDetailsProps> = ({ children, file, item }) => {
+  const ref = useRef<HTMLDivElement>(null)
   const [state, dispatch] = useReducer(reducer, {
     isOpen: false,
     isLockedOpen: false,
@@ -84,6 +120,29 @@ const RevealDetails: FC<RevealDetailsProps> = ({ children, file, item }) => {
   })
   const [value, setValue] = useState<string>("")
   const showValue = state.isOpen && value
+
+  useEffect(() => {
+    if (ref.current) {
+      const observer = new IntersectionObserver(
+        (entities: IntersectionObserverEntry[]) => {
+          if (entities?.length) {
+            dispatch(
+              entities[0].intersectionRatio === 1 || false ? "show" : "hide"
+            )
+          }
+        },
+        {
+          threshold: [0, 1], // only trigger when 0% and 100% visible
+        }
+      )
+
+      observer.observe(ref.current)
+
+      return () => {
+        observer.disconnect()
+      }
+    }
+  }, [ref.current])
 
   useEffect(() => {
     // delay before allowing to open
@@ -102,6 +161,7 @@ const RevealDetails: FC<RevealDetailsProps> = ({ children, file, item }) => {
 
   return (
     <div
+      ref={ref}
       onMouseOver={() => dispatch("mouseOver")}
       onMouseOut={() => dispatch("mouseOut")}
       onFocus={() => dispatch("mouseOver")}
