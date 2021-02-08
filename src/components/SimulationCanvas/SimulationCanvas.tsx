@@ -5,17 +5,21 @@ import loop from "./utilities/loop"
 import createParticle from "./utilities/createParticle"
 import { Vector } from "./utilities/vectorMath"
 
+/**
+ * [left, top]
+ */
 const anchors = [
-  [0.21, 0.17],
   [0.03, 0.28],
+  [0.11, 0.77],
   [0.16, 0.47],
-  [0.09, 0.77],
-  [0.47, 0.22],
-  [0.95, 0.25],
-  [0.91, 0.48],
-  [0.96, 0.86],
-  [0.51, 0.61],
+  [0.21, 0.17],
   [0.38, 0.91],
+  [0.42, 0.31],
+  [0.47, 0.22],
+  [0.51, 0.61],
+  [0.91, 0.48],
+  [0.95, 0.25],
+  [0.96, 0.86],
 ]
 
 const clear = (ctx: CanvasRenderingContext2D) => () =>

@@ -6,8 +6,6 @@ import Image from "../../Image"
 import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
 
-const Divider = () => <span> / </span>
-
 const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -45,15 +43,12 @@ const AboutMe: FC = ({ children }) => {
               <div className="-mt-16 pt-2 pb-6 sm:-mt-48 sm:pt-8 md:mt-0 md:pt-0 md:mb-0 md:pb-0">
                 <div className="grid grid-cols-9 sm:gap-x-15">
                   <div className="col-span-9 md:col-span-8 sm:pb-6 md:pb-0 lg:col-span-6 xl:col-start-2 xxl:ml-15">
-                    <h1 className="relative leading-none uppercase font-bold z-30">
-                      <span className="text-xl sm:text-xxl xl:text-3xl">
-                        Zabawki
-                        <Divider />
-                        Ilustracja
-                        <Divider />
-                        Branding
-                        <Divider />
-                        Publikacja
+                    <h1 className="relative leading-none font-bold z-30">
+                      <span
+                        className="uppercase text-xl sm:text-xxl xl:text-xxl"
+                        style={{ letterSpacing: "0.1rem" }}
+                      >
+                        ilustracja&ensp;wzornictwo&ensp;grafika&ensp;publikacja
                       </span>
                     </h1>
                   </div>
@@ -80,7 +75,7 @@ const AboutMe: FC = ({ children }) => {
                 to="/#portfolio"
                 className="uppercase transform -rotate-90 -translate-x-1/2 -translate-y-1/2 z-50"
               >
-                Zobacz portfolio
+                <span className="text-medium">Zobacz portfolio</span>
               </HoverLink>
             </div>
           </div>

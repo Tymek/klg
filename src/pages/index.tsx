@@ -38,7 +38,7 @@ const IndexPage: FC<PageProps> = ({ location }) => {
   const description =
     "Zajmuję się projektowaniem wzorniczym, ilustruję, tworzę grafikę na potrzeby identyfikacji wizualnej marek " +
     "oraz projektuję zabawki – przy czym bawię się równie dobrze, jak odbiorcy. Jestem miłośniczką oszczędnej, " +
-    "czystej formy, poprawnej typografi i swobodnej dziecięcej twórczości."
+    "czystej formy, poprawnej typografii i swobodnej dziecięcej twórczości."
 
   return (
     <>
