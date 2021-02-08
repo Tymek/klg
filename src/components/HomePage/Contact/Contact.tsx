@@ -2,6 +2,21 @@ import React from "react"
 import Wrapper from "../../Wrapper"
 import Footer from "../../Footer"
 import RevealDetails from "./components/RevealDetails"
+import loadable from "@loadable/component"
+
+const BehanceIcon = loadable(() => import("./components/Behance"))
+const InstagramIcon = loadable(() => import("./components/Instagram"))
+
+const IconLink: React.FC<{ href: string }> = ({ href, children }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-6 block"
+  >
+    {children}
+  </a>
+)
 
 const Contact: React.FC = () => (
   <>
@@ -25,6 +40,14 @@ const Contact: React.FC = () => (
             <RevealDetails file="contact" item="phone">
               telefon
             </RevealDetails>
+          </div>
+          <div>
+            <IconLink href="//www.behance.net/magdaklag230c7">
+              <BehanceIcon />
+            </IconLink>
+            <IconLink href="//www.instagram.com/magda_klag/">
+              <InstagramIcon />
+            </IconLink>
           </div>
         </div>
       </section>

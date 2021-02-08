@@ -167,6 +167,7 @@ module.exports = {
       xs: '0.9375rem', // 15px
       sm: '1.0625rem', // 17px
       base: '1.25rem', // 20px
+      medium: '1.5rem', // 24px
       lg: '1.875rem', // 30px
       xl: '2.5rem', // 40px
       xxl: '3.75rem', // 60px
