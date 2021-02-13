@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const portfolioItemsCount = 11
+const portfolioItemsCount = 12
 const portfolioToyItems = 4
 
 describe("Portfolio", () => {

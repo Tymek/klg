@@ -43,6 +43,11 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       ) {
         ...PortfolioImage
       }
+      kartkiBozonarodzeniowe: file(
+        relativePath: { eq: "kartki/bozonarodzeniowe/kartka08.jpg" }
+      ) {
+        ...PortfolioImage
+      }
       tabliczki: file(relativePath: { eq: "cover-portfolio/tabliczki.jpg" }) {
         ...PortfolioImage
       }

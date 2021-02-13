@@ -108,5 +108,14 @@
       "ilustracja",
       "kartki"
     ]
+  },
+  {
+    "link": "kartki/bozonarodzeniowe",
+    "title": "Kartki\nBożonarodzeniowe",
+    "image": "kartkiBozonarodzeniowe",
+    "tags": [
+      "ilustracja",
+      "kartki"
+    ]
   }
 ]
