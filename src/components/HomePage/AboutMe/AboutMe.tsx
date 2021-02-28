@@ -7,6 +7,7 @@ import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
 import Title from "./components/Title"
 import Decoration from "../../Layout/components/Decoration"
+import Grid, { Column } from "../../Grid"
 
 const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -54,23 +55,43 @@ const AboutMe: FC = ({ children }) => {
           </LayoutShift>
         </Wrapper>
       </div>
-      <Wrapper notRelative className="xxl:absolute xxl:top-1/2">
-        <h1 className="relative z-30 mt-4 mb-2">
-          <Title />
-        </h1>
-        <LayoutShift compensateMargin>
-          <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-1 md:mt-4">
-            <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-0">
-              <p className="col-span-9 md:col-start-2 md:col-span-5 xl:col-start-2 xl:col-span-3">
-                <Span className="text-xs sm:text-sm leading-6 xl:leading-8 relative z-30">
+      <div className="w-full lg:transform lg:absolute lg:top-1/2 lg:-translate-y-1/2">
+        <Wrapper notRelative>
+          <h1 className="relative z-30 mt-4 sm:mt-2 sm:absolute top-0 lg:relative">
+            <Grid>
+              <Column
+                className={
+                  "col-span-9 " +
+                  "sm:col-span-4 " +
+                  "lg:col-span-7 " +
+                  "xl:col-span-7 xl:col-start-2 xl:max-w-4xl"
+                }
+              >
+                <Title />
+              </Column>
+            </Grid>
+          </h1>
+          {/* <div className="lg:absolute lg:bottom-0"> */}
+          <LayoutShift compensateMargin>
+            <div className="grid grid-cols-9 mt-2 sm:mt-8 sm:gap-x-15">
+              <p
+                className={
+                  "col-span-9 " +
+                  "sm:col-span-8 " +
+                  "md:col-start-2 md:col-span-6 " +
+                  "lg:col-start-2 lg:col-span-4 " +
+                  "xl:col-start-3 xl:col-span-3"
+                }
+              >
+                <Span className="text-xs sm:text-sm leading-normal md:leading-relaxed lg:text-base xl:leading-loose relative z-30">
                   {children}
                 </Span>
               </p>
             </div>
-          </div>
-        </LayoutShift>
-      </Wrapper>
-      <div className="absolute bottom-0 w-full hidden xl:block">
+          </LayoutShift>
+        </Wrapper>
+      </div>
+      <div className="absolute bottom-0 w-full hidden sm:block">
         <Wrapper>
           <div className="absolute bottom-0 transform z-50 w-64 mb-24">
             <div className="-mb-2 ml-4">

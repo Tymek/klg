@@ -88,7 +88,7 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
           <PortfolioItem
             key={item.link}
             isOpen={item.link === highlightedItem}
-            className="ml-12 -mr-4 xs:mx-0 col-span-9 md:col-start-2 md:col-span-7"
+            className="ml-12 xs:mx-0 col-span-9 md:col-start-2 md:col-span-7"
             onVisibilityChange={
               isTouch
                 ? isVisible => updateVisibleItems(item.link, isVisible)

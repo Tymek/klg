@@ -19,7 +19,7 @@ const Decoration: FC<DecorationProps> = ({ style, className }) => (
         ...decorationStyles,
         ...style,
       }}
-      className={`bg-lightGray hidden xxl:block ${className}`}
+      className={`bg-lightGray hidden xxl:block ${className || ""}`}
     />
     <div
       style={{
@@ -27,7 +27,7 @@ const Decoration: FC<DecorationProps> = ({ style, className }) => (
         ...decorationStyles,
         ...style,
       }}
-      className={`bg-lightGray block xxl:hidden ${className}`}
+      className={`bg-lightGray block xxl:hidden ${className || ""}`}
     />
   </>
 )
