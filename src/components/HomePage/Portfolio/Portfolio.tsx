@@ -100,11 +100,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   }, [tag])
 
   return (
-    <section
-      id="portfolio"
-      tabIndex={-1}
-      className="bg-lightGray outline-none focus:shadow-outline"
-    >
+    <section id="portfolio" tabIndex={-1} className="bg-lightGray outline-none">
       <Wrapper>
         <div className="relative min-h-screen">
           <h2 className="sr-only">Portfolio</h2>

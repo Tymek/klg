@@ -4,42 +4,23 @@ import { useLocation } from "@reach/router"
 import Wrapper from "../../Wrapper"
 import HoverLink from "../../HoverLink"
 import LayoutShift from "../../LayoutShift"
+import Decoration from "./Decoration"
 import "./Header.css"
 
 export type HeaderProps = {
   largeDecoration?: boolean
+  homePage?: boolean
 }
 
-const decorationStyles: CSSProperties = {
-  position: "absolute",
-  top: 0,
-  right: 0,
-  zIndex: -2,
-}
-
-const Header: React.FC<HeaderProps> = ({ largeDecoration }) => {
+const Header: React.FC<HeaderProps> = ({ homePage, largeDecoration }) => {
   const location = useLocation()
   const isHomePage = location?.pathname === "/"
   const navigation = ["o mnie", "portfolio", "kontakt"]
+  const height = homePage ? "50vh" : largeDecoration ? "95vh" : "6.5rem"
 
   return (
     <>
-      <div
-        style={{
-          ...decorationStyles,
-          height: largeDecoration ? "95vh" : "6.5rem",
-          width: "calc(50% - 442px)",
-        }}
-        className="bg-lightGray hidden xxl:block"
-      />
-      <div
-        style={{
-          ...decorationStyles,
-          height: largeDecoration ? "95vh" : "6.5rem",
-          width: "24.5%",
-        }}
-        className="bg-lightGray block xxl:hidden"
-      />
+      <Decoration style={{ height, top: homePage ? "auto" : 0 }} />
       <Wrapper className="relative z-10">
         <header className="pt-6 md:pt-12 pb-4 md:pb-10">
           <div className="md:w-3/4 z-1 relative">

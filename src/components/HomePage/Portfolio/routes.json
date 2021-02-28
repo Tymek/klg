@@ -111,7 +111,11 @@
   },
   {
     "link": "kartki/bozonarodzeniowe",
-    "title": "Kartki\nBożonarodzeniowe",
+    "title": {
+      "0": "Kartki\nBożonaro-\ndzeniowe",
+      "400": "Kartki\nBożonarodze-\nniowe",
+      "500": "Kartki\nBożonarodzeniowe"
+    },
     "image": "kartkiBozonarodzeniowe",
     "tags": [
       "ilustracja",
