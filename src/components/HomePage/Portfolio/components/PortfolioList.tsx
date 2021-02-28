@@ -82,7 +82,7 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
     <LayoutShift>
       <ul
         data-test="portfolio-list"
-        className="grid gap-y-15 md:gap-y-12 grid-cols-9"
+        className="grid gap-y-15 md:gap-y-12 grid-cols-9 sm:gap-x-15"
       >
         {parsedItems.map(item => (
           <PortfolioItem

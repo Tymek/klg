@@ -47,8 +47,11 @@ const IndexPage: FC<PageProps> = ({ location }) => {
         description={description}
       />
       <SimulationCanvas />
-      <Layout largeDecoration nonRelative>
-        <AboutMe>{description}</AboutMe>
+      <Layout
+        largeDecoration
+        nonRelative
+        heroContent={<AboutMe>{description}</AboutMe>}
+      >
         <Portfolio tag={tag} />
         <Contact />
       </Layout>

@@ -5,6 +5,8 @@ import { Span } from "../../Typo"
 import Image from "../../Image"
 import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
+import Title from "./components/Title"
+import Decoration from "../../Layout/components/Decoration"
 
 const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,54 +25,55 @@ const AboutMe: FC = ({ children }) => {
   `)
 
   return (
-    <>
-      <Wrapper notRelative>
-        <section id="o-mnie" className="relative min-h-screen z-10">
-          <div className="relative">
-            <div className="grid grid-cols-9 sm:gap-x-15">
-              <div className="col-span-9 sm:col-start-4 sm:col-span-6 md:col-start-6 md:col-span-4 xl:col-start-6 xl:col-span-3">
-                <LayoutShift>
-                  <Image
-                    fluid={{
-                      ...data.mainCoverPhoto.childImageSharp.fluid,
-                      backgroundColor: "#f1f1f2",
-                    }}
-                  />
-                </LayoutShift>
+    <section id="o-mnie">
+      <div className="relative">
+        <Decoration
+          style={{ height: "100%", bottom: 0 }}
+          className="hidden sm:block"
+        />
+        <Wrapper>
+          <LayoutShift>
+            <div className="grid grid-cols-1 sm:gap-x-15 sm:grid-cols-9">
+              <div
+                className={
+                  "col-span-1 " +
+                  "sm:col-start-4 sm:col-span-6 " +
+                  "md:col-start-6 md:col-span-4 " +
+                  "lg:col-start-6 lg:col-span-4 " +
+                  "xl:col-start-6 xl:col-span-3"
+                }
+              >
+                <Image
+                  fluid={{
+                    ...data.mainCoverPhoto.childImageSharp.fluid,
+                    backgroundColor: "#f1f1f2",
+                  }}
+                />
               </div>
             </div>
-            <div className="md:absolute md:bottom-0 lg:bottom-auto lg:top-1/3">
-              <div className="-mt-16 pt-2 pb-6 sm:-mt-48 sm:pt-8 md:mt-0 md:pt-0 md:mb-0 md:pb-0">
-                <div className="grid grid-cols-9 sm:gap-x-15">
-                  <div className="col-span-9 md:col-span-8 sm:pb-6 md:pb-0 lg:col-span-6 xl:col-start-2 xxl:ml-15">
-                    <h1 className="relative leading-none font-bold z-30">
-                      <span
-                        className="uppercase text-xl sm:text-xxl xl:text-xxl"
-                        style={{ letterSpacing: "0.1rem" }}
-                      >
-                        ilustracja&ensp;wzornictwo&ensp;grafika&ensp;publikacja
-                      </span>
-                    </h1>
-                  </div>
-                </div>
-              </div>
+          </LayoutShift>
+        </Wrapper>
+      </div>
+      <Wrapper notRelative className="xxl:absolute xxl:top-1/2">
+        <h1 className="relative z-30 mt-4 mb-2">
+          <Title />
+        </h1>
+        <LayoutShift compensateMargin>
+          <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-1 md:mt-4">
+            <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-0">
+              <p className="col-span-9 md:col-start-2 md:col-span-5 xl:col-start-2 xl:col-span-3">
+                <Span className="text-xs sm:text-sm leading-6 xl:leading-8 relative z-30">
+                  {children}
+                </Span>
+              </p>
             </div>
-            <LayoutShift compensateMargin>
-              <div className="grid grid-cols-9 sm:gap-x-15 md:absolute md:top-1 md:mt-4 xl:top-auto xxl:bottom-0">
-                <p className="col-span-9 md:col-start-2 md:col-span-5 xl:col-start-2 xl:col-span-3">
-                  <Span className="text-xs sm:text-sm md:text-base leading-7 xl:leading-10 relative z-30">
-                    {children}
-                  </Span>
-                </p>
-              </div>
-            </LayoutShift>
           </div>
-        </section>
+        </LayoutShift>
       </Wrapper>
-      <div className="absolute top-0 w-full hidden xl:block">
-        <Wrapper className="min-h-screen">
+      <div className="absolute bottom-0 w-full hidden xl:block">
+        <Wrapper>
           <div className="absolute bottom-0 transform z-50 w-64 mb-24">
-            <div className="mb-12 ml-4">
+            <div className="-mb-2 ml-4">
               <HoverLink
                 to="/#portfolio"
                 className="uppercase transform -rotate-90 -translate-x-1/2 -translate-y-1/2 z-50"
@@ -81,7 +84,7 @@ const AboutMe: FC = ({ children }) => {
           </div>
         </Wrapper>
       </div>
-    </>
+    </section>
   )
 }
 

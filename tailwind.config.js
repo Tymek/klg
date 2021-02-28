@@ -172,6 +172,7 @@ module.exports = {
       xl: '2.5rem', // 40px
       xxl: '3.75rem', // 60px
       '3xl': '4.375rem', // 70px
+      '4xl': '5rem', // 80px
       giant: '6.25rem' // 100px
     },
     // fontWeight: {
@@ -207,7 +208,7 @@ module.exports = {
       tight: '-0.025em',
       normal: '0',
       wide: '0.025em',
-      wider: '0.05em',
+      wider: '0.033em',
       widest: '0.1em',
     },
     lineHeight: {
