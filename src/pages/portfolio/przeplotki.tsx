@@ -150,7 +150,13 @@ const MilinPage = () => {
               w wyciszeniu i skupieniu uwagi, ćwiczy koordynację ręka-oko.
             </P>
 
-            <div className="mb-5 flex justify-center">
+            {/* TODO: unify other portfolio items to this */}
+            <h2 className="text-md xl:text-lg uppercase pt-16 pb-10 mb-12">
+              Zabawki &ensp; Opakowania &ensp; Materiały reklamowe &ensp;
+              Systemy&nbsp;wystawiennicze
+            </h2>
+
+            <div className="mb-16 flex">
               <a
                 href="https://www.zabawkaroku.pl/produkt/?id=7770"
                 target="_blank"
@@ -160,16 +166,6 @@ const MilinPage = () => {
               </a>
             </div>
           </section>
-
-          <h2 className="text-lg text-center uppercase pt-16 pb-40 mb-12">
-            Zabawki
-            <Dot style={{ color: "#1eb3c9" }} />
-            Opakowania
-            <Dot style={{ color: "#1eb3c9" }} />
-            Materiały reklamowe
-            <Dot style={{ color: "#1eb3c9" }} />
-            Systemy wystawiennicze
-          </h2>
 
           <div className="mb-20">
             <Image fluid={data.showcase1.childImageSharp.fluid} />

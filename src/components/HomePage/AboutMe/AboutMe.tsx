@@ -73,7 +73,7 @@ const AboutMe: FC = ({ children }) => {
           </h1>
           {/* <div className="lg:absolute lg:bottom-0"> */}
           <LayoutShift compensateMargin>
-            <div className="grid grid-cols-9 mt-2 sm:mt-8 sm:gap-x-15">
+            <div className="grid grid-cols-9 mt-2 sm:mt-8 sm:gap-x-15 xl:pb-16">
               <p
                 className={
                   "col-span-9 " +
@@ -83,7 +83,7 @@ const AboutMe: FC = ({ children }) => {
                   "xl:col-start-3 xl:col-span-3"
                 }
               >
-                <Span className="text-xs sm:text-sm leading-normal md:leading-relaxed lg:text-base xl:leading-loose relative z-30">
+                <Span className="text-xs sm:text-sm leading-normal md:leading-relaxed xl:leading-loose relative z-30">
                   {children}
                 </Span>
               </p>
