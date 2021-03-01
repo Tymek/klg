@@ -27,6 +27,14 @@ const ChalkBoardsPage = () => {
       presentation: file(relativePath: { eq: "tabliczki/presentation.jpg" }) {
         ...ImageFragment
       }
+      wrappingLlama: file(
+        relativePath: { eq: "tabliczki/lama-pola-opakowanie.jpg" }
+      ) {
+        ...ImageFragment
+      }
+      wrappingDog: file(relativePath: { eq: "tabliczki/pies-opakowanie.jpg" }) {
+        ...ImageFragment
+      }
       products: allFile(
         filter: { relativeDirectory: { eq: "tabliczki/products" } }
         sort: { fields: absolutePath, order: ASC }
@@ -112,6 +120,35 @@ const ChalkBoardsPage = () => {
               ))}
             </div>
           </div>
+        </Grid>
+
+        <section className="max-w-4xl mx-auto mt-20 md:mt-48 mb-16 md:mb-32">
+          <div className="md:w-2/3">
+            <P className="mb-12">
+              Zabawki w opakowaniach miały być dobrze widoczne, tak by ułatwić
+              klientom wybór ulubionej przeplotki. Udało się to dzięki
+              opakowaniom przypominającym ubranka, indywidualnie dopasowanym do
+              każdego wzoru.
+            </P>
+
+            <P className="mb-12">
+              Opakowania wykonane zostały z kartonu kraft z białym nadrukiem, co
+              podkreślić ma ekologiczny charakter marki. Opakowanie składane
+              jest za pomocą nap do tkanin, które dodatkowo są drobnym akcentem
+              kolorystycznym.
+            </P>
+          </div>
+        </section>
+
+        <Grid className="my-16 lg:my-48 xl:my-24">
+          <Column className="lg:col-start-2 lg:col-span-5">
+            <Image fluid={data.wrappingLlama.childImageSharp.fluid} />
+          </Column>
+        </Grid>
+        <Grid className="my-16 lg:my-48 xl:my-24">
+          <Column className="lg:col-start-2 lg:col-span-5">
+            <Image fluid={data.wrappingDog.childImageSharp.fluid} />
+          </Column>
         </Grid>
 
         <Grid className="my-16 lg:my-48 xl:my-64">
