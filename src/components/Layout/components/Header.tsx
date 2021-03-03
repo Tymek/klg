@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ homePage, largeDecoration }) => {
                     const link = text.replace(/[^\w\d]/g, "-")
                     const to = isHomePage ? `#${link}` : `/#${link}`
                     return (
-                      <li>
+                      <li key={text}>
                         <HoverLink to={to}>{text}</HoverLink>
                       </li>
                     )

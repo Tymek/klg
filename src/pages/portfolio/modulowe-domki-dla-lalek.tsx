@@ -39,19 +39,17 @@ const DollhousePage = () => {
           <div className="grid grid-cols-9 xl:gap-x-15 mt-8">
             <div className="col-span-9 xl:col-start-2 xl:col-span-7">
               <Image
-                fluid={data.cover.childImageSharp.fluid}
+                image={data.cover}
+                alt=""
                 className="mb-4 sm:mb-8 xl:mb-32"
               />
             </div>
             <div className="col-span-9 sm:col-span-7 sm:col-start-2 xl:col-span-3 xl:col-start-1 xxl:col-start-2 xxl:col-span-3">
-              <Image
-                fluid={data.showcase.childImageSharp.fluid}
-                className="mb-6 sm:mb-12"
-              />
+              <Image image={data.showcase} alt="" className="mb-6 sm:mb-12" />
             </div>
             <div className="col-span-9 md:col-span-7 md:col-start-2 lg:col-span-7 xl:col-span-5 xl:col-start-4 xxl:col-start-5 xxl:col-span-4">
               <p className="text-base sm:text-lg uppercase leading-tight mb-8 lg:pl-10">
-                Zabawki / Opakowania / Materiały
+                Zabawki &ensp; Opakowania &ensp; Materiały
                 <span className="sr-only"> reklamowe</span>
               </p>
               <h1 className="text-xl sm:text-3xl lg:text-giant font-bold leading-none uppercase mb-12 lg:pl-16">
@@ -83,21 +81,16 @@ const DollhousePage = () => {
             </div>
             <div className="col-span-9 xl:col-span-6">
               <Image
-                fluid={data.showcase3.childImageSharp.fluid}
+                image={data.showcase3}
+                alt=""
                 className="mb-4 md:mb-20 md:mt-16"
               />
             </div>
             <div className="col-span-9 xl:col-span-7 xl:col-start-2">
-              <Image
-                fluid={data.showcase4.childImageSharp.fluid}
-                className="mb-4 md:mb-20"
-              />
+              <Image image={data.showcase4} alt="" className="mb-4 md:mb-20" />
             </div>
             <div className="col-span-9 xl:col-span-6 xl:col-start-3">
-              <Image
-                fluid={data.showcase5.childImageSharp.fluid}
-                className="mb-4 md:mb-20"
-              />
+              <Image image={data.showcase5} alt="" className="mb-4 md:mb-20" />
             </div>
           </div>
         </Wrapper>

@@ -1,20 +1,18 @@
 import React from "react"
-
 import { useStaticQuery, graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
 
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
 import Footer from "../../components/Footer"
-import Image from "../../components/Image"
+import Image, { ImageType } from "../../components/Image"
 import Grid, { Column } from "../../components/Grid"
 import Cover from "../../components/Cover"
 
 const ChalkBoardsPage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       cover: file(relativePath: { eq: "tabliczki/cover.jpg" }) {
         ...ImageFragment
       }
@@ -44,9 +42,12 @@ const ChalkBoardsPage = () => {
             id
             absolutePath
             childImageSharp {
-              fluid(maxWidth: 1366, webpQuality: 80) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              gatsbyImageData(
+                # webpQuality: 80
+                quality: 80
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }
@@ -54,9 +55,8 @@ const ChalkBoardsPage = () => {
     }
   `)
 
-  const products: FluidObject[] = data.products.edges.map(
-    (edge: { node: { childImageSharp: { fluid: FluidObject } } }) =>
-      edge?.node?.childImageSharp?.fluid
+  const products: ImageType[] = data.products.edges.map(
+    (edge: { node: ImageType }) => edge?.node
   )
 
   return (
@@ -65,14 +65,14 @@ const ChalkBoardsPage = () => {
       <Wrapper>
         <Cover
           image={{
-            ...data.cover.childImageSharp.fluid,
+            ...data.cover,
             aspectRatio: 5 / 3,
           }}
         />
 
         <Grid className="my-16 lg:my-48">
           <div className="col-span-7 col-start-3 lg:col-start-1 lg:col-span-4">
-            <Image fluid={data.title.childImageSharp.fluid} />
+            <Image image={data.title} alt="" />
           </div>
           <Column className="relative lg:col-start-5 lg:col-span-4 self-end">
             <div className="mt-6 sm:mt-20">
@@ -98,7 +98,7 @@ const ChalkBoardsPage = () => {
                 </P>
               </div>
               <p className="uppercase leading-snug text-sm md:text-lg">
-                zabawki / opakowania / materiały reklamowe
+                zabawki &ensp; opakowania &ensp; materiały reklamowe
               </p>
             </div>
           </Column>
@@ -106,7 +106,7 @@ const ChalkBoardsPage = () => {
 
         <Grid className="my-16 lg:my-48">
           <div className="col-start-3 col-span-7">
-            <Image fluid={data.preview.childImageSharp.fluid} />
+            <Image image={data.preview} alt="" />
           </div>
         </Grid>
 
@@ -115,7 +115,7 @@ const ChalkBoardsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-15">
               {products.map(product => (
                 <div className="col-span-1">
-                  <Image fluid={product} />
+                  <Image image={product} alt="" />
                 </div>
               ))}
             </div>
@@ -142,18 +142,18 @@ const ChalkBoardsPage = () => {
 
         <Grid className="my-16 lg:my-48 xl:my-24">
           <Column className="lg:col-start-2 lg:col-span-5">
-            <Image fluid={data.wrappingLlama.childImageSharp.fluid} />
+            <Image image={data.wrappingLlama} alt="" />
           </Column>
         </Grid>
         <Grid className="my-16 lg:my-48 xl:my-24">
           <Column className="lg:col-start-2 lg:col-span-5">
-            <Image fluid={data.wrappingDog.childImageSharp.fluid} />
+            <Image image={data.wrappingDog} alt="" />
           </Column>
         </Grid>
 
         <Grid className="my-16 lg:my-48 xl:my-64">
           <Column className="lg:col-start-2 lg:col-span-7">
-            <Image fluid={data.presentation.childImageSharp.fluid} />
+            <Image image={data.presentation} alt="" />
           </Column>
         </Grid>
       </Wrapper>

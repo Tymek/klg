@@ -1,7 +1,6 @@
 import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
 
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
@@ -40,14 +39,14 @@ const ChalkBoardsPage = () => {
       <Wrapper>
         <Cover
           image={{
-            ...data.cover.childImageSharp.fluid,
+            ...data.cover.childImageSharp.gatsbyImageData,
             aspectRatio: 5 / 3,
           }}
         />
 
         <Grid className="my-16 lg:my-48">
           <div className="col-span-7 col-start-3 lg:col-start-1 lg:col-span-4">
-            <Image fluid={data.title.childImageSharp.fluid} />
+            <Image image={data.title} alt="" />
           </div>
           <Column className="relative lg:col-start-5 lg:col-span-4 self-end">
             <div className="mt-6 sm:mt-20">
@@ -84,20 +83,20 @@ const ChalkBoardsPage = () => {
               </P>
             </div>
             <p className="uppercase leading-snug text-sm md:text-lg">
-              zabawki / opakowania / materiały reklamowe
+              zabawki &ensp; opakowania &ensp; materiały reklamowe
             </p>
           </Column>
         </Grid>
 
         <Grid className="my-16 lg:my-24">
           <div className="col-start-2 col-span-7">
-            <Image fluid={data.preview.childImageSharp.fluid} />
+            <Image image={data.preview} alt="" />
           </div>
         </Grid>
 
         <Grid className="my-16 lg:my-24 xl:my-32">
           <Column className="lg:col-start-2 lg:col-span-7">
-            <Image fluid={data.presentation.childImageSharp.fluid} />
+            <Image image={data.presentation} alt="" />
           </Column>
         </Grid>
       </Wrapper>

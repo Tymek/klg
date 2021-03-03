@@ -29,7 +29,9 @@ const Layout: FC<LayoutProps> = ({
   ) : (
     <>
       <Header largeDecoration={largeDecoration} />
-      <main className={nonRelative ? "" : "relative"}>{children}</main>
+      <main className={`overflow-x-hidden ${nonRelative ? "" : " relative"}`}>
+        {children}
+      </main>
     </>
   )
 

@@ -7,13 +7,12 @@ import React, {
   useState,
 } from "react"
 import { Link } from "gatsby"
-import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
-import Image from "../../../../Image"
+import Image, { ImageType } from "../../../../Image"
 import { useIsTouchDevice } from "../../../../../utilities/isTouchDevice"
 
 export type PortfolioItemProps = {
-  image: FluidObject
+  image: ImageType
   link: string
   title: string
   tags?: string[]
@@ -95,7 +94,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
               {description}
             </div>
             <div className="relative md:col-span-3 lg:w-full">
-              <Image fluid={image} />
+              <Image image={image} alt="" />
               {badge}
             </div>
           </div>

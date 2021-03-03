@@ -18,7 +18,7 @@ import svgDotC from "../../images/festiwal-kolorow/vector/dot-blue.svg"
 
 const ColorFestivalPage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       cover: file(relativePath: { eq: "festiwal-kolorow/business-cards.png" }) {
         ...ImageFragment
       }
@@ -31,9 +31,11 @@ const ColorFestivalPage = () => {
         relativePath: { eq: "festiwal-kolorow/festiwal-kolorow-logo-1.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 889) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(
+            width: 889
+            placeholder: TRACED_SVG
+            layout: CONSTRAINED
+          )
         }
       }
       poster: file(relativePath: { eq: "festiwal-kolorow/poster.jpg" }) {
@@ -68,18 +70,13 @@ const ColorFestivalPage = () => {
           }
         />
         <Wrapper>
-          <Cover
-            image={{
-              ...data.cover.childImageSharp.fluid,
-              aspectRatio: 5 / 3,
-            }}
-            className="lg:mt-12"
-          />
-          <div className="w-full sm:w-2/3 mx-auto lg:w-full">
+          <Cover image={data.cover} className="lg:mt-12" />
+          <div className="sm:w-2/3 mx-auto">
             <Image
-              fluid={data.logo.childImageSharp.fluid}
+              image={data.logo}
+              alt="Logo Festiwalu Kolorów"
               className="mb-4 sm:mb-8 xl:mb-32 mx-auto my-24 lg:my-48 w-full"
-              style={{ maxWidth: "889px" }}
+              style={{ maxWidth: "500px" }}
             />
           </div>
           <Grid className="mt-8">
@@ -124,7 +121,7 @@ const ColorFestivalPage = () => {
           <Wrapper className="pt-24 lg:pt-32">
             <Grid>
               <Column className="xs:col-start-1 xs:col-span-8 sm:col-start-2 sm:col-span-6">
-                <Image fluid={data.mockup1.childImageSharp.fluid} />
+                <Image image={data.mockup1} alt="" />
               </Column>
             </Grid>
           </Wrapper>
@@ -139,7 +136,7 @@ const ColorFestivalPage = () => {
           <Wrapper>
             <Grid>
               <Column className="xs:col-start-2 xs:col-span-8 sm:col-start-3 sm:col-span-6">
-                <Image fluid={data.mockup2.childImageSharp.fluid} />
+                <Image image={data.mockup2} alt="" />
               </Column>
             </Grid>
           </Wrapper>
@@ -189,10 +186,7 @@ const ColorFestivalPage = () => {
                   className="absolute bottom-0 right-0 transform translate-x-2/5 translate-y-1/5 z-30"
                   style={{ width: "20vw" }}
                 />
-                <Image
-                  fluid={data.mockup3.childImageSharp.fluid}
-                  className="z-40"
-                />
+                <Image image={data.mockup3} alt="" className="z-40" />
                 <img
                   src={svgDotB}
                   className="absolute top-1/2 right-0 transform -translate-y-full translate-x-1/2 z-50"
@@ -208,7 +202,7 @@ const ColorFestivalPage = () => {
           <Wrapper>
             <Grid>
               <Column className="xs:col-start-1 xs:col-span-8 md:col-start-2 md:col-span-6">
-                <Image fluid={data.mockup4.childImageSharp.fluid} />
+                <Image image={data.mockup4} alt="" />
               </Column>
             </Grid>
           </Wrapper>
@@ -216,10 +210,7 @@ const ColorFestivalPage = () => {
 
         {/* Poster */}
         <Wrapper>
-          <Cover
-            image={data.poster.childImageSharp.fluid}
-            className="lg:mt-12"
-          />
+          <Cover image={data.poster} className="lg:mt-12" />
         </Wrapper>
         <Footer nextLink />
       </Layout>

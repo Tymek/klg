@@ -8,7 +8,7 @@ import gifLarge from "../../images/zakladki/open-book-full.gif"
 import gifSmall from "../../images/zakladki/open-book-small.gif"
 import webpLarge from "../../images/zakladki/open-book-full.webp"
 import webpSmall from "../../images/zakladki/open-book-small.webp"
-import Image from "../../components/Image"
+import Image, { ImageType } from "../../components/Image"
 import Grid, { Column } from "../../components/Grid"
 import { P } from "../../components/Typo"
 import Footer from "../../components/Footer"
@@ -22,7 +22,7 @@ const BookmarksPage = () => {
       closedBook: file(relativePath: { eq: "zakladki/closed-book.jpg" }) {
         ...ImageFragment
       }
-      allFile(
+      images: allFile(
         filter: { relativeDirectory: { eq: "zakladki/lista" } }
         sort: { fields: absolutePath, order: ASC }
       ) {
@@ -31,12 +31,12 @@ const BookmarksPage = () => {
             id
             absolutePath
             childImageSharp {
-              fluid(
-                maxWidth: 420
-                traceSVG: { background: "#f1f1f1", color: "#31343e" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              gatsbyImageData(
+                width: 420
+                tracedSVGOptions: { background: "#f1f1f1", color: "#31343e" }
+                placeholder: TRACED_SVG
+                layout: CONSTRAINED
+              )
             }
           }
         }
@@ -53,6 +53,10 @@ const BookmarksPage = () => {
     }
   `)
 
+  const images: ImageType[] = data.images.edges.map(
+    (edge: { node: ImageType }) => edge?.node
+  )
+
   return (
     <>
       <Layout largeDecoration>
@@ -61,10 +65,8 @@ const BookmarksPage = () => {
           <Grid>
             <Column className="lg:col-start-2 lg:col-span-7">
               <Image
-                fluid={{
-                  ...data.cover.childImageSharp.fluid,
-                  aspectRatio: 5 / 3,
-                }}
+                image={data.cover}
+                alt=""
                 className="-mx-4 sm:-mx-6 md:mx-0 mt-4"
               />
             </Column>
@@ -72,7 +74,7 @@ const BookmarksPage = () => {
 
           <Grid className="my-16 lg:my-32">
             <div className="col-span-7 col-start-3 sm:col-start-5 sm:col-span-5 lg:col-start-2 lg:col-span-4">
-              <Image fluid={data.closedBook.childImageSharp.fluid} />
+              <Image image={data.closedBook} alt="" />
             </div>
             <Column className="relative lg:col-start-6 lg:col-span-4 self-end">
               <div className="mt-6 sm:mt-24 lg:mt-0">
@@ -128,17 +130,11 @@ const BookmarksPage = () => {
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-2 py-16"
                 style={{ background: "#31343e" }}
               >
-                {data.allFile.edges.map(
-                  ({
-                    node,
-                  }: {
-                    node: { id: string; childImageSharp: any }
-                  }) => (
-                    <div>
-                      <Image fluid={node.childImageSharp.fluid} />
-                    </div>
-                  )
-                )}
+                {images.map(image => (
+                  <div>
+                    <Image image={image} alt="" />
+                  </div>
+                ))}
               </div>
             </Column>
           </Grid>
@@ -146,14 +142,14 @@ const BookmarksPage = () => {
         <Wrapper>
           <div className="flex flex-wrap items-end py-16 lg:-mx-16 lg:pb-20">
             <div className="w-full lg:w-7/12 lg:px-16 mb-20">
-              <Image fluid={data.abstract.childImageSharp.fluid} />
+              <Image image={data.abstract} alt="" />
             </div>
             <div className="w-full lg:w-5/12 lg:px-16 mb-20">
-              <Image fluid={data.kaktus.childImageSharp.fluid} />
+              <Image image={data.kaktus} alt="" />
             </div>
           </div>
           <div className="xxl:w-9/12 pb-20">
-            <Image fluid={data.feather.childImageSharp.fluid} />
+            <Image image={data.feather} alt="" />
           </div>
         </Wrapper>
         <Footer nextLink />

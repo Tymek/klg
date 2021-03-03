@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from "react"
+import React, { FC, useCallback, useMemo } from "react"
 import PortfolioItem from "./PortfolioItem"
 
 import useWindowSize from "../../../../utilities/useWindowSize"

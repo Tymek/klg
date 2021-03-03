@@ -60,8 +60,9 @@ const PoemsPage = () => {
           <div className="grid grid-cols-9 xl:gap-x-15 my-8">
             <div className="col-span-9 xl:col-start-2 xl:col-span-7">
               <Image
-                fluid={data.cover.childImageSharp.fluid}
+                image={data.cover}
                 className="mb-4 sm:mb-8 xl:mb-32"
+                alt=""
               />
             </div>
             <div className="col-span-9 md:col-span-7 xl:col-start-2">
@@ -79,14 +80,14 @@ const PoemsPage = () => {
               </div>
               <div className="mb-12 lg:pb-32">
                 <p className="text-base sm:text-lg uppercase leading-tight">
-                  Ilustracja / Skład tesktu / Publikacja
+                  Ilustracja &ensp; Skład tesktu &ensp; Publikacja
                 </p>
               </div>
             </div>
           </div>
         </Wrapper>
         <Container>
-          <Image fluid={data.tygrys.childImageSharp.fluid} />
+          <Image image={data.tygrys} alt="" />
           <img
             src={svgSpoon}
             alt="Ilustacja łyżki"
@@ -99,7 +100,7 @@ const PoemsPage = () => {
           />
         </Container>
         <Container>
-          <Image fluid={data.marzenie.childImageSharp.fluid} />
+          <Image image={data.marzenie} alt="" />
           <img
             src={svgMustache}
             alt="Ilustacja wąsów"
@@ -118,10 +119,7 @@ const PoemsPage = () => {
             className="absolute right-0 top-0 h-full transform translate-x-32 -translate-y-1/4 z-10"
           />
           <Container>
-            <Image
-              fluid={data.dywan.childImageSharp.fluid}
-              className="relative z-50"
-            />
+            <Image image={data.dywan} alt="" className="relative z-50" />
           </Container>
         </div>
         <Container>
@@ -140,10 +138,7 @@ const PoemsPage = () => {
             alt="Ilustacja lampy wiszącej"
             className="absolute w-1/2 top-0 left-0 transform -translate-y-2/3 z-40"
           />
-          <Image
-            fluid={data.lampy.childImageSharp.fluid}
-            className="relative z-30"
-          />
+          <Image image={data.lampy} alt="" className="relative z-30" />
         </Container>
         <Container>
           <img
@@ -151,10 +146,7 @@ const PoemsPage = () => {
             alt="Ilustacja lampy"
             className="absolute w-2/3 top-0 left-0 transform -translate-x-2/5 -translate-y-1/3 z-10"
           />
-          <Image
-            fluid={data.zamieszanie.childImageSharp.fluid}
-            className="relative z-30"
-          />
+          <Image image={data.zamieszanie} alt="" className="relative z-30" />
         </Container>
         <Footer nextLink />
       </Layout>

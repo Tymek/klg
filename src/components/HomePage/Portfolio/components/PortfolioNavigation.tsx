@@ -25,6 +25,7 @@ const PortfolioNavigation: FC<PortfolioNavigationProps> = ({
       >
         {tags.map(tag => (
           <li
+            key={tag}
             className="inline mr-5"
             style={{
               marginRight: "calc(min(1.5rem, 2vh))",
