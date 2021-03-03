@@ -6,19 +6,21 @@ import SEO from "../../../components/seo"
 import { P } from "../../../components/Typo"
 import Wrapper from "../../../components/Wrapper"
 import Footer from "../../../components/Footer"
-import Image from "../../../components/Image"
-import { FluidObject } from "gatsby-image"
+import Image, { ImageType } from "../../../components/Image"
 
 const GenericWrapper: FC = ({ children }) => (
   <div className="mt-32 sm:mt-48 xl:mt-64">{children}</div>
 )
 
-const Illustration: FC<{ image: FluidObject }> = ({ image }) => (
+const Illustration: FC<{ image: ImageType; alt?: string }> = ({
+  image,
+  alt = "",
+}) => (
   <GenericWrapper>
     <div className="grid grid-cols-12">
       <div className="relative col-span-12 xl:col-start-3 xl:col-span-8">
         <div className="-mx-4 sm:-mx-6 md:mx-0">
-          <Image fluid={image} />
+          <Image image={image} alt={alt} />
         </div>
       </div>
     </div>
@@ -47,19 +49,19 @@ const VerticalPostcardWrapper: FC = ({ children }) => (
 
 const PocztowkiPage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       krk: file(relativePath: { eq: "kartki/pocztowki/kartkak.jpg" }) {
         ...ImageFragment
       }
       krk2: file(relativePath: { eq: "kartki/pocztowki/kartkal.jpg" }) {
         childImageSharp {
-          fluid(
-            maxHeight: 1400
-            traceSVG: { background: "transparent", color: "#f1f1f1" }
-            rotate: 90
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(
+            height: 1400
+            aspectRatio: 1.5 # 3:2
+            placeholder: TRACED_SVG
+            transformOptions: { rotate: 90 }
+            layout: FULL_WIDTH
+          )
         }
       }
       trn: file(relativePath: { eq: "kartki/pocztowki/kartka_Tarnów.jpg" }) {
@@ -69,12 +71,7 @@ const PocztowkiPage = () => {
         relativePath: { eq: "kartki/pocztowki/tarnow-rynek-pocztowka.png" }
       ) {
         childImageSharp {
-          fluid(
-            maxWidth: 1326
-            traceSVG: { background: "transparent", color: "#f1f1f1" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
         }
       }
       trnDworzec: file(
@@ -86,12 +83,7 @@ const PocztowkiPage = () => {
         relativePath: { eq: "kartki/pocztowki/tarnow-dworzec-pocztowka.png" }
       ) {
         childImageSharp {
-          fluid(
-            maxWidth: 1326
-            traceSVG: { background: "transparent", color: "#f1f1f1" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
         }
       }
       waw: file(
@@ -113,12 +105,7 @@ const PocztowkiPage = () => {
         relativePath: { eq: "kartki/pocztowki/warszawa-starowka-pocztowka.png" }
       ) {
         childImageSharp {
-          fluid(
-            maxWidth: 1326
-            traceSVG: { background: "transparent", color: "#f1f1f1" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
         }
       }
       dom: file(
@@ -140,7 +127,8 @@ const PocztowkiPage = () => {
             <div className="relative grid grid-cols-12 mt-8">
               <div className="col-start-2 col-span-10 xs:col-start-3 xs:col-span-8 sm:col-start-6 sm:col-span-6 xl:col-start-8 xl:col-span-3 mb-16">
                 <Image
-                  fluid={data.krk.childImageSharp.fluid}
+                  image={data.krk}
+                  alt="pocztówka – Krakowski gołąb z preclem"
                   className="xl:mb-32 transform -rotate-5"
                 />
               </div>
@@ -172,63 +160,55 @@ const PocztowkiPage = () => {
           </div>
           <HorizontalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.krk2.childImageSharp.fluid,
-                aspectRatio: 3 / 2,
-              }}
+              image={data.krk2}
+              alt="pocztówka – Krakowskie gołębie"
               className="transform -rotate-1"
             />
           </HorizontalPostcardWrapper>
 
           <HorizontalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.trn.childImageSharp.fluid,
-              }}
+              image={data.trn}
               className="transform rotate-2"
+              alt="pocztówka – Rynek w Tarnowie"
             />
           </HorizontalPostcardWrapper>
-          <Illustration image={data.tarnowRynek.childImageSharp.fluid} />
+          <Illustration image={data.tarnowRynek} />
 
           <HorizontalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.trnDworzec.childImageSharp.fluid,
-              }}
+              image={data.trnDworzec}
+              alt="pocztówka – Tarnów, dworzec kolejowy"
               className="transform -rotate-2"
             />
           </HorizontalPostcardWrapper>
-          <Illustration image={data.tarnowDworzec.childImageSharp.fluid} />
+          <Illustration image={data.tarnowDworzec} alt="" />
 
           <VerticalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.waw.childImageSharp.fluid,
-              }}
+              image={data.waw}
+              alt="pocztówka – Warszwawa, Pałac Kultury i Nauki"
               className="transform -rotate-1"
             />
           </VerticalPostcardWrapper>
           <VerticalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.syrenka.childImageSharp.fluid,
-              }}
+              image={data.syrenka}
+              alt="pocztówka – Warszwawska syrenka"
               className="transform rotate-3"
             />
           </VerticalPostcardWrapper>
           <HorizontalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.wawStarowka.childImageSharp.fluid,
-              }}
+              image={data.wawStarowka}
+              alt="pocztówka – Warszawska Starówka"
             />
           </HorizontalPostcardWrapper>
-          <Illustration image={data.warszawaStarowka.childImageSharp.fluid} />
+          <Illustration image={data.warszawaStarowka} alt="" />
           <VerticalPostcardWrapper>
             <Image
-              fluid={{
-                ...data.dom.childImageSharp.fluid,
-              }}
+              image={data.dom}
+              alt="pocztówka – Wszędzie dobrze ale w domu najlepiej"
             />
           </VerticalPostcardWrapper>
         </Wrapper>

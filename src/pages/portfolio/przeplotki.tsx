@@ -1,14 +1,12 @@
 import React, { useMemo } from "react"
 
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
 import Layout from "../../components/Layout"
 import SEO from "../../components/seo"
 import { P } from "../../components/Typo"
 import Wrapper from "../../components/Wrapper"
-import Dot from "../../components/Dot"
 import Footer from "../../components/Footer"
-import Image from "../../components/Image"
+import Image, { ImageType } from "../../components/Image"
 
 const productGridSequence = [
   "",
@@ -36,9 +34,16 @@ const sortByBaseName = (
 
 const MilinPage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       cover: file(relativePath: { eq: "przeplotki/cover.jpg" }) {
-        ...ImageFragment
+        childImageSharp {
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: { color: "#f1f1f2" }
+            layout: FULL_WIDTH
+            aspectRatio: 0.8 # 4 / 5
+          )
+        }
       }
       showcase1: file(
         relativePath: { eq: "przeplotki/przeplotki-milin-zabawka.jpg" }
@@ -66,27 +71,32 @@ const MilinPage = () => {
             id
             base
             childImageSharp {
-              fluid(maxWidth: 1366, webpQuality: 80) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              gatsbyImageData(quality: 80, layout: FULL_WIDTH)
             }
           }
         }
       }
       prize: file(relativePath: { eq: "zabawkaroku_logo_w.png" }) {
         childImageSharp {
-          fixed(width: 250) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
-          }
+          gatsbyImageData(width: 250, placeholder: TRACED_SVG, layout: FIXED)
         }
       }
     }
   `)
 
+  const getAlt = (base?: string) => {
+    let alt = base || ""
+    alt = alt.slice(3, -4)
+    alt = alt[0].toUpperCase() + alt.slice(1)
+
+    return `przeplotka ${alt}`
+  }
+
   const przeplotki: Array<{
-    fluid: FluidObject
+    image: ImageType
     className: string
     key: string
+    alt: string
   }> = useMemo(
     () =>
       data.przeplotki.edges
@@ -94,7 +104,8 @@ const MilinPage = () => {
         .map((edge: any, index: number) => ({
           key: edge?.node?.id,
           className: productGridSequence[index % productGridSequence.length],
-          fluid: edge?.node?.childImageSharp?.fluid,
+          image: edge?.node,
+          alt: getAlt(edge?.node?.base),
         })),
     [data]
   )
@@ -113,12 +124,7 @@ const MilinPage = () => {
           <Wrapper customWidth="max-w-7xl pb-0 md:pb-24">
             <div className="flex justify-end px-10 md:px-0">
               <div className="w-full max-w-4xl md:w-3/4 -mt-10 md:-mt-40">
-                <Image
-                  fluid={{
-                    ...data.cover.childImageSharp.fluid,
-                    aspectRatio: 4 / 5,
-                  }}
-                />
+                <Image image={data.cover} alt="" />
               </div>
             </div>
           </Wrapper>
@@ -162,32 +168,32 @@ const MilinPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Image fixed={data.prize.childImageSharp.fixed} />
+                <Image image={data.prize} alt="Zabawka roku 2020 Wyróżnienie" />
               </a>
             </div>
           </section>
 
           <div className="mb-20">
-            <Image fluid={data.showcase1.childImageSharp.fluid} />
+            <Image image={data.showcase1} alt="" />
           </div>
           <div className="mb-32">
-            <Image fluid={data.showcase2.childImageSharp.fluid} />
+            <Image image={data.showcase2} alt="" />
           </div>
 
           <div className="grid gap-4 sm:gap-8 lg:gap-16 grid-cols-2 grid-flow-row-dense">
-            {przeplotki.map(({ key, fluid, className }) => (
-              <Image key={key} fluid={fluid} className={className} />
+            {przeplotki.map(({ key, image, className, alt }) => (
+              <Image key={key} image={image} className={className} alt={alt} />
             ))}
           </div>
 
           <div className="mt-24 mb-20">
-            <Image fluid={data.showcase3.childImageSharp.fluid} />
+            <Image image={data.showcase3} alt="" />
           </div>
           <div className="mb-20">
-            <Image fluid={data.showcase4.childImageSharp.fluid} />
+            <Image image={data.showcase4} alt="" />
           </div>
           <div className="mb-20">
-            <Image fluid={data.showcase5.childImageSharp.fluid} />
+            <Image image={data.showcase5} alt="" />
           </div>
 
           <section className="max-w-4xl mx-auto mt-20 md:mt-48 mb-16 md:mb-32">
@@ -214,7 +220,7 @@ const MilinPage = () => {
           </section>
 
           <div className="mt-24 mb-20">
-            <Image fluid={data.showcase6.childImageSharp.fluid} />
+            <Image image={data.showcase6} alt="" />
           </div>
         </Wrapper>
         <Footer nextLink />

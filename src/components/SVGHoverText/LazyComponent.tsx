@@ -157,7 +157,7 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({
                   id={`${name}`}
                   y="1em"
                   className="svgHoverText"
-                  text-anchor={alignRight ? "end" : "start"}
+                  textAnchor={alignRight ? "end" : "start"}
                 >
                   <tspan
                     y={`${index + 1}em`}
@@ -193,7 +193,7 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({
               <use href={`#${name}`} className="svgHoverOutline" />
               <use
                 href={`#${name}`}
-                clip-path={`url(#${name}-clip)`}
+                clipPath={`url(#${name}-clip)`}
                 className="svgHoverStroke"
               />
               <use

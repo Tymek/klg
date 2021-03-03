@@ -57,9 +57,9 @@ const MilinPage = () => {
       />
 
       <Wrapper>
-        <Cover image={data.branding.childImageSharp.fluid} />
+        <Cover image={data.branding.childImageSharp.gatsbyImageData} />
         <Cover
-          image={data.businessCards.childImageSharp.fluid}
+          image={data.businessCards.childImageSharp.gatsbyImageData}
           className="my-6 lg:my-32"
         />
 
@@ -96,21 +96,21 @@ const MilinPage = () => {
         <Grid className="my-12 lg:my-32 pt-32">
           <Column className="xs:col-start-2 xs:col-span-6 lg:col-start-2 lg:col-span-4">
             <Image
-              fluid={data.catalogFront.childImageSharp.fluid}
+              image={data.catalogFront}
               alt="Katalog Milin – okładka"
               className="mb-10 lg:mb-24"
             />
           </Column>
           <Column className="xs:col-start-2 xs:col-span-6 lg:col-start-2 lg:col-span-4">
             <Image
-              fluid={data.catalogInside.childImageSharp.fluid}
+              image={data.catalogInside}
               alt="Katalog Milin – wnętrze"
               className="mb-10 lg:mb-24"
             />
           </Column>
           <Column className="xs:col-start-3 xs:col-span-7">
             <Image
-              fluid={data.presentation.childImageSharp.fluid}
+              image={data.presentation}
               alt="Katalog Milin – wnętrze"
               className="my-12 lg:my-24"
             />
@@ -123,14 +123,14 @@ const MilinPage = () => {
           </Column>
           <Column className="xs:col-start-2 xs:col-span-7">
             <Image
-              fluid={data.leaflet.childImageSharp.fluid}
+              image={data.leaflet}
               alt="Katalog Milin"
               className="my-12 lg:my-24"
             />
           </Column>
           <Column className="xs:col-start-2 xs:col-span-7">
             <Image
-              fluid={data.box.childImageSharp.fluid}
+              image={data.box}
               alt="Milin – projekt opakowań"
               className="my-12 lg:my-24"
             />

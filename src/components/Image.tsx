@@ -1,19 +1,16 @@
-import React, { ComponentProps, FC } from "react"
-import Img from "gatsby-image"
+import React, { FC } from "react"
+import { GatsbyImage, GatsbyImageProps, getImage } from "gatsby-plugin-image"
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
+export type ImageType = Parameters<typeof getImage>[0]
 
-const Image: FC<ComponentProps<typeof Img>> = ({ ...props }) => {
-  return <Img {...props} />
+type ImageProps = Omit<GatsbyImageProps, "image"> & {
+  image: ImageType
+}
+
+const Image: FC<ImageProps> = ({ ...props }) => {
+  const image = getImage(props?.image)
+  if (!image) return null
+  return <GatsbyImage {...props} image={image} />
 }
 
 export default Image

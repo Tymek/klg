@@ -13,15 +13,14 @@ const tagKey = "kategoria"
 const IndexPage: FC<PageProps> = ({ location }) => {
   const [tag, setTag] = useState<string>()
   const data = useStaticQuery(graphql`
-    query {
+    {
       mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {
         childImageSharp {
-          fluid(
-            maxWidth: 1000
-            traceSVG: { background: "#ffffff", color: "#f1f1f1" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(
+            # traceSVG: {background: "#ffffff", color: "#f1f1f1"}
+            placeholder: TRACED_SVG
+            layout: FULL_WIDTH
+          )
         }
       }
     }
@@ -43,7 +42,7 @@ const IndexPage: FC<PageProps> = ({ location }) => {
   return (
     <>
       <SEO
-        image={data.mainCoverPhoto.childImageSharp.fluid}
+        image={data.mainCoverPhoto.childImageSharp.gatsbyImageData}
         description={description}
       />
       <SimulationCanvas />

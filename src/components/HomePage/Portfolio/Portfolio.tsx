@@ -12,7 +12,7 @@ type PortfolioProps = {
 
 const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       przeplotki: file(relativePath: { eq: "cover-portfolio/przeplotki.jpg" }) {
         ...PortfolioImage
       }
@@ -61,12 +61,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
         relativePath: { eq: "zabawkaroku_logo_contrast.png" }
       ) {
         childImageSharp {
-          fluid {
-            aspectRatio
-            src
-            srcSet
-            sizes
-          }
+          gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
         }
       }
     }
@@ -75,7 +70,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
   const badges: Record<string, ReactNode> = {
     przeplotki: (
       <div className="absolute right-0 top-0 md:left-0 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-32 xl:w-40 xxl:w-48">
-        <Image fluid={data?.toyContestBadge?.childImageSharp?.fluid} />
+        <Image image={data.toyContestBadge} alt="Wyróżnienie – Zabawka roku" />
       </div>
     ),
   }
@@ -84,7 +79,7 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
     ...item,
     title: item.title as string | Record<string, string>,
     link: `/portfolio/${item.link}`,
-    image: data[item.image].childImageSharp?.fluid,
+    image: data[item.image],
     badge: Object.keys(badges).includes(item.link)
       ? badges[item.link]
       : undefined,

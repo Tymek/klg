@@ -1,25 +1,31 @@
 import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+
 import Wrapper from "../../Wrapper"
 import { Span } from "../../Typo"
-import Image from "../../Image"
 import LayoutShift from "../../LayoutShift"
 import HoverLink from "../../HoverLink"
 import Title from "./components/Title"
 import Decoration from "../../Layout/components/Decoration"
 import Grid, { Column } from "../../Grid"
+import Image from "../../Image"
 
 const AboutMe: FC = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {
         childImageSharp {
-          fluid(
-            maxWidth: 1000
-            traceSVG: { background: "#ffffff", color: "#f1f1f1" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: {
+              turnPolicy: TURNPOLICY_WHITE
+              threshold: 120
+              background: "#ffffff"
+              color: "#f1f1f2"
+            }
+            layout: FULL_WIDTH
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }
@@ -44,12 +50,7 @@ const AboutMe: FC = ({ children }) => {
                   "xl:col-start-6 xl:col-span-3"
                 }
               >
-                <Image
-                  fluid={{
-                    ...data.mainCoverPhoto.childImageSharp.fluid,
-                    backgroundColor: "#f1f1f2",
-                  }}
-                />
+                <Image image={data.mainCoverPhoto} alt="Magda Klag" />
               </div>
             </div>
           </LayoutShift>

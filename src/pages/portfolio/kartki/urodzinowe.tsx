@@ -1,18 +1,17 @@
 import React from "react"
-
 import { useStaticQuery, graphql } from "gatsby"
+
 import Layout from "../../../components/Layout"
 import SEO from "../../../components/seo"
 import { P } from "../../../components/Typo"
 import Wrapper from "../../../components/Wrapper"
 import Footer from "../../../components/Footer"
-import Image from "../../../components/Image"
-import { FluidObject } from "gatsby-image"
+import Image, { ImageType } from "../../../components/Image"
 import "../../../global/portfolio-cards.css"
 
 const BirthdayCardsPage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       cards: allFile(
         filter: { dir: { regex: "/kartki/urodzinowe/" } }
         sort: { fields: base, order: ASC }
@@ -22,9 +21,11 @@ const BirthdayCardsPage = () => {
             id
             base
             childImageSharp {
-              fluid(maxWidth: 1366, webpQuality: 90) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              gatsbyImageData(
+                quality: 90
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }
@@ -32,9 +33,8 @@ const BirthdayCardsPage = () => {
     }
   `)
 
-  const images: FluidObject[] = data.cards.edges.map(
-    (edge: { node: { childImageSharp: { fluid: FluidObject } } }) =>
-      edge?.node?.childImageSharp?.fluid
+  const images: ImageType[] = data.cards.edges.map(
+    (edge: { node: ImageType }) => edge?.node
   )
 
   return (
@@ -47,7 +47,8 @@ const BirthdayCardsPage = () => {
               <div className="grid grid-cols-12">
                 <div className="col-start-2 col-span-10">
                   <Image
-                    fluid={images[0]}
+                    image={images[0]}
+                    alt=""
                     className="transform rotate-5 portfolioCard ml-auto"
                   />
                 </div>
@@ -89,25 +90,27 @@ const BirthdayCardsPage = () => {
             <div className="col-span-9 lg:col-start-2 lg:col-span-7">
               <div className="grid grid-cols-7 sm:gap-x-15">
                 <div className="col-span-7">
-                  <Image fluid={images[1]} className="portfolioCard" />
+                  <Image image={images[1]} alt="" className="portfolioCard" />
                 </div>
                 <div className="col-span-7">
                   <div className="my-12 sm:my-32 xxl:my-0">
                     <Image
-                      fluid={images[2]}
+                      image={images[2]}
+                      alt=""
                       className="horizontalPortfolioCard ml-auto transform xxl:-translate-y-1/2"
                     />
                   </div>
                 </div>
                 <div className="col-span-7">
                   <div className="my-12 sm:my-32 xxl:my-32">
-                    <Image fluid={images[3]} className="portfolioCard" />
+                    <Image image={images[3]} alt="" className="portfolioCard" />
                   </div>
                 </div>
                 <div className="col-span-7 lg:col-span-6 xxl:-mt-56">
                   <div className="my-12 sm:my-32 xxl:my-0">
                     <Image
-                      fluid={images[4]}
+                      image={images[4]}
+                      alt=""
                       className="portfolioCard ml-auto xxl:-mt-64"
                     />
                   </div>
@@ -115,7 +118,8 @@ const BirthdayCardsPage = () => {
                 <div className="col-span-7">
                   <div className="my-12 sm:my-32 xxl:my-64">
                     <Image
-                      fluid={images[5]}
+                      image={images[5]}
+                      alt=""
                       className="portfolioCard mx-auto"
                     />
                   </div>
@@ -123,7 +127,8 @@ const BirthdayCardsPage = () => {
                 <div className="col-span-7">
                   <div className="my-12 sm:my-32 xxl:my-32">
                     <Image
-                      fluid={images[6]}
+                      image={images[6]}
+                      alt=""
                       className="horizontalPortfolioCard mx-auto transform rotate-3"
                     />
                   </div>
@@ -131,46 +136,58 @@ const BirthdayCardsPage = () => {
                 <div className="col-span-7">
                   <div className="my-12 sm:my-32">
                     <Image
-                      fluid={images[7]}
+                      image={images[7]}
+                      alt=""
                       className="horizontalPortfolioCard"
                     />
                   </div>
                 </div>
                 <div className="col-span-7 xxl:pt-32">
                   <div className="my-12 sm:my-32 xxl:my-32">
-                    <Image fluid={images[8]} className="portfolioCard" />
+                    <Image image={images[8]} alt="" className="portfolioCard" />
                   </div>
                 </div>
                 <div className="col-span-7 lg:col-span-6 xxl:-mt-56">
                   <div className="my-12 sm:my-32 xxl:my-0">
                     <Image
-                      fluid={images[9]}
+                      image={images[9]}
+                      alt=""
                       className="portfolioCard ml-auto xxl:-mt-64"
                     />
                   </div>
                 </div>
                 <div className="col-span-7 xxl:pt-32">
                   <div className="my-12 sm:my-32 xxl:my-32">
-                    <Image fluid={images[10]} className="portfolioCard" />
+                    <Image
+                      image={images[10]}
+                      alt=""
+                      className="portfolioCard"
+                    />
                   </div>
                 </div>
                 <div className="col-span-7 lg:col-span-6 xxl:-mt-56">
                   <div className="my-12 sm:my-32 xxl:my-0">
                     <Image
-                      fluid={images[11]}
+                      image={images[11]}
+                      alt=""
                       className="portfolioCard ml-auto xxl:-mt-64 transform rotate-5"
                     />
                   </div>
                 </div>
                 <div className="col-span-7 xxl:pt-32 xxl:mt-64">
                   <div className="my-12 sm:my-32 xxl:my-0">
-                    <Image fluid={images[13]} className="portfolioCard" />
+                    <Image
+                      image={images[13]}
+                      alt=""
+                      className="portfolioCard"
+                    />
                   </div>
                 </div>
                 <div className="col-span-7 lg:col-span-6 xxl:mt-0 xxl:-mb-64">
                   <div className="my-12 sm:my-16 xxl:my-0">
                     <Image
-                      fluid={images[14]}
+                      image={images[14]}
+                      alt=""
                       className="portfolioCard ml-auto transform xxl:-translate-y-full"
                     />
                   </div>

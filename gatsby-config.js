@@ -9,6 +9,7 @@ const plugins = [
       path: `${dir}/src/images`,
     },
   },
+  "gatsby-plugin-image",
   "gatsby-transformer-sharp",
   {
     resolve: "gatsby-plugin-sharp",
@@ -37,22 +38,23 @@ const plugins = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: "fonts",
-      path: `${dir}/src/fonts`
-    }
+      path: `${dir}/src/fonts`,
+    },
   },
   {
-    resolve: 'gatsby-plugin-matomo',
+    resolve: "gatsby-plugin-matomo",
     options: {
-      siteId: '1',
-      matomoUrl: 'https://analytics.scrlk.pl',
-      siteUrl: 'https://magdaklag.pl',
+      siteId: "1",
+      matomoUrl: "https://analytics.scrlk.pl",
+      siteUrl: "https://magdaklag.pl",
       requireConsent: false,
       disableCookies: true,
       dev: false,
     },
   },
-  "gatsby-plugin-preact",
-  "gatsby-plugin-brotli",
+  ...(process.env.NODE_ENV === "development"
+    ? [] // Fix hot reload
+    : ["gatsby-plugin-preact", "gatsby-plugin-brotli"]),
   "gatsby-plugin-postcss",
   "gatsby-plugin-typescript",
 ]
@@ -64,8 +66,8 @@ module.exports = {
     author: "Magda Klag",
     creator: "Tymek.Cz",
     publisher: "Scroll-Lock.pl",
-    siteUrl: 'https://magdaklag.pl',
-    repository: 'https://github.com/Tymek/klg',
+    siteUrl: "https://magdaklag.pl",
+    repository: "https://github.com/Tymek/klg",
   },
   plugins,
 }
