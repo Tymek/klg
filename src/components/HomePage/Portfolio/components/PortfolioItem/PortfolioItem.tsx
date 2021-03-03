@@ -1,4 +1,11 @@
-import React, { FC, ReactNode, useEffect, useRef, useState } from "react"
+import React, {
+  CSSProperties,
+  FC,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
 import { Link } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
@@ -13,6 +20,7 @@ export type PortfolioItemProps = {
   badge?: ReactNode
   className?: string
   isOpen?: boolean
+  style?: CSSProperties
   onVisibilityChange?: (isVisible: boolean) => void
 }
 
@@ -23,6 +31,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   description,
   badge,
   className,
+  style = {},
   isOpen: forceOpen,
   onVisibilityChange,
 }) => {
@@ -57,33 +66,35 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   }, [ref.current, onVisibilityChange])
 
   return (
-    <li ref={ref} className={className}>
-      <Link
-        to={link}
-        onMouseEnter={open}
-        onFocus={open}
-        onMouseLeave={close}
-        onBlur={close}
-        className="relative block sm:mr-32 md:mr-0 outline-none"
-      >
-        <div className="relative flex flex-col-reverse md:grid md:grid-cols-7 gap-x-15 gap-y-6 mx-auto">
-          <div className="flex flex-col justify-center md:col-span-4">
-            <div className="font-bold uppercase text-xl xl:text-xxl">
-              <SVGHoverText
-                id={`svg-${link.replace(/[^\w]/g, "-")}`}
-                isOpen={forceOpen || isOpen}
-              >
-                {title}
-              </SVGHoverText>
+    <li ref={ref} className={className} style={style}>
+      <div className="grid grid-cols-9 pb-16 lg:pb-0 lg:flex">
+        <Link
+          to={link}
+          onMouseEnter={open}
+          onFocus={open}
+          onMouseLeave={close}
+          onBlur={close}
+          className="relative block sm:mr-32 md:mr-0 outline-none col-start-2 col-span-8 lg:w-full"
+        >
+          <div className="relative flex flex-col-reverse md:grid md:grid-cols-7 gap-x-15 gap-y-6 mx-auto lg:flex">
+            <div className="flex flex-col justify-center md:col-span-4 lg:w-full">
+              <div className="font-bold uppercase text-lg xs:text-xl xl:text-2xl">
+                <SVGHoverText
+                  id={`svg-${link.replace(/[^\w]/g, "-")}`}
+                  isOpen={forceOpen || isOpen}
+                >
+                  {title}
+                </SVGHoverText>
+              </div>
+              {description}
             </div>
-            {description}
+            <div className="relative md:col-span-3 lg:w-full">
+              <Image fluid={image} />
+              {badge}
+            </div>
           </div>
-          <div className="relative md:col-span-3 lg:col-span-3">
-            <Image fluid={image} />
-            {badge}
-          </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </li>
   )
 }
