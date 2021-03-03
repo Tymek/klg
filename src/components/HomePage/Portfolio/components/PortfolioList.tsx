@@ -82,13 +82,17 @@ const PortfolioList: FC<PortfolioListProps> = ({ items }) => {
     <LayoutShift>
       <ul
         data-test="portfolio-list"
-        className="grid gap-y-15 md:gap-y-12 grid-cols-9 sm:gap-x-15"
+        className="lg:grid gap-y-24 gap-x-15 xxl:gap-y-32 grid-cols-9 lg:pb-24"
       >
-        {parsedItems.map(item => (
+        {parsedItems.map((item, index) => (
           <PortfolioItem
             key={item.link}
             isOpen={item.link === highlightedItem}
-            className="ml-12 xs:mx-0 col-span-9 md:col-start-2 md:col-span-7"
+            className={
+              (index % 2 ? "lg:col-start-2" : "lg:col-start-6") +
+              " lg:col-span-3"
+            }
+            style={{ gridRow: `${index + 1} / span 2` }}
             onVisibilityChange={
               isTouch
                 ? isVisible => updateVisibleItems(item.link, isVisible)

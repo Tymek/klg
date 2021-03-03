@@ -170,6 +170,7 @@ module.exports = {
       medium: '1.5rem', // 24px
       lg: '1.875rem', // 30px
       xl: '2.5rem', // 40px
+      '2xl': '3.125rem', // 50px // sorry future me. naming things is hard. I'm not in the mood for refactoring it
       xxl: '3.75rem', // 60px
       '3xl': '4.375rem', // 70px
       '4xl': '5rem', // 80px
