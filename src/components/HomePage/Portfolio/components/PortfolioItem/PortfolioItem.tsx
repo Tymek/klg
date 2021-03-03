@@ -10,6 +10,7 @@ import { Link } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import SVGHoverText from "../../../../SVGHoverText"
 import Image from "../../../../Image"
+import { useIsTouchDevice } from "../../../../../utilities/isTouchDevice"
 
 export type PortfolioItemProps = {
   image: FluidObject
@@ -19,9 +20,7 @@ export type PortfolioItemProps = {
   description?: ReactNode
   badge?: ReactNode
   className?: string
-  isOpen?: boolean
   style?: CSSProperties
-  onVisibilityChange?: (isVisible: boolean) => void
 }
 
 const PortfolioItem: FC<PortfolioItemProps> = ({
@@ -32,11 +31,11 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   badge,
   className,
   style = {},
-  isOpen: forceOpen,
-  onVisibilityChange,
 }) => {
+  const isTouch = useIsTouchDevice()
   const ref = useRef<HTMLLIElement>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isHighlighted, setIsHighlighted] = useState<boolean>(false)
   const open = () => {
     setIsOpen(true)
   }
@@ -45,11 +44,18 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   }
 
   useEffect(() => {
-    if (ref.current && onVisibilityChange) {
+    if (ref.current && isTouch) {
       const observer = new IntersectionObserver(
         (entities: IntersectionObserverEntry[]) => {
-          if (onVisibilityChange && entities?.length) {
-            onVisibilityChange(entities[0].intersectionRatio === 1 || false)
+          if (entities?.length) {
+            if (entities[0].boundingClientRect.top > 0) {
+              const isFullyVisible =
+                entities[0].intersectionRatio === 1 || false
+              setIsHighlighted(isFullyVisible)
+            } else {
+              // scrolled past -- is "above" viewpoint
+              setIsHighlighted(true)
+            }
           }
         },
         {
@@ -63,7 +69,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
         observer.disconnect()
       }
     }
-  }, [ref.current, onVisibilityChange])
+  }, [ref.current, isTouch])
 
   return (
     <li ref={ref} className={className} style={style}>
@@ -81,7 +87,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
               <div className="font-bold uppercase text-lg xs:text-xl xl:text-2xl">
                 <SVGHoverText
                   id={`svg-${link.replace(/[^\w]/g, "-")}`}
-                  isOpen={forceOpen || isOpen}
+                  isOpen={isHighlighted || isOpen}
                 >
                   {title}
                 </SVGHoverText>
