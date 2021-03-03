@@ -54,15 +54,7 @@ const PocztowkiPage = () => {
         ...ImageFragment
       }
       krk2: file(relativePath: { eq: "kartki/pocztowki/kartkal.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(
-            height: 1400
-            aspectRatio: 1.5 # 3:2
-            placeholder: TRACED_SVG
-            transformOptions: { rotate: 90 }
-            layout: FULL_WIDTH
-          )
-        }
+        ...ImageFragment
       }
       trn: file(relativePath: { eq: "kartki/pocztowki/kartka_Tarnów.jpg" }) {
         ...ImageFragment
