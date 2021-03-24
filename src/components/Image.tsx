@@ -10,7 +10,7 @@ type ImageProps = Omit<GatsbyImageProps, "image"> & {
 const Image: FC<ImageProps> = ({ ...props }) => {
   const image = getImage(props?.image)
   if (!image) return null
-  return <GatsbyImage {...props} image={image} />
+  return <GatsbyImage {...props} image={image} loading="eager" />
 }
 
 export default Image
