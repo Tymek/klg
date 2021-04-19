@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.28",
+  "version": "0.4.29",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -61,7 +61,7 @@
     "url": "https://github.com/Tymek/klg.git"
   },
   "devDependencies": {
-    "@testing-library/cypress": "7.0.5",
+    "@testing-library/cypress": "7.0.6",
     "@testing-library/react": "11.2.6",
     "@types/is-touch-device": "1.0.0",
     "autoprefixer": "10.2.5",
@@ -73,18 +73,18 @@
     "docz": "2.3.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
-    "postcss": "8.2.9",
+    "postcss": "8.2.10",
     "postcss-import": "14.0.1",
     "react-test-renderer": "17.0.2",
     "typescript": "4.2.4",
-    "webpack-bundle-analyzer": "4.4.0"
+    "webpack-bundle-analyzer": "4.4.1"
   },
   "optionalDependencies": {
     "@types/loadable__component": "5.13.3",
-    "@types/node": "14.14.37",
+    "@types/node": "14.14.41",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
-    "@types/react-helmet": "6.1.0",
+    "@types/react-helmet": "6.1.1",
     "@types/resize-observer-browser": "0.1.5"
   }
 }
