@@ -1,2 +1,1 @@
-// export { default } from './SimulationCanvas'
-export default () => null
+export { default } from './SimulationCanvas'
