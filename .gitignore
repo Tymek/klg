@@ -75,8 +75,5 @@ yarn-error.log
 .yarn-integrity
 yarn.lock
 
-# Docz
-.docz
-
 # Cypress
 /cypress/videos

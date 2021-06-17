@@ -78,7 +78,12 @@ const SVGHoverText: FC<SVGHoverTextProps> = ({
       }
 
       resize()
-      const resizeObserver = new ResizeObserver(resize)
+      const resizeObserver = new ResizeObserver(() => {
+        // @see https://stackoverflow.com/a/58701523/1729641
+        window.requestAnimationFrame(() => {
+          resize()
+        })
+      })
 
       refs.current.forEach(ref => {
         resizeObserver.observe(ref)

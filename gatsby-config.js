@@ -1,12 +1,10 @@
-const dir = `${__dirname}${process.env.DOCZ ? "/.." : ""}`
-
 const plugins = [
   "gatsby-plugin-react-helmet",
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "images",
-      path: `${dir}/src/images`,
+      path: `${__dirname}/src/images`,
     },
   },
   "gatsby-plugin-image",
@@ -31,14 +29,14 @@ const plugins = [
       background_color: "#ffffff",
       theme_color: "#ffffff",
       display: "minimal-ui",
-      icon: `${dir}/src/images/icon.png`,
+      icon: `${__dirname}/src/images/icon.png`,
     },
   },
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "fonts",
-      path: `${dir}/src/fonts`,
+      path: `${__dirname}/src/fonts`,
     },
   },
   {
