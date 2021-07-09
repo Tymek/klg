@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.52",
+  "version": "0.4.53",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -65,7 +65,7 @@
     "axe-core": "4.2.3",
     "babel-jest": "27.0.6",
     "babel-preset-gatsby": "1.8.0",
-    "cypress": "7.6.0",
+    "cypress": "7.7.0",
     "cypress-axe": "0.12.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.6",
@@ -76,11 +76,11 @@
     "webpack-bundle-analyzer": "4.4.2"
   },
   "optionalDependencies": {
-    "@types/loadable__component": "5.13.3",
+    "@types/loadable__component": "5.13.4",
     "@types/node": "15.12.2",
-    "@types/react": "17.0.13",
-    "@types/react-dom": "17.0.8",
-    "@types/react-helmet": "6.1.1",
-    "@types/resize-observer-browser": "0.1.5"
+    "@types/react": "17.0.14",
+    "@types/react-dom": "17.0.9",
+    "@types/react-helmet": "6.1.2",
+    "@types/resize-observer-browser": "0.1.6"
   }
 }
