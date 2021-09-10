@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.71",
+  "version": "0.4.72",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -38,11 +38,11 @@
     "is-touch-device": "1.0.1",
     "preact": "10.5.14",
     "preact-render-to-string": "5.1.19",
-    "prettier": "2.3.2",
+    "prettier": "2.4.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "tailwindcss": "2.2.9"
+    "tailwindcss": "2.2.15"
   },
   "keywords": [
     "designer",
@@ -72,13 +72,13 @@
     "postcss": "8.3.6",
     "postcss-import": "14.0.2",
     "react-test-renderer": "17.0.2",
-    "typescript": "4.4.2",
+    "typescript": "4.4.3",
     "webpack-bundle-analyzer": "4.4.2"
   },
   "optionalDependencies": {
     "@types/loadable__component": "5.13.4",
     "@types/node": "15.12.2",
-    "@types/react": "17.0.19",
+    "@types/react": "17.0.20",
     "@types/react-dom": "17.0.9",
     "@types/react-helmet": "6.1.2",
     "@types/resize-observer-browser": "0.1.6"
