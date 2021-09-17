@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.73",
+  "version": "0.4.74",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -38,7 +38,7 @@
     "is-touch-device": "1.0.1",
     "preact": "10.5.14",
     "preact-render-to-string": "5.1.19",
-    "prettier": "2.4.0",
+    "prettier": "2.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
@@ -59,13 +59,13 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "8.0.1",
-    "@testing-library/react": "12.0.0",
+    "@testing-library/react": "12.1.0",
     "@types/is-touch-device": "1.0.0",
     "autoprefixer": "10.3.4",
     "axe-core": "4.3.3",
     "babel-jest": "27.1.1",
     "babel-preset-gatsby": "1.13.0",
-    "cypress": "8.3.1",
+    "cypress": "8.4.1",
     "cypress-axe": "0.13.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.1.1",
@@ -78,7 +78,7 @@
   "optionalDependencies": {
     "@types/loadable__component": "5.13.4",
     "@types/node": "15.12.2",
-    "@types/react": "17.0.20",
+    "@types/react": "17.0.21",
     "@types/react-dom": "17.0.9",
     "@types/react-helmet": "6.1.2",
     "@types/resize-observer-browser": "0.1.6"
