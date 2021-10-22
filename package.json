@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.86",
+  "version": "0.4.87",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -24,7 +24,7 @@
     "cross-env": "7.0.3",
     "gatsby": "3.14.3",
     "gatsby-legacy-polyfills": "1.14.0",
-    "gatsby-plugin-brotli": "2.0.0",
+    "gatsby-plugin-brotli": "2.1.0",
     "gatsby-plugin-image": "1.14.1",
     "gatsby-plugin-manifest": "3.14.0",
     "gatsby-plugin-matomo": "0.10.0",
@@ -69,7 +69,7 @@
     "cypress-axe": "0.13.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.2.5",
-    "postcss": "8.3.9",
+    "postcss": "8.3.11",
     "postcss-import": "14.0.2",
     "react-test-renderer": "17.0.2",
     "typescript": "4.4.4",
@@ -78,8 +78,8 @@
   "optionalDependencies": {
     "@types/loadable__component": "5.13.4",
     "@types/node": "15.12.2",
-    "@types/react": "17.0.30",
-    "@types/react-dom": "17.0.9",
+    "@types/react": "17.0.31",
+    "@types/react-dom": "17.0.10",
     "@types/react-helmet": "6.1.4",
     "@types/resize-observer-browser": "0.1.6"
   }
