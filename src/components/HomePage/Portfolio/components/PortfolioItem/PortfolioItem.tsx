@@ -66,7 +66,6 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
 
   useEffect(() => {
     if (linkRef?.current) {
-      console.log(linkRef.current)
       const open = () => setIsOpen(true)
       const close = () => setIsOpen(false)
 
@@ -75,14 +74,12 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
       linkRef.current.addEventListener("mouseleave", close)
       linkRef.current.addEventListener("blur", close)
       return () => {
-        console.log("destroy")
         linkRef.current?.removeEventListener("mouseenter", open)
         linkRef.current?.removeEventListener("focus", open)
         linkRef.current?.removeEventListener("mouseleave", close)
         linkRef.current?.removeEventListener("blur", close)
       }
     }
-    console.log(linkRef.current)
   }, [linkRef.current])
 
   return (

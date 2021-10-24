@@ -57,6 +57,11 @@ const Portfolio: FC<PortfolioProps> = ({ tag }) => {
       zakladki: file(relativePath: { eq: "cover-portfolio/zakladka.jpg" }) {
         ...PortfolioImage
       }
+      klockiBraillea: file(
+        relativePath: { eq: "cover-portfolio/klocki-braillea.png" }
+      ) {
+        ...PortfolioImage
+      }
       toyContestBadge: file(
         relativePath: { eq: "zabawkaroku_logo_contrast.png" }
       ) {

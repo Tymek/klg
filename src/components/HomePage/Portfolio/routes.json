@@ -123,5 +123,18 @@
       "ilustracja",
       "kartki"
     ]
+  },
+  {
+    "link": "klocki-braillea",
+    "title": {
+      "0": "Klocki\ncyfry\nalfabet\nBraille'a",
+      "1080": "Klocki cyfry\nalfabet\nBraille'a",
+      "1600": "Klocki cyfry\nalfabet Braille'a"
+    },
+    "image": "klockiBraillea",
+    "tags": [
+      "zabawki",
+      "opakowania"
+    ]
   }
 ]
