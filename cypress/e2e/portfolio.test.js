@@ -74,4 +74,18 @@ describe("Portfolio", () => {
       `${Cypress.config().baseUrl}/?kategoria=ilustracja#portfolio`
     )
   })
+
+  it("allows to navigate to next item in a loop", () => {
+    cy.visit(`/portfolio/${portfolioSource[portfolioSource.length - 2].link}`)
+    cy.get('[data-test-id="nextPortfolioItem"]').click()
+    cy.url().should(
+      "eq",
+      `${Cypress.config().baseUrl}/portfolio/${portfolioSource[portfolioSource.length - 1].link}/`
+    )
+    cy.get('[data-test-id="nextPortfolioItem"]').click()
+    cy.url().should(
+      "eq",
+      `${Cypress.config().baseUrl}/portfolio/${portfolioSource[0].link}/`
+    )
+  })
 })

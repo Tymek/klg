@@ -3,7 +3,7 @@ import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import SVGHoverText from "./SVGHoverText"
 import Wrapper from "./Wrapper"
-import routes from "./HomePage/Portfolio/routes.json"
+import routes from "../portfolioRoutes.json"
 
 type FooterProps = {
   className?: string
@@ -30,6 +30,7 @@ const NextLink: FC<{ to: ComponentProps<typeof Link>["to"] }> = ({ to }) => {
         onMouseLeave={close}
         onBlur={close}
         className="relative block sm:mr-32 md:mr-0 outline-none"
+        data-test-id="nextPortfolioItem"
       >
         <SVGHoverText
           id={`svg-${to.replace(/[^\w]/g, "-")}`}
