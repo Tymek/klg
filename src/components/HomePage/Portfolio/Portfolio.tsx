@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useMemo } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Wrapper from "../../Wrapper"
 import Image from "../../Image"
-import routes from "./routes.json"
+import routes from "../../../portfolioRoutes.json"
 import Navigation from "./components/PortfolioNavigation"
 import PortfolioList, { PortfolioListProps } from "./components/PortfolioList"
 

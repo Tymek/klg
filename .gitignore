@@ -77,3 +77,4 @@ yarn.lock
 
 # Cypress
 /cypress/videos
+/cypress/screenshots
