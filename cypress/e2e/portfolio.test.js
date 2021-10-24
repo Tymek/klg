@@ -6,7 +6,7 @@ const portfolioToyItems = portfolioSource.filter(({ tags }) =>
   tags.includes("zabawki")
 ).length
 
-describe("Portfolio", () => {
+describe("Portfolio filters", () => {
   it("filters items", () => {
     cy.visit("/#portfolio")
     cy.get("[data-test=portfolio-list]")
@@ -74,14 +74,26 @@ describe("Portfolio", () => {
       `${Cypress.config().baseUrl}/?kategoria=ilustracja#portfolio`
     )
   })
+})
 
+describe("Portfolio navigation", () => {
   it("allows to navigate to next item in a loop", () => {
     cy.visit(`/portfolio/${portfolioSource[portfolioSource.length - 2].link}`)
+    cy.scrollTo("bottom")
+    cy.get('[data-test-id="nextPortfolioItem"]')
+      .should("be.visible")
+      .contains("Następny")
     cy.get('[data-test-id="nextPortfolioItem"]').click()
     cy.url().should(
       "eq",
-      `${Cypress.config().baseUrl}/portfolio/${portfolioSource[portfolioSource.length - 1].link}/`
+      `${Cypress.config().baseUrl}/portfolio/${
+        portfolioSource[portfolioSource.length - 1].link
+      }/`
     )
+    cy.scrollTo("bottom")
+    cy.get('[data-test-id="nextPortfolioItem"]')
+      .should("be.visible")
+      .contains("Następny")
     cy.get('[data-test-id="nextPortfolioItem"]').click()
     cy.url().should(
       "eq",
