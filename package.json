@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.89",
+  "version": "0.4.90",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -42,7 +42,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "tailwindcss": "2.2.17"
+    "tailwindcss": "2.2.19"
   },
   "keywords": [
     "designer",
@@ -61,11 +61,11 @@
     "@testing-library/cypress": "8.0.1",
     "@testing-library/react": "12.1.2",
     "@types/is-touch-device": "1.0.0",
-    "autoprefixer": "10.3.7",
-    "axe-core": "4.3.3",
+    "autoprefixer": "10.4.0",
+    "axe-core": "4.3.5",
     "babel-jest": "27.3.1",
     "babel-preset-gatsby": "2.0.0",
-    "cypress": "8.6.0",
+    "cypress": "8.7.0",
     "cypress-axe": "0.13.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.3.1",
@@ -78,8 +78,8 @@
   },
   "optionalDependencies": {
     "@types/loadable__component": "5.13.4",
-    "@types/node": "16.11.4",
-    "@types/react": "17.0.32",
+    "@types/node": "16.11.6",
+    "@types/react": "17.0.33",
     "@types/react-dom": "17.0.10",
     "@types/react-helmet": "6.1.4",
     "@types/resize-observer-browser": "0.1.6"
