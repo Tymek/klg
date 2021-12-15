@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.99",
+  "version": "0.4.100",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -42,7 +42,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "tailwindcss": "2.2.19"
+    "tailwindcss": "3.0.4"
   },
   "keywords": [
     "designer",
@@ -65,7 +65,7 @@
     "axe-core": "4.3.5",
     "babel-jest": "27.4.4",
     "babel-preset-gatsby": "2.3.0",
-    "cypress": "8.7.0",
+    "cypress": "9.1.1",
     "cypress-axe": "0.13.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.4.4",
