@@ -91,10 +91,7 @@
   },
   {
     "link": "zakladki",
-    "title": {
-      "0": "Zakładki\ndrewniane",
-      "1900": "Zakładki drewniane"
-    },
+    "title": "Zakładki\ndrewniane",
     "image": "zakladki",
     "tags": [
       "ilustracja"

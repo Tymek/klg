@@ -6,6 +6,7 @@ import "../../global/fonts.css"
 import Decoration from "./components/Decoration"
 
 export type LayoutProps = HeaderProps & {
+  children: ReactNode
   nonRelative?: boolean
   heroContent?: ReactNode
 }

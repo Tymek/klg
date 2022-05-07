@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Wrapper from "../../Wrapper"
@@ -10,7 +10,9 @@ import Decoration from "../../Layout/components/Decoration"
 import Grid, { Column } from "../../Grid"
 import Image from "../../Image"
 
-const AboutMe: FC = ({ children }) => {
+const AboutMe: FC<{
+  children: ReactNode
+}> = ({ children }) => {
   const data = useStaticQuery(graphql`
     {
       mainCoverPhoto: file(relativePath: { eq: "magda-klag.jpg" }) {

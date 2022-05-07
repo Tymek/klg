@@ -7,10 +7,11 @@ import { P } from "../../../components/Typo"
 import Wrapper from "../../../components/Wrapper"
 import Footer from "../../../components/Footer"
 import Image, { ImageType } from "../../../components/Image"
+import { ReactNode } from "react"
 
-const GenericWrapper: FC = ({ children }) => (
-  <div className="mt-32 sm:mt-48 xl:mt-64">{children}</div>
-)
+const GenericWrapper: FC<{
+  children: ReactNode
+}> = ({ children }) => <div className="mt-32 sm:mt-48 xl:mt-64">{children}</div>
 
 const Illustration: FC<{ image: ImageType; alt?: string }> = ({
   image,
@@ -27,7 +28,9 @@ const Illustration: FC<{ image: ImageType; alt?: string }> = ({
   </GenericWrapper>
 )
 
-const HorizontalPostcardWrapper: FC = ({ children }) => (
+const HorizontalPostcardWrapper: FC<{
+  children: ReactNode
+}> = ({ children }) => (
   <GenericWrapper>
     <div className="grid grid-cols-9">
       <div className="relative col-start-1 col-span-9 sm:col-start-2 sm:col-span-7 lg:col-start-4 lg:col-span-3">
@@ -37,7 +40,9 @@ const HorizontalPostcardWrapper: FC = ({ children }) => (
   </GenericWrapper>
 )
 
-const VerticalPostcardWrapper: FC = ({ children }) => (
+const VerticalPostcardWrapper: FC<{
+  children: ReactNode
+}> = ({ children }) => (
   <GenericWrapper>
     <div className="grid grid-cols-10">
       <div className="relative col-start-3 col-span-6 sm:col-start-4 sm:col-span-4 lg:col-start-5 lg:col-span-2">

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, ReactNode } from "react"
 import Wrapper from "../../Wrapper"
 import Footer from "../../Footer"
 import RevealDetails from "./components/RevealDetails"
@@ -7,7 +7,10 @@ import loadable from "@loadable/component"
 const BehanceIcon = loadable(() => import("./components/Behance"))
 const InstagramIcon = loadable(() => import("./components/Instagram"))
 
-const IconLink: React.FC<{ href: string }> = ({ href, children }) => (
+const IconLink: FC<{ href: string; children: ReactNode }> = ({
+  href,
+  children,
+}) => (
   <a
     href={href}
     target="_blank"
@@ -18,7 +21,7 @@ const IconLink: React.FC<{ href: string }> = ({ href, children }) => (
   </a>
 )
 
-const Contact: React.FC = () => (
+const Contact: FC = () => (
   <>
     <Wrapper className="pt-48">
       <section

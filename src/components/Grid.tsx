@@ -1,6 +1,7 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 
 type GridProps = {
+  children: ReactNode
   className?: string
   span?: number
 }

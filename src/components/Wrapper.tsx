@@ -1,6 +1,7 @@
-import React from "react"
+import React, { FC, ReactNode } from "react"
 
-const Wrapper: React.FC<{
+const Wrapper: FC<{
+  children: ReactNode
   className?: string
   fullWidth?: boolean
   notRelative?: true

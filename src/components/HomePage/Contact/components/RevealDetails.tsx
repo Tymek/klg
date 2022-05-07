@@ -1,6 +1,6 @@
 import React, {
   FC,
-  ReactText,
+  ReactNode,
   useEffect,
   useReducer,
   useRef,
@@ -10,7 +10,7 @@ import isTouchDevice from "is-touch-device"
 import "./RevealDetails.css"
 
 type RevealDetailsProps = {
-  children: ReactText
+  children: ReactNode
   file: string
   item: string
 }

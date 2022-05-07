@@ -85,16 +85,18 @@ const BookmarksPage = () => {
                         ilustracja
                       </p>
                       <P className="mb-12 text-sm xl:text-base leading-relaxed">
-                        Zwierzątka z kredą w zestawie to seria zabawek
-                        zrealizowanych dla marki Milin. Wykonana są ze sklejki
-                        pokrytej farbą tablicową. Zabawki zachęcać mają dzieci
-                        do swobodnego rysowania. Pobudzają kreatywność i
-                        wyobraźnie, rozwijają umiejętności motoryki małej.
+                        Seria drewnianych zakładek marki Fabrykat, zrealizowana
+                        dla sieci księgarni bookbook.
                       </P>
                       <P className="mb-12 text-sm xl:text-base leading-relaxed">
-                        Projekt obejmował wzory zabawek, wykrojniki opakowań
-                        indywidualnie dopasowanych do każdej zabawki, nadruki na
-                        opakowania, ekspozytory oraz materiały marketingowe.
+                        Wśród wzorów znalazły się zwierzęta, motywy roślinne,
+                        geometryczne kształty i wiele innych. Chciałam by każdy
+                        mógł znaleźć zakładkę, która najbardziej do niego
+                        pasuję. Zależało mi również na tym, by odejść do
+                        klasycznej prostokątnej formy zakładki. Książki bardzo
+                        często są prezentem dla bliskich. Drewniana zakładka
+                        może być miłym dodatkiem, dlatego nie mogło zabraknąć
+                        wzorów ze świątecznym motywem.
                       </P>
                     </div>
                   </div>
@@ -131,7 +133,7 @@ const BookmarksPage = () => {
                 style={{ background: "#31343e" }}
               >
                 {images.map(image => (
-                  <div>
+                  <div key={image}>
                     <Image image={image} alt="" />
                   </div>
                 ))}
