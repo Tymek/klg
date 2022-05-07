@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.109",
+  "version": "0.4.137",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -79,8 +79,8 @@
   "optionalDependencies": {
     "@types/loadable__component": "5.13.4",
     "@types/node": "16.11.33",
-    "@types/react": "18.0.9",
-    "@types/react-dom": "18.0.3",
+    "@types/react": "17.0.45",
+    "@types/react-dom": "17.0.16",
     "@types/react-helmet": "6.1.5",
     "@types/resize-observer-browser": "0.1.7"
   }
