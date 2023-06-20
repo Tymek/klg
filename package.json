@@ -2,7 +2,7 @@
   "name": "klg",
   "private": true,
   "description": "Magda Klag",
-  "version": "0.4.137",
+  "version": "0.4.138",
   "author": "Tymoteusz Czech <mail@tymek.cz>",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@loadable/component": "5.15.2",
     "cross-env": "7.0.3",
-    "gatsby": "4.13.1",
+    "gatsby": "4.25.7",
     "gatsby-legacy-polyfills": "2.13.0",
     "gatsby-plugin-brotli": "2.1.0",
     "gatsby-plugin-image": "2.13.0",
